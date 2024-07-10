@@ -5,44 +5,50 @@ body {
 }
 
 #main {
-    /* ig use media rules or do something better here */
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
+}
 
-    background-color: antiquewhite;
-    background-image: url(images/me2.jpeg);
-    background-size: cover;
-    background-position: 0 -95vh;
-    background-repeat: no-repeat;
+#main img {
+    object-fit: cover;
+    width: 40vw;
 }
 
 #container {
     display: flex;
-    width: 60vw;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 7vw 0 7vw;
+    height: 50vh;
 }
 
 #navbar {
     display: flex;
-    /*background-color: red;*/
+}
+
+#navbar ul {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline-block;
 }
 
 #content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    background-color: rgba(255, 255, 255, 0.4);
-    padding: 20px;
-    border-radius: 15px;
-
-    width: 30vw;
-    align-self: flex-end;
 }
 
 /* #content::before {
@@ -71,4 +77,9 @@ body {
     padding: 10px;
     border: none;
     border-radius: 5px;
+}
+
+#section2 {
+    width: 100vw;
+    height: 100vh;
 }
