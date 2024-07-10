@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: Roboto;
+    overflow-x: hidden;
+}
+
+#main {
+    /* ig use media rules or do something better here */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    background-color: antiquewhite;
+    background-image: url(images/me2.jpeg);
+    background-size: cover;
+    background-position: 0 -95vh;
+    background-repeat: no-repeat;
+}
+
+#container {
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+}
+
+#navbar {
+    display: flex;
+    /*background-color: red;*/
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+
+    width: 30vw;
+    align-self: flex-end;
+}
+
+/* #content::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    border-left: 50px solid transparent;
+    border-top: 50px solid green;
+    border-top-style: inset;
+} */
+
+#content #greet {
+    font-size: 12.7vh;
+    font-family: "Inter Tight";
+    line-height: 120%;
+}
+
+#content #greet_sub {
+    font-size: 4.2vh;
+    font-family: "Inter Tight";
+    line-height: 160%;
+}
+
+#content button {
+    height: 5vh;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
