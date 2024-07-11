@@ -20,21 +20,56 @@ body {
 
 #container {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#sub-sub-container {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
-    padding: 0 7vw 0 7vw;
-    height: 50vh;
+    justify-content: center;
+}
+
+#logo {
+    display: flex;
+    margin-left: 7vw;
+    margin-bottom: 7vh;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo div {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 100%;
+}
+
+#logo span {
+    margin-left: 2vh;
+    font-size: 4vh;
+    font-family: "Playfair Display";
+}
+
+#sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 7vw;
 }
 
 #navbar {
     display: flex;
+    margin-bottom: 7vh;
 }
 
 #navbar ul {
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     list-style-type: none;
     margin: 0;
@@ -43,6 +78,11 @@ body {
 
 #navbar ul li {
     display: inline-block;
+    margin-right: 50px;
+}
+
+#navbar a {
+    color: black;
 }
 
 #content {
@@ -50,15 +90,6 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-
-/* #content::before {
-    content: '';
-    position: absolute;
-    width: 0px;
-    border-left: 50px solid transparent;
-    border-top: 50px solid green;
-    border-top-style: inset;
-} */
 
 #content #greet {
     font-size: 12.7vh;
@@ -73,10 +104,87 @@ body {
 }
 
 #content button {
-    height: 5vh;
+    height: 7vh;
     padding: 10px;
     border: none;
     border-radius: 5px;
+}
+
+#content #follow {
+    display: none;
+    height: 30px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#follow span {
+    margin-right: 20px;
+}
+
+#follow img {
+    height: 20px;
+    width: auto;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+#dots {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1.5px solid black;
+    margin: 15px 0;
+}
+
+.dot.selected {
+    background-color: black;
+}
+
+.dot:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+}
+
+.arrow {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    width: 7px;
+    height: 7px;
+    background-color: white;
+}
+
+.arrow.up {
+    transform: rotateZ(45deg);
+    margin-bottom: 25px;
+}
+
+.arrow.down {
+    transform: rotateZ(-135deg);
+    margin-top: 25px;
+}
+
+.arrow.up:hover {
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    transform: translateY(-50%) rotateZ(45deg);
+}
+
+.arrow.down:hover {
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    transform: translateY(50%) rotateZ(-135deg);
 }
 
 #section2 {
