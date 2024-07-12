@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Roboto;
@@ -10,31 +14,34 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;
 }
 
 #main img {
+    display: flex;
     object-fit: cover;
     width: 40vw;
+    height: auto;
 }
 
 #container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    width: 60vw;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #sub-sub-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 7vw;
+    width: 45vw;
 }
 
 #logo {
     display: flex;
-    margin-left: 7vw;
     margin-bottom: 7vh;
     flex-direction: row;
     justify-content: flex-start;
@@ -58,7 +65,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 7vw;
 }
 
 #navbar {
@@ -130,8 +136,16 @@ body {
     margin-right: 30px;
 }
 
+#dots-container {
+    display: flex;
+    width: 15vw;
+}
+
 #dots {
-    width: 25vw;
+    position: fixed;
+    top: 50vh;
+    right: calc(7.5vw - 17px); /*scrollbar ... how does this apply everywhere else tho?? */
+    transform: translateY(-50%) translateX(50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -187,7 +201,90 @@ body {
     transform: translateY(50%) rotateZ(-135deg);
 }
 
-#section2 {
+#section2 { /*ig make these sections classes. and use <section> */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
+}
+
+#section2 img {
+    width: 20vw;
+    object-fit: contain;
+    object-position: center;
+}
+
+#section2 #sec2Cont { /*do give these better names. consider breaking up the css file into smaller ones?*/
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    padding-left: 5vw;
+}
+
+#sec2Cont span {
+    font-family: "Inter Tight";
+    font-size: 5vh;
+}
+
+#section3 {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#section3 #sect3Cont {
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sect3SubCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#sectTitle {
+    font-family: "Inter Tight";
+    font-size: 4vh;
+    padding-bottom: 5vh;
+}
+
+#projContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 60vw;
+}
+
+#projPic {
+    width: 30vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+#projDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 5vw;
+}
+
+#projTitle {
+    font-family: "Inter Tight";
+    font-size: 5vh;
+}
+
+#section3 #dotsArea {
+    width: 15vw;
 }
