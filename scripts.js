@@ -1,10 +1,15 @@
 function nextSection(e) {
-    if (e.deltaY > 3) {
-        console.log("scroled donw");
-    }
-    if (e.deltaY < -1) {
-        console.log("Scroled up");
+    var scrollTop = window.scrollY;
+    console.log(scrollTop);
+    if (scrollTop < 400) {
+        document.getElementById('main').style.animationName = "moveDown";
+
+    } else if ((scrollTop > 400) & (scrollTop < 800)) {
+        document.getElementById('main').style.animationName = "moveUp";
+        document.getElementById('section2').style.animationName = "moveDown";
+    } else if (scrollTop > 800) {
+        document.getElementById('section2').style.animationName = "moveUp";
     }
 };
 
-document.addEventListener("wheel", nextSection);
+document.addEventListener("scroll", nextSection);

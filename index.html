@@ -12,54 +12,53 @@
         <title>My Title</title>
     </head>
     <body>
+        <div id="dummy"></div>
+        <!-- move the dots thing outside of main. make the body contain the dots fixed
+         and another long vertical thing containing all the content. only that is scrollable -->
+         <div id="dots">
+            <div class="arrow up"></div>
+            <div class="dot selected"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="arrow down"></div>
+        </div>
         <div id="main">
             <img src="/images/me4.jpeg">
             <div id="container">
-                <div id="sub-sub-container">
-                    <div id="logo">
-                        <div></div>
-                        <span>Pulasthi Udugamasooriya</span>
-                    </div>
-                    <div id="sub-container">
-                        <div id="navbar">
-                            <ul>
-                                <a href="#"><li>Home</li></a>
-                                <a href="#"><li>About</li></a>
-                                <a href="#"><li>Projects</li></a>
-                                <a href="#"><li>Contact</li></a>
-                            </ul>
-                        </div>
-                        <div id="content">
-                            <span id="greet">
-                                Hello!
-                            </span>
-                            <span id="greet_sub">
-                                I'm Pulasthi. Nice to have you here. 😊
-                            </span>
-                            <p id="intro_para">
-                                22. Electronics and Telecommunication Engineering undergraduate at the
-                                University of Moratuwa, Sri Lanka.  Math enthusiast. Ex in veniam quis
-                                nostrud irure ullamco.
-                            </p>
-                            <button>Read More</button>
-                            <div id="follow">
-                                <span>Follow me:</span>
-                                <img src="images/linkedin.png">
-                                <img src="images/facebook.png">
-                                <img src="images/instagram.png">
-                                <img src="images/discord.png">
-                            </div>
-                        </div>
-                    </div>
+                <div id="logo">
+                    <div></div>
+                    <span>Pulasthi Udugamasooriya</span>
                 </div>
-                <div id="dots-container">
-                    <div id="dots">
-                        <div class="arrow up"></div>
-                        <div class="dot selected"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="arrow down"></div>
+                <div id="sub-container">
+                    <div id="navbar">
+                        <ul>
+                            <a href="#"><li>Home</li></a>
+                            <a href="#"><li>About</li></a>
+                            <a href="#"><li>Projects</li></a>
+                            <a href="#"><li>Contact</li></a>
+                        </ul>
+                    </div>
+                    <div id="content">
+                        <span id="greet">
+                            Hello!
+                        </span>
+                        <span id="greet_sub">
+                            I'm Pulasthi. Nice to have you here. 😊
+                        </span>
+                        <p id="intro_para">
+                            22. Electronics and Telecommunication Engineering undergraduate at the
+                            University of Moratuwa, Sri Lanka.  Math enthusiast. Ex in veniam quis
+                            nostrud irure ullamco.
+                        </p>
+                        <button>Read More</button>
+                        <div id="follow">
+                            <span>Follow me:</span>
+                            <img src="images/linkedin.png">
+                            <img src="images/facebook.png">
+                            <img src="images/instagram.png">
+                            <img src="images/discord.png">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,12 +93,19 @@
             <!-- so the structures are messy. find a good ish like structure and them use it consistently throughout the sections -->
             <div id="sect3Cont">
                 <div id="sect3SubCont">
-                    <span id="sectTitle">My Work</span>
+                    <div id="sectTitle">
+                        <span>My Work</span>
+                        <hr>
+                    </div>
                     <div id="projContent">
                         <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" id="projPic">
                         <div id="projDesc">
                             <span id="projTitle">Vector Field Particle Animator</span>
-                            <span id="projSubTitle">July, 2023</span><!-- put icons of the languages used?-->
+                            <div id="projSubTitle">
+                                July, 2023
+                                <img src="images/html.png">
+                                <img src="images/js.png">
+                            </div><!-- get consistent icons. -->
                             <p id="projPara">
                                 A way to visualize time-dependent vector fields, and an approximate
                                 trajectory of a particle moving in the field, using the HTML5 Canvas element.
@@ -121,7 +127,6 @@
                     </div>
                 </div>
             </div>
-            <div id="dotsArea"></div>
         </div>
     </body>
 </html>
@@ -131,4 +136,8 @@
 <a href="https://www.flaticon.com/free-icons/brands-and-logotypes" title="brands and logotypes icons">Brands and logotypes icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/discord" title="discord icons">Discord icons created by Freepik - Flaticon</a>
 linkedin icon one find.
+
+<a href="https://www.flaticon.com/free-icons/html" title="html icons">Html icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/javascript" title="javascript icons">Javascript icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/css" title="css icons">Css icons created by Pixel perfect - Flaticon</a>
 -->
