@@ -16,18 +16,44 @@ body {
     z-index: -1;
 }
 
-#main {
+.section {
     width: 85vw;
     height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     position: fixed;
     background-color: white;
-    z-index: 10;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     animation-duration: 0.5s;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row.vcenter {
+    align-items: center;
+}
+
+.flex-row.hcenter {
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-col.vcenter {
+    justify-content: center;
+}
+
+.flex-col.hcenter {
+    align-items: center;
+}
+
+#home {
+    z-index: 10;
 }
 
 @keyframes moveUp {
@@ -40,7 +66,7 @@ body {
     to {transform: translateY(0);}
 }
 
-#main img {
+#home img {
     display: flex;
     object-fit: cover;
     width: 40vw;
@@ -48,21 +74,13 @@ body {
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
     width: 45vw;
-    justify-content: center;
     padding-left: 7vw;
-    align-items: flex-start;
 }
 
 #logo {
-    display: flex;
     margin-bottom: 7vh;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
 }
 
 #logo div {
@@ -76,12 +94,6 @@ body {
     margin-left: 2vh;
     font-size: 4vh;
     font-family: "Playfair Display";
-}
-
-#sub-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 #navbar {
@@ -108,32 +120,26 @@ body {
     color: black;
 }
 
-#content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#content #greet {
+#greet {
     font-size: 12.7vh;
     font-family: "Inter Tight";
     line-height: 120%;
 }
 
-#content #greet_sub {
+#greet_sub {
     font-size: 4.2vh;
     font-family: "Inter Tight";
     line-height: 160%;
 }
 
-#content button {
+#mainBtn { /*use consistent naming. underscores or dashes or camelcase. not all of it*/
     height: 7vh;
     padding: 10px;
     border: none;
     border-radius: 5px;
 }
 
-#content #follow {
+#follow {
     display: none;
     height: 30px;
     flex-direction: row;
@@ -153,18 +159,15 @@ body {
     margin-right: 30px;
 }
 
-#dots {
+#scrollbar {
     position: fixed;
     top: 50vh;
     right: calc(7.5vw - 17px); /*scrollbar ... how does this apply everywhere else tho?? */
     transform: translateY(-50%) translateX(50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    z-index: 11;
 }
 
-.dot {
+#scrollbar .scrollitem {
     width: 7px;
     height: 7px;
     border-radius: 100%;
@@ -173,11 +176,11 @@ body {
     margin: 15px 0;
 }
 
-.dot.selected {
+#scrollbar .scrollitem.selected {
     background-color: black;
 }
 
-.dot:hover {
+#scrollbar .scrollitem:hover {
     cursor: pointer;
     transition: all 0.2s ease-out;
     transform: scale(1.1);
@@ -213,28 +216,18 @@ body {
     transform: translateY(50%) rotateZ(-135deg);
 }
 
-#section2 { /*ig make these sections classes. and use <section> */
-    position: fixed;
-    display: flex;
-    flex-direction: row;
+#about { /* shold i use <section>? */
     justify-content: center;
-    align-items: center;
-    width: 85vw;
     z-index: 9;
-    height: 100vh;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-duration: 0.5s;
-    background-color: white;
 }
 
-#section2 img {
+#about img {
     width: 20vw;
     object-fit: contain;
     object-position: center;
 }
 
-#section2 #sec2Cont { /*do give these better names. consider breaking up the css file into smaller ones?*/
+#about #sec2Cont { /*do give these better names. consider breaking up the css file into smaller ones?*/
     display: flex;
     flex-direction: column;
     width: 50vw;
@@ -246,45 +239,24 @@ body {
     font-size: 5vh;
 }
 
-#section3 {
-    position: fixed;
-    display: flex;
-    width: 85vw;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    animation-duration: 0.5s;
-    background-color: white;
+#work {
     z-index: 8;
 }
 
-#sect3SubCont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#sectTitle {
-    display: flex;
+#work_title {
     width: 100%;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
     padding-bottom: 5vh;
 }
 
-#sectTitle span {
+#work_title h1 {
     font-family: "Inter Tight";
-    font-size: 4vh;
+    font-size: 4.1vh;
     line-height: 100%;
-    width: 15%;
+    margin: 0;
+    font-weight: normal;
 }
 
-#sectTitle hr {
+#work_title hr {
     display: none;
     height: 1px;
     background-color: black;
@@ -295,59 +267,45 @@ body {
     margin-bottom: 0;
 }
 
-#projContent {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: flex-start;
+#work_content {
     width: 60vw;
 }
 
-#projPic {
+#work_content_pic {
     width: 30vw;
     height: 50vh;
     object-fit: cover;
 }
 
-#projDesc {
-    display: flex;
-    flex-direction: column;
+#work_content_container {
     align-items: stretch;
-    justify-content: center;
     padding-left: 5vw;
 }
 
-#projTitle {
+#work_content_container_title {
     font-family: "Inter Tight";
     font-size: 5vh;
 }
 
-#projSubTitle {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#work_content_container_subtitle {
     justify-content: flex-start;
     color: gray;
     font-size: 2vh;
     padding-top: 5px;
 }
 
-#projSubTitle img {
+#work_content_container_subtitle img {
     height: 2.6vh;
     width: 2.6vh;
     object-fit: contain;
     margin-left: 10px;
 }
 
-#projPara {
+#work_content_container_paragraph {
     padding-bottom: 10px;
 }
 
-#projDesc button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#work_content_container button {
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -355,7 +313,7 @@ body {
     width: 30%;
 }
 
-#projDesc button div {
+#work_content_container button div {
     width: 7px;
     height: 7px;
     transform: rotateZ(45deg);
@@ -364,25 +322,20 @@ body {
     border-right: 2px solid black;
 }
 
-#projDesc button:hover div {
+#work_content_container button:hover div {
     transition: all 0.2s ease-out;
     transform: translateX(100%) rotateZ(45deg);
 }
 
-#projScroll {
+#work_scroll {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: flex-end;
     padding-top: 20px;
 }
 
-#projScroll .scrollItem {
-    display: flex;
+#work_scroll .scrollitem {
     width: 25px;
     height: 25px;
-    align-items: center;
     justify-content: center;
     border: 1px solid;
     border-radius: 100%;
@@ -390,19 +343,20 @@ body {
     margin-left: 20px;
 }
 
-#projScroll .scrollItem.selected {
+#work_scroll .scrollitem.selected {
     background-color: black;
     border: 1px solid black;
     color: white;
 }
 
-.scrollItem:hover {
+#work_scroll .scrollitem:hover {
     cursor: pointer;
     transition: all 0.1s ease-out;
     transform: scale(1.1);
 }
 
-#projScroll #more {
+#work_scroll_more {
     border: none;
     width: auto;
 }
+

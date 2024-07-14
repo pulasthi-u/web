@@ -8,29 +8,32 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        
         <script src="scripts.js"></script>
+        
         <title>My Title</title>
     </head>
     <body>
-        <div id="dummy"></div>
-        <!-- move the dots thing outside of main. make the body contain the dots fixed
-         and another long vertical thing containing all the content. only that is scrollable -->
-         <div id="dots">
+        <div id="dummy"></div> <!-- is there a nicer way tho, rather than a long dummy? -->
+        
+        <div class="flex-col vcenter hcenter" id="scrollbar">
             <div class="arrow up"></div>
-            <div class="dot selected"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+            <div class="scrollitem selected"></div>
+            <div class="scrollitem"></div>
+            <div class="scrollitem"></div>
+            <div class="scrollitem"></div>
             <div class="arrow down"></div>
         </div>
-        <div id="main">
+
+        <div class="section flex-row vcenter" id="home">
             <img src="/images/me4.jpeg">
-            <div id="container">
-                <div id="logo">
+            <div class="flex-col vcenter" id="container">
+                <div class="flex-row vcenter" id="logo">
                     <div></div>
                     <span>Pulasthi Udugamasooriya</span>
                 </div>
-                <div id="sub-container">
+
+                <div class="flex-col vcenter">
                     <div id="navbar">
                         <ul>
                             <a href="#"><li>Home</li></a>
@@ -39,7 +42,8 @@
                             <a href="#"><li>Contact</li></a>
                         </ul>
                     </div>
-                    <div id="content">
+
+                    <div class="flex-col vcenter">
                         <span id="greet">
                             Hello!
                         </span>
@@ -51,7 +55,7 @@
                             University of Moratuwa, Sri Lanka.  Math enthusiast. Ex in veniam quis
                             nostrud irure ullamco.
                         </p>
-                        <button>Read More</button>
+                        <button id="mainBtn">Read More</button>
                         <div id="follow">
                             <span>Follow me:</span>
                             <img src="images/linkedin.png">
@@ -63,7 +67,8 @@
                 </div>
             </div>
         </div>
-        <div id="section2">
+
+        <div class="section flex-row vcenter" id="about">
             <img src="images/me3.jpeg">
             <div id="sec2Cont">
                 <span>About Me</span>
@@ -89,42 +94,40 @@
                 <button>Click me</button>
             </div>
         </div>
-        <div id="section3">
+
+        <div class="section flex-col vcenter hcenter" id="work">
             <!-- so the structures are messy. find a good ish like structure and them use it consistently throughout the sections -->
-            <div id="sect3Cont">
-                <div id="sect3SubCont">
-                    <div id="sectTitle">
-                        <span>My Work</span>
-                        <hr>
+            <div class="flex-col vcenter">
+                <div class="flex-row vcenter" id="work_title">
+                    <h1>My Work</h1>
+                </div>
+                <div class="flex-row vcenter" id="work_content">
+                    <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" id="work_content_pic">
+                    <div class="flex-col vcenter" id="work_content_container">
+                        <span id="work_content_container_title">Vector Field Particle Animator</span>
+                        <div class="flex-row vcenter" id="work_content_container_subtitle">
+                            July, 2023
+                            <img src="images/html.png">
+                            <img src="images/js.png">
+                        </div><!-- get consistent icons. -->
+                        <p id="work_content_container_paragraph">
+                            A way to visualize time-dependent vector fields, and an approximate
+                            trajectory of a particle moving in the field, using the HTML5 Canvas element.
+                            The user can enter any function describing a 2D time-dependent vector field and a visualization
+                            is generated.
+                        </p>
+                        <button class="flex-row vcenter hcenter">
+                            More
+                            <div></div>
+                        </button>
                     </div>
-                    <div id="projContent">
-                        <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" id="projPic">
-                        <div id="projDesc">
-                            <span id="projTitle">Vector Field Particle Animator</span>
-                            <div id="projSubTitle">
-                                July, 2023
-                                <img src="images/html.png">
-                                <img src="images/js.png">
-                            </div><!-- get consistent icons. -->
-                            <p id="projPara">
-                                A way to visualize time-dependent vector fields, and an approximate
-                                trajectory of a particle moving in the field, using the HTML5 Canvas element.
-                                The user can enter any function describing a 2D time-dependent vector field and a visualization
-                                is generated.
-                            </p>
-                            <button>
-                                More
-                                <div></div>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="projScroll">
-                        <span class="scrollItem selected">1</span>
-                        <span class="scrollItem">2</span>
-                        <span class="scrollItem">3</span>
-                        <span class="scrollItem">4</span>
-                        <span class="scrollItem" id="more">see more</span>
-                    </div>
+                </div>
+                <div class="flex-row vcenter" id="work_scroll">
+                    <span class="flex-row vcenter scrollitem selected">1</span>
+                    <span class="flex-row vcenter scrollitem">2</span>
+                    <span class="flex-row vcenter scrollitem">3</span>
+                    <span class="flex-row vcenter scrollitem">4</span>
+                    <span class="flex-row vcenter scrollitem" id="work_scroll_more">see more</span>
                 </div>
             </div>
         </div>
