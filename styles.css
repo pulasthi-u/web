@@ -8,18 +8,16 @@ body {
     overflow-x: hidden;
 }
 
-#dummy {
-    position: absolute;
-    background-color: aliceblue;
+#pages {
+    left: 0;
+    width: 85vw;
     height: 300vh;
-    width: 10vw;
-    z-index: -1;
 }
 
 .section {
+    position: fixed;
     width: 85vw;
     height: 100vh;
-    position: fixed;
     background-color: white;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
@@ -355,7 +353,7 @@ body {
     transform: scale(1.1);
 }
 
-#work_scroll_more {
+#work_scroll #work_scroll_more {
     border: none;
     width: auto;
 }
