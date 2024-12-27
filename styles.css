@@ -137,6 +137,11 @@ body {
     border-radius: 5px;
 }
 
+#mainBtn:hover {
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
 #follow {
     display: none;
     height: 30px;
@@ -267,43 +272,51 @@ body {
 
 #work_content {
     width: 60vw;
+    height: 50vh;
+    overflow-x: hidden;
 }
 
-#work_content_pic {
+.work_content_item {
+    position: absolute;
+    width: 60vw;
+    background-color: white;
+}
+
+.work_content_item_pic {
     width: 30vw;
     height: 50vh;
     object-fit: cover;
 }
 
-#work_content_container {
+.work_content_item_container {
     align-items: stretch;
     padding-left: 5vw;
 }
 
-#work_content_container_title {
+.work_content_item_container_title {
     font-family: "Inter Tight";
     font-size: 5vh;
 }
 
-#work_content_container_subtitle {
+.work_content_item_container_subtitle {
     justify-content: flex-start;
     color: gray;
     font-size: 2vh;
     padding-top: 5px;
 }
 
-#work_content_container_subtitle img {
+.work_content_item_container_subtitle img {
     height: 2.6vh;
     width: 2.6vh;
     object-fit: contain;
     margin-left: 10px;
 }
 
-#work_content_container_paragraph {
+.work_content_item_container_paragraph {
     padding-bottom: 10px;
 }
 
-#work_content_container button {
+.work_content_item_container button {
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -311,7 +324,7 @@ body {
     width: 30%;
 }
 
-#work_content_container button div {
+.work_content_item_container button div {
     width: 7px;
     height: 7px;
     transform: rotateZ(45deg);
@@ -320,14 +333,17 @@ body {
     border-right: 2px solid black;
 }
 
-#work_content_container button:hover div {
-    transition: all 0.2s ease-out;
-    transform: translateX(100%) rotateZ(45deg);
+.work_content_item_container button:hover {
     cursor: pointer;
 }
 
+.work_content_item_container button:hover div {
+    transition: all 0.2s ease-out;
+    transform: translateX(100%) rotateZ(45deg);
+}
+
 #work_scroll {
-    width: 100%;
+    width: 60vw;
     justify-content: flex-end;
     padding-top: 20px;
 }

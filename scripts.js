@@ -30,4 +30,18 @@ function nextSection(e) {
     }
 };
 
+function showWorkItem(i) {
+    var workContent = document.getElementById('work_content');
+    var items = workContent.getElementsByClassName('work_content_item');
+    // items has the elements ordered in the same order that they appear in the HTML. However, the elements are
+    // rendered on top of each other, and the first one to appear in the HTML is actually at the very bottom.
+    for (var j = 0; j < i + 1; j++) {
+        items[j].style.display = "flex";
+    }
+    for (var j = i + 1; j < items.length; j++) {
+        items[j].style.display = "none";
+    }
+}
+
+showWorkItem(0);
 document.addEventListener("scroll", nextSection);
