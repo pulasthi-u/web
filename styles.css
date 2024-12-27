@@ -323,6 +323,7 @@ body {
 #work_content_container button:hover div {
     transition: all 0.2s ease-out;
     transform: translateX(100%) rotateZ(45deg);
+    cursor: pointer;
 }
 
 #work_scroll {
