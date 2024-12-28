@@ -1,6 +1,12 @@
 var prevScroll = 0;
 var scrollBreakpoint = window.innerHeight / 2;
 
+var workContent = document.getElementById('work_content');
+var items = workContent.getElementsByClassName('work_content_item');
+
+var workscrollbar = document.getElementById('work_scroll');
+var workscrollitems = workscrollbar.getElementsByClassName('scrollitem');
+
 function nextSection(e) {
     var scrollbar = document.getElementById('scrollbar');
     var scrollitems = scrollbar.getElementsByClassName('scrollitem');
@@ -31,8 +37,6 @@ function nextSection(e) {
 };
 
 function showWorkItem(i) {
-    var workContent = document.getElementById('work_content');
-    var items = workContent.getElementsByClassName('work_content_item');
     // items has the elements ordered in the same order that they appear in the HTML. However, the elements are
     // rendered on top of each other, and the first one to appear in the HTML is actually at the very bottom.
     for (var j = 0; j < i + 1; j++) {
@@ -40,6 +44,13 @@ function showWorkItem(i) {
     }
     for (var j = i + 1; j < items.length; j++) {
         items[j].style.display = "none";
+    }
+    for (var j = 0; j < workscrollitems.length; j++) {
+        if (j == i) {
+            workscrollitems[j].className = "flex-row vcenter scrollitem selected";
+        } else {
+            workscrollitems[j].className = "flex-row vcenter scrollitem";
+        }
     }
 }
 
