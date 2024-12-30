@@ -1,0 +1,132 @@
+#work {
+    z-index: 8;
+}
+
+#work_title {
+    width: 100%;
+    padding-bottom: 5vh;
+}
+
+#work_title h1 {
+    font-family: "Inter Tight";
+    font-size: 4.1vh;
+    line-height: 100%;
+    margin: 0;
+    font-weight: normal;
+}
+
+#work_title hr {
+    display: none;
+    height: 1px;
+    background-color: black;
+    border: 0.5px solid;
+    width: 85%;
+    align-self: flex-end;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+#work_content {
+    width: 60vw;
+    height: 50vh;
+    overflow-x: hidden;
+}
+
+.work_content_item {
+    position: absolute;
+    width: 60vw;
+    background-color: white;
+}
+
+.work_content_item_pic {
+    width: 30vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.work_content_item_container {
+    align-items: stretch;
+    padding-left: 5vw;
+}
+
+.work_content_item_container_title {
+    font-family: "Inter Tight";
+    font-size: 5vh;
+}
+
+.work_content_item_container_subtitle {
+    justify-content: flex-start;
+    color: gray;
+    font-size: 2vh;
+    padding-top: 5px;
+}
+
+.work_content_item_container_subtitle img {
+    height: 2.6vh;
+    width: 2.6vh;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
+.work_content_item_container_paragraph {
+    padding-bottom: 10px;
+}
+
+.work_content_item_container button {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    height: 6vh;
+    width: 30%;
+}
+
+.work_content_item_container button div {
+    width: 7px;
+    height: 7px;
+    transform: rotateZ(45deg);
+    margin-left: 15px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.work_content_item_container button:hover {
+    cursor: pointer;
+}
+
+.work_content_item_container button:hover div {
+    transition: all 0.2s ease-out;
+    transform: translateX(100%) rotateZ(45deg);
+}
+
+#work_scroll {
+    width: 60vw;
+    justify-content: flex-end;
+    padding-top: 20px;
+}
+
+#work_scroll .scrollitem {
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 100%;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+#work_scroll .scrollitem.selected {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+
+#work_scroll .scrollitem:hover {
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    transform: scale(1.1);
+}
+
+#work_scroll #work_scroll_more {
+    border: none;
+    width: auto;
+}
