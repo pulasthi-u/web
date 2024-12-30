@@ -1,0 +1,68 @@
+#header {
+	margin-top: 8vh;
+	width: 60vw;
+}
+
+#header h1 {
+	font-size: 8vh;
+    font-family: "Inter Tight";
+    line-height: 100%;
+    margin: 0 0 4vh 0;
+    font-weight: normal;
+}
+
+#data {
+	align-self: flex-start;
+}
+
+#data img {
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	object-fit: cover;
+	margin-right: 2vh;
+}
+
+#authorname {
+	font-size: 120%;
+}
+
+#date {
+	font-size: 80%;
+}
+
+#articletext {
+	margin-top: 3.5vh;
+	width: 60vw;
+	font-family: "Georgia";
+}
+
+#articletext h2 {
+	font-size: 4.3vh;
+    font-family: "Inter Tight";
+    line-height: 100%;
+    margin: 4vh 0 3vh 0;
+    font-weight: 500;
+}
+
+.para {
+	text-align: justify;
+	margin: 2vh 0;
+	line-height: 180%;
+}
+
+.para ul {
+	margin: 0 0 1vh 0;
+}
+
+.quote {
+	background-color: rgba(10, 10, 10, 0.1);
+	padding: 0 2vh 0 20px; /*i dont like how i put 2vh here. its the margin from.para*/
+	border-left: 5px solid rgba(10, 10, 10, 0.3);
+	font-style: italic;
+	color: rgb(25, 25, 25);
+	font-size: 90%;
+
+	/*border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;*/
+}
