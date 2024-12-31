@@ -46,13 +46,15 @@
 }
 
 .para {
+	width: 100%;
 	text-align: justify;
 	margin: 2vh 0;
 	line-height: 180%;
 }
 
-.para ul {
+ul, ol {
 	margin: 0 0 1vh 0;
+	line-height: 180%;
 }
 
 .quote {
@@ -62,7 +64,66 @@
 	font-style: italic;
 	color: rgb(25, 25, 25);
 	font-size: 90%;
+	align-self: center;
 
 	/*border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;*/
+}
+
+.table {
+	border-spacing: 0;
+	align-self: center;
+	border-collapse: collapse;
+}
+
+.table td {
+	padding: 5px;
+	text-align: center;
+	border: 1px solid;
+}
+
+.table td:nth-child(1) {
+	padding: 5px;
+	text-align: right;
+}
+
+.table td.emptycell {
+	border: 0;
+}
+
+.table caption {
+	caption-side: bottom;
+	margin-top: 2vh;
+	font-size: 90%;
+}
+
+.table caption .tablenumber {
+	counter-reset: table-count;
+	font-weight: bold;
+}
+
+.table caption .tablenumber::after {
+	content: ' ' counter(table-count) ': ';
+	counter-increment: table-count;
+}
+
+ol.references {
+	counter-reset: ref-list;
+	list-style-position: outside;
+	list-style-type: '';
+}
+
+ol.references li::before {
+	position: absolute;
+	display: inline-block;
+	text-align: right;
+	width: 30px;
+	padding-right: 7px;
+	transform: translateX(-100%);
+	content: '[' counter(ref-list) ']';
+	counter-increment: ref-list;
+}
+
+ol.references li {
+	margin: 1.5vh 0;
 }

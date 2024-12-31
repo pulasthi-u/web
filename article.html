@@ -14,20 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-     <script type="text/x-mathjax-config">
-     	MathJax.Hub.Config({
-     		"HTML-CSS": {
-     			fonts: ["Gyre-Pagella"],
-     			imageFont: null,
-     			undefinedFamily: "'Arial Unicode MS', cmbright"
-     		},
-     		tex: {
-     			inlineMath: [['$', '$'], ['\\(', '\\)']]
-     		}
-     	});
-     </script>
-
-	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	<script>window.MathJax = { tex: { tags: 'all' } }; </script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 
 	<title>My Article</title>
@@ -44,7 +32,7 @@
 		</div>
 	</div>
 
-	<div id="articletext">
+	<div id="articletext" class="flex-col">
 		<div class="para">
 			This article is a slightly revised version of my submission for an assignment from a Signals and Systems module at university. Here is an excerpt taken from the assignment (slightly shortened):
 		</div>
@@ -94,8 +82,10 @@
 		<div class="para">
 			Given a periodic, continuous-time signal \(x(t)\) with fundamental period \(T\) and angular frequency \(\omega_0=\dfrac{2\pi}{T}\), its Fourier Series is the infinite sum \[
 				\sum_{k=-\infty}^\infty a_k\cdot e^{jk\omega_0t},
+				\label{fs_synthesis}
 			\] where for each \(k\), \[
 				a_k = \dfrac{1}{T}\int_T x(t)\cdot e^{-jk\omega_0t}\,dt.
+				\label{fs_analysis}
 			\]
 		</div>
 		<div class="para">
@@ -105,7 +95,7 @@
 			Fourier was attempting to solve the problem of how the temperature distribution of a heated metal ring with a given initial distribution evolves with time. The solutions to this problem are governed by the Heat Equation, a second-order linear partial differential equation, the solutions to which, in Fourier’s case, had to be periodic, and had to have harmonically related frequencies due to the circular nature of the ring.
 		</div>
 		<div class="para">
-			Fourier observed that sinusoidal functions with harmonically related frequencies <i>were</i> solutions to the problem. Further, because the equation was a <i>linear</i> differential equation, any linear combination of such sinusoids are also solutions. He therefore assumed a solution of a form similar to the first equation above (that consisted of sinusoids rather than complex exponentials), but was then faced with the problem of expressing the initial temperature distribution of the ring in the same form. It was at this point that he simply <i>assumed</i> that any arbitrary temperature distribution may be expressed as a sum of infinitely many harmonically related sinusoids. This is the concept that developed into what we now know as a Fourier Series.
+			Fourier observed that sinusoidal functions with harmonically related frequencies <i>were</i> solutions to the problem. Further, because the equation was a <i>linear</i> differential equation, any linear combination of such sinusoids are also solutions. He therefore assumed a solution of a form similar to \(\eqref{fs_synthesis}\) above (that consisted of sinusoids rather than complex exponentials), but was then faced with the problem of expressing the initial temperature distribution of the ring in the same form. It was at this point that he simply <i>assumed</i> that any arbitrary temperature distribution may be expressed as a sum of infinitely many harmonically related sinusoids. This is the concept that developed into what we now know as a Fourier Series.
 		</div>
 		<div class="para">
 			Many signals we see in nature are periodic. The simplest periodic waves that we see in nature are sinusoidal. Sinusoids are "nice", in that they are "smooth", continuous, and easy to integrate and differentiate, with their integrals and derivatives also being other sinusoids.
@@ -125,8 +115,9 @@
 			Now that we have a feel for why we may be interested in finding a Fourier Series, we turn to the problem of how.
 		</div>
 		<div class="para">
-			We rest everything that follows on our educated assumption that a given continuous-time signal \(x(t)\) actually has a representation of the form (1). The problem then boils down to finding the coefficients \(a_k\) such that we have the equality \[
+			We rest everything that follows on our educated assumption that a given continuous-time signal \(x(t)\) actually has a representation of the form \(\eqref{fs_synthesis}\). The problem then boils down to finding the coefficients \(a_k\) such that we have the equality \[
 				x(t) = \sum_{k=-\infty}^\infty a_k e^{jk\omega_0t}.
+				\notag
 			\]
 		</div>
 		<div class="para">
@@ -149,7 +140,7 @@
 			\]
 		</div>
 		<div class="para">
-			Note that we have freely performed operations such as moving integrals inside and outside summations, assumed that the integrals involved actually exist (or more technically, that they converge), etc., without giving much thought to it. Once again we emphasize that such operations are only justified when the functions involved satisfy certain conditions, and we assume that the functions we work with do indeed satisfy them. This is a rather reasonable assumption actually, because the typical signals we encounter in real-life scenarios do satisfy them.
+			Note that we have freely performed operations such as moving integrals inside and outside summations, assumed that the integrals involved actually exist (or more technically, that they converge), etc., without giving much thought to it. This is something we will continue to do throughout the article without much comment. We emphasize that such operations are only justified when the functions involved satisfy certain conditions, and simply assume that the functions we work with do indeed satisfy them. It turns out that this is a rather reasonable assumption, because the signals we encounter in most real-life scenarios do satisfy them.
 		</div>
 		<div class="para">
 			Returning to the problem, observe that when \(k\ne K\), we have \(\displaystyle\int_T e^{j(k-K)\omega_0t}\, dt=0\), because \(T\) is a period of the complex exponential with angular frequency \((k-K)\omega_0\), and the integral of a complex exponential over a period is \(0\). Only when \(k=K\) is this integral non-zero, in which case \(\displaystyle\int_T e^{j(K-K)\omega_0t}\, dt=\int_T1\,dt=T\). This means that there is only one non-zero term in the sum on the right hand side above, which occurs when the index of summation \(k\) equals \(K\). Hence, the above equation reduces to
@@ -166,11 +157,12 @@
 			We have just found the \(K\)<sup>th</sup> coefficient.
 		</div>
 		<div class="para">
-			Observe how these coefficients act as "weights" that "scale" each complex exponential in (1). In this sense, they tell us how much "contribution" is given by each harmonic \(e^{jk\omega_0 t}\) to the final signal, i.e., to what "extent" the signal contains a frequency component of \(k\omega_0\).
+			Observe how these coefficients act as "weights" that "scale" each complex exponential in \(\eqref{fs_synthesis}\). In this sense, they tell us how much "contribution" is given by each harmonic \(e^{jk\omega_0 t}\) to the final signal, i.e., to what "extent" the signal contains a frequency component of \(k\omega_0\).
 		</div>
 		<div class="para">
 			We note further that these \(a_k\)'s in some sense represent our function in the frequency domain. To see this, we treat \(a_k\) as a discrete-time function of \(k\); \[
 				a_k = a[k] = \dfrac{1}{T}\int_T x(t) e^{-jK\omega_0 t}.
+				\notag
 			\]
 			By putting in a certain value for \(k\), we find "how much" of the frequency component \(k\omega_0\) is present in the original signal.
 		</div>
@@ -182,13 +174,241 @@
 			It is clear that an aperiodic signal cannot possibly be represented by summing up harmonically related signals—such a sum will necessarily be periodic, as we have already seen. Hence, if we are to try to represent an aperiodic signal using <i>sinusoids</i>, we can no longer limit ourselves to sinusoids with harmonically related frequencies, and we will have to consider the possibility of them taking on frequencies from a continuum of values.
 		</div>
 		<div class="para">
-			Observe that an aperiodic signal \(\hat{x}(t)\) can be seen as the limit of some periodic signal \(x(t)\) with fundamental period \(T\) and angular frequency \(\omega_0\), as \(T\to\infty\). Note also that as \(T\to\infty\), \(\omega_0\to 0\), and the frequency components \(k\omega_0\) that we decompose it into in its Fourier Series move closer and closer to each other, approaching a continuum, consistent with what we deduced above. In more mathematical terms, \(\hat{x}(t)\) is the function that \(x(t)\) approaches in the limit as \(T\to\infty\); \[
+			Observe that a transient (non-zero over a finite interval of time only) aperiodic signal \(\hat{x}(t)\) can be seen as the limit of some periodic signal \(x(t)\) with fundamental period \(T\) and angular frequency \(\omega_0\), as \(T\to\infty\). Note also that as \(T\to\infty\), \(\omega_0\to 0\), and the frequency components \(k\omega_0\) that we decompose it into in its Fourier Series move closer and closer to each other, approaching a continuum, consistent with what we deduced above. In more mathematical terms, \(\hat{x}(t)\) is the function that \(x(t)\) approaches in the limit as \(T\to\infty\); \[
 				\hat{x}(t) = \lim_{T\to\infty} x(t).
+				\notag
 			\]
 		</div>
 		<div class="para">
-			
+			Define \[
+				X(\omega) = \int_T x(t) \cdot e^{-j\omega t} \, dt
+				= \int_{-\infty}^\infty \hat{x}(t) \cdot e^{-j\omega t} \, dt,
+				\notag
+			\] where the second equality holds because \(\hat{x}(t)\) is zero everywhere outside an interval of length \(T\), and exactly equals \(x(t)\) within that same interval.
+			Now, note that the Fourier coefficients \(a_k\) of \(x(t)\) are given by \[
+				a_k = \dfrac{1}{T}\int_T x(t) e^{-jK\omega_0 t}
+				= \dfrac{1}{T} X(k\omega_0),
+				\notag
+			\]
+			so we can write
+			\[
+			\begin{align*}
+				x(t) = \sum_{k=-\infty}^\infty a_k \cdot e^{jk\omega_0t} 
+				&= \sum_{k=-\infty}^\infty \dfrac{1}{T} X(k\omega_0) \cdot e^{jk\omega_0t}\\
+				&= \sum_{k=-\infty}^\infty \dfrac{1}{\frac{2\pi}{\omega_0}} X(k\omega_0) \cdot e^{jk\omega_0t}\\
+				&= \dfrac{1}{2\pi} \sum_{k=-\infty}^\infty X(k\omega_0) \cdot e^{jk\omega_0t} \cdot \omega_0.
+			\end{align*}
+			\]
+			Taking the limit of both sides as \(T\to\infty\), we have \[
+				\lim_{T\to\infty} x(t) = \hat{x}(t) = \lim_{T\to\infty} \dfrac{1}{2\pi} \sum_{k=-\infty}^\infty X(k\omega_0) \cdot e^{jk\omega_0t} \cdot \omega_0,
+				\notag
+			\] and because \(\omega_0\to0\) when \(T\to\infty\), \[
+				\lim_{T\to\infty} \dfrac{1}{2\pi} \sum_{k=-\infty}^\infty X(k\omega_0) \cdot e^{jk\omega_0t} \cdot \omega_0 =
+				\lim_{\omega_0\to0} \dfrac{1}{2\pi} \sum_{k=-\infty}^\infty X(k\omega_0) \cdot e^{jk\omega_0t} \cdot \omega_0,
+				\notag
+			\] which we recognize as the Riemann sum for the integral \[
+				\dfrac{1}{2\pi} \int_{-\infty}^\infty X(\omega) \cdot e^{j\omega t} \, dt,
+				\notag
+			\] thereby yielding the equality \[
+				\hat{x}(t) = \dfrac{1}{2\pi} \int_{-\infty}^\infty X(\omega) \cdot e^{j\omega t} \, dt.
+				\label{ft_synthesis}
+			\] We have hence arrived at a representation of the aperiodic signal \(\hat{x}(t)\) in terms of complex exponentials.
 		</div>
+		<div class="para">
+			Note that the function \(X(\omega)\) defined above serves as a sort of weighting function, scaling the complex exponential \(e^{j\omega t}\) at each value of \(\omega\), thereby determining the "contribution" from it to \(\hat{x}(t)\), much like how the Fourier coefficients \(a_k\) indicate how much a complex exponential \(e^{jk\omega_0 t}\) contributes to a periodic signal. It is exactly \[
+				X(\omega) = \int_{-\infty}^\infty \hat{x}(t) \cdot e^{-j\omega t} \, dt
+				\label{ft_analysis}
+			\] that we call the <b>Fourier Transform</b> of \(\hat{x}(t)\).
+		</div>
+		<div class="para">
+			Now, note the similarities between \(\eqref{fs_synthesis}\) and \(\eqref{ft_synthesis}\).
+		</div>
+		<div class="para">
+			In \(\eqref{fs_synthesis}\), the signal is periodic with angular frequency \(\omega_0\), and we have a decomposition of it into complex exponentials having integer-multiple frequencies of \(\omega_0\), with each \(a_k\) giving the "amount of contribution" from the frequency \(k\omega_0\) to the signal.
+		</div>
+		<div class="para">
+			In \(\eqref{ft_synthesis}\), the signal is not necessarily periodic, and we can no longer speak of a single angular frequency. Instead, we have contributions from a continuum of frequencies \(\omega\), encoded in a sort of "frequency density function" \(X(\omega)\). The infinitesimal contribution from a specific frequency \(\omega\) is given by \(X(\omega)\,d\omega\) (by analogy to \(a_k\) in \(\eqref{fs_synthesis}\)). The contributions from all such frequencies are "added up" by integrating over all frequencies, whereas in \(\eqref{fs_synthesis}\), this is done by summing over the discrete frequencies.
+		</div>
+		<div class="para">
+			Notice also the similarities between \(\eqref{fs_analysis}\) and \(\eqref{ft_analysis}\).
+		</div>
+		<div class="para">
+			\(\eqref{fs_analysis}\) defines a discrete-time function from which we can obtain the exact "contribution" from a specific sinusoid having frequency \(k\omega_0\).
+		</div>
+		<div class="para">
+			\(\eqref{ft_analysis}\) defines a similar function, but a continuous-time one, which we can interpret as a "frequency density function", encoding the contribution from sinusoids of <i>all</i> real-valued frequencies.
+		</div>
+		<div class="para">
+			Observe that both \(\eqref{fs_analysis}\) and \(\eqref{ft_analysis}\) transform the original signal into the frequency domain, by conveying information about the various frequencies present in it.
+		</div>
+		<div class="para">
+			Now, because we derived the Fourier Transform as a generalization of the Fourier Series, it must be the case that the Fourier Series is a special case of the Fourier Transform. This is indeed the case if we allow ourselves to include more exotic functions such as the Dirac delta function into the picture, as we will now show.
+		</div>
+		<div class="para">
+			Say \(y(t)\) is periodic with angular frequency \(\omega_0\), so that it has a Fourier Series with \[
+				y(t) = \sum_{k=-\infty}^\infty a_k e^{jk\omega_0t}.
+				\label{fs_from_ft_signal}
+			\] The Fourier Series of \(y(t)\) shows that it is composed only of some discrete frequency components, so if it should have a Fourier Transform, say \(Y(\omega)\), we expect it to be zero everywhere but at \(\omega\) such that \(\omega = k\omega_0\), where \(k\in\mathbb{Z}\).
+		</div>
+		<div class="para">
+			Consider the following train of impulses occuring exactly at integer multiples of \(\omega_0\), scaled by the Fourier coefficients of \(y(t)\): \[
+				\sum_{k=-\infty}^\infty 2\pi a_k \delta(\omega - k\omega_0).
+				\notag
+			\] We claim that this train of impulses is the Fourier Transform \(Y(\omega)\) of \(y(t)\).
+		</div>
+		<div class="para">
+			To see how, we use \(\eqref{ft_synthesis}\) to obtain \[
+			\begin{align*}
+				\dfrac{1}{2\pi} \int_{-\infty}^\infty \left(
+					\sum_{k=-\infty}^\infty 2\pi a_k \delta(\omega - k\omega_0)
+				\right) \cdot e^{j\omega t} \, dt
+				&=
+				\sum_{k=-\infty}^\infty a_k \int_{-\infty}^\infty \delta(\omega - k\omega_0)e^{j\omega t} \, dt\\
+				&=
+				\sum_{k=-\infty}^\infty a_k \int_{-\infty}^\infty \delta(\omega - k\omega_0)e^{jk\omega_0t} \, dt\\
+				&=
+				\sum_{k=-\infty}^\infty a_k e^{jk\omega_0t} \int_{-\infty}^\infty \delta(\omega - k\omega_0) \, dt\\
+				&=
+				\sum_{k=-\infty}^\infty a_k e^{jk\omega_0t} \cdot 1\\
+				&=
+				\sum_{k=-\infty}^\infty a_k e^{jk\omega_0t}\\
+				&= y(t),
+			\end{align*}
+			\] where the last equality follows from our assumption in \(\eqref{fs_from_ft_signal}\). Therefore, we can indeed view the train of impulses above as the Fourier Transform of the periodic signal \(y(t)\), and write \[
+				Y(\omega) = \sum_{k=-\infty}^\infty 2\pi a_k \delta(\omega - k\omega_0),
+				\notag
+			\]
+			and view its Fourier Series as a special case of the Fourier Transform, as "samples" taken from it at integer multiples of \(\omega_0\).
+		</div>
+		<div class="para">
+			Based on all this, we can view the Fourier Transform as a "scanner" of a given signal for sinusoids of various frequencies.
+		</div>
+		<div class="para">
+			If the signal is aperiodic, it contains sinusoids of a continuum of frequencies, and the Fourier Transform generates a "frequency density function" that can be used to find the contribution from every frequency.
+		</div>
+		<div class="para">
+			If the signal is periodic, it contains sinusoids of a discrete set of frequencies rather than a continuum, and the Fourier Transform indicates each frequency with impulses at the relevant values.
+		</div>
+		<div class="para">
+			We conclude this section with the observation that the Fourier Transform can be viewed as a unification of the analysis of periodic and aperiodic signals into a single method, which incorporates the Fourier Series into itself as a special case.
+		</div>
+		<h2>Laplace Transform</h2>
+		<div class="para">
+			Given a continuous-time signal \(x(t)\), we define what is known as its unilateral Laplace Transform, which we will denote \(X(s)\), as follows: \[
+				X(s) = \int_0^\infty x(t) \cdot e^{-st} \, dt,
+			\]
+			where \(s = \sigma + j\omega\), with \(\sigma, \omega\in\mathbb{R}\), and \(j\) is the imaginary unit.
+		</div>
+		<div class="para">
+			Observe that applying the Laplace Transform gives a function that takes in a two-dimensional input (in the form of a complex number) and outputs another complex number.
+		</div>
+		<div class="para">
+			We say that applying the Laplace Transform to a signal "transforms" it into the \(s\) domain, which is a two-dimensional domain.
+		</div>
+		<div class="para">
+			Within such a two-dimensional domain, the Laplace Transform has the ability to "scan" a signal for two types of quantities. By way of its definition, it scans the signal for exponential terms <i>and</i> sinusoidal terms, and extracts both sinusoidal as well as exponential behavior from it.
+		</div>
+		<div class="para">
+			Hence, by analogy to how the previous transforms decomposed a signal into sinusoids, the Laplace Transform decomposes a signal into complex exponentials of the form \(e^{(\sigma + j\omega)t}\).
+		</div>
+		<div class="para">
+			If a given signal consists of a discrete complex exponential term of the form \(a^{(a+bj)t}\), this would be indicated with an impulse in \(X(s)\), called a <i>pole</i>, at the complex number \(s = a+bj\).
+		</div>
+		<div class="para">
+			Therefore, when the signal consists only of discrete complex sinusoids (terms of the form \(e^{bjt}\)), \(X(s)\) will have poles that lie along the imaginary axis.
+		</div>
+		<div class="para">
+			When it consists only of discrete real exponentials (terms of the form \(e^{at}\)), \(X(s)\) will have poles along the real axis.
+		</div>
+		<div class="para">
+			When the signal has no discrete sinusoids or exponentials, \(X(s)\) would have no poles, as the signal would have to be composed of complex exponentials whose parameters \(\sigma\) and \(\omega\) take on a continuum of values. In such cases, \(X(s)\) may again be interpreted as a "density function" similar to the Fourier Transform of aperiodic functions.
+		</div>
+		<div class="para">
+			Now, consider when a certain signal \(x(t)\) that we are interested in is \(0\) for \(t \lt 0\), i.e., <i>causal</i>, as will be the case with most signals we deal with in the field of electronic engineering. Then, its Laplace Transform \(X(s)\) is given by \[
+			\begin{align*}
+				X(s)
+				&=
+				\int_0^\infty x(t) \cdot e^{-st} \, dt\\
+				&=
+				\int_0^\infty x(t) \cdot e^{-(\sigma + j\omega)t} \, dt\\
+				&=
+				\int_0^\infty x(t) \cdot e^{-\sigma t} \cdot e^{-j\omega t} \, dt\\
+				&=
+				\int_0^\infty \left(x(t) \cdot e^{-\sigma t}\right) \cdot e^{-j\omega t} \, dt,
+			\end{align*}
+			\] and because \(x(t) = 0\) for \(t \lt 0\), \[
+				X(s) = \int_{-\infty}^\infty \left(x(t) \cdot e^{-\sigma t}\right) \cdot e^{-j\omega t} \, dt.
+				\notag
+			\] But note that this exactly the Fourier Transform of the signal \(x(t)\cdot e^{-\sigma t}\); so the Laplace Transform of a signal can be viewed simply as the Fourier Transform of a slightly modified signal, at least in the case of causal signals.
+		</div>
+		<div class="para">
+			Further, when \(\sigma = 0\), the Laplace Transform above is exactly equal to the Fourier Transform of \(x(t)\). Hence, in this regard, the Fourier Transform can be seen as a special case of the Laplace Transform. As the Fourier Series is again a special case of the Fourier Transform, we can regard the Laplace Transform as a unification of all the transforms described above.
+		</div>
+		<h2>Comparison of the Transforms</h2>
+		<div class="para">
+			A summary of all three transforms discussed above, including differences and similarities is presented in the following table.
+		</div>
+		<table class="table">
+			<caption>
+				<span class="tablenumber">Table</span>
+				<span class="tabledesc">Similarities and differences between the Fourier Series, Fourier Transform, and Laplace Transform
+				</span>
+			</caption>
+			<thead>
+				<td class="emptycell"></td>
+				<td>Fourier Series</td>
+				<td>Fourier Transform</td>
+				<td>Laplace Transform</td>
+			</thead>
+			<tr>
+				<td class="emptycell"></td>
+				<td>\(\dfrac{1}{T}\displaystyle\int_T x(t)\cdot e^{-jk\omega_0t}\,dt\)</td>
+				<td>\(\displaystyle\int_{-\infty}^\infty \hat{x}(t) \cdot e^{-j\omega t} \, dt\)</td>
+				<td>\(\displaystyle\int_0^\infty x(t) \cdot e^{-st} \, dt\)</td>
+			</tr>
+			<tr>
+				<td>type of signal analyzed</td>
+				<td>continuous-time, periodic</td>
+				<td colspan="2">continuous-time, periodic/aperiodic</td>
+			</tr>
+			<tr>
+				<td>nature of transformed domain</td>
+				<td>discrete</td>
+				<td colspan="2">continuous</td>
+			</tr>
+			<tr>
+				<td>input dimension</td>
+				<td colspan="3">two-dimensional</td>
+			</tr>
+			<tr>
+				<td>output dimension</td>
+				<td colspan="3">two-dimensional</td>
+			</tr>
+			<tr>
+				<td>what is "detected"</td>
+				<td colspan="2">sinusoids</td>
+				<td>sinusoids and exponentials/complex exponentials</td>
+			</tr>
+		</table>
+
+		<h2>Conclusion</h2>
+		<div class="para">
+			We conclude by noting that all the transforms discussed above are indeed methods of scanning a signal \(x(t)\), and decomposing it into simpler signals,by extracting the frequency components present in it. By performing such a decomposition, we make the analysis and manipulation of the signal simpler, and extract information out of the signal that might otherwise not be immediately visible.
+		</div>
+		<h2>References</h2>
+		<ol class="references">
+			<li>J. Chang. (2019) Notes of Fourier analysis. [Online]. Available: <a href="https://jeffjar.me/fourier/index.html">https://jeffjar.me/fourier/index.html</a></li>
+			<li>R. Rodrigo. (2023) EN1090 lectures. [Online]. Available: <a href="https://github.com/rangarodrigo/EN1020Lectures">https://github.com/rangarodrigo/EN1020Lectures</a></li>
+			<li>Z. Star. (2019) What does the Laplace transform really tell us? A visual explanation (plus applications). [Online]. Available: <a href="https://youtu.be/n2y7n6jw5d0">https://youtu.be/n2y7n6jw5d0</a></li>
+			<li>Z. Star. (2019) The intuition behind Fourier and Laplace transforms I was never taught in school. [Online]. Available: <a href="https://youtu.be/3gjJDuCAEQQ">https://youtu.be/3gjJDuCAEQQ</a></li>
+			<li>G. Sanderson. (2018) But what is the Fourier transform? A visual introduction. [Online]. Available: <a href="https://youtu.be/spUNpyF58BY">https://youtu.be/spUNpyF58BY</a></li>
+			<li>G. Sanderson. (2019) But what is a Fourier series? From heat flow to drawing with circles — DE4. [Online]. Available: <a href="https://youtu.be/r6sGWTCMz2k">https://youtu.be/r6sGWTCMz2k</a></li>
+			<li>E. Khutoryansky. (2018) Laplace transform explained and visualized intuitively. [Online]. Available: <a href="https://youtu.be/6MXMDrs6ZmA">https://youtu.be/6MXMDrs6ZmA</a></li>
+			<li>A. Oppenheim, A. Willsky, and I. Young, <i>Signals and Systems</i>. Prentice Hall, 1983.</li>
+		</ol>
+	</div>
+	<div>
+		hasdkb
 	</div>
 </body>
 </html>
