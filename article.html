@@ -21,13 +21,33 @@
 	<title>My Article</title>
 </head>
 <body class="flex-col hcenter">
+	<div id="backtotop" class="flex-row hcenter vcenter">
+		<div id="toparrow"></div>
+	</div>
+	<div id="navbar" class="flex-row vcenter">
+		<div id="listofarticles" class="flex-row vcenter hcenter">
+			<div id="backarrow"></div>
+			<span>List of Articles</span>
+		</div>
+	</div>
 	<div id="header" class="flex-col hcenter">
 		<h1>Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.</h1>
-		<div id="data" class="flex-row vcenter">
-			<img src="images/me3.jpeg">
-			<div class="flex-col vcenter">
-				<span id="authorname">By Pulasthi Udugamasooriya</span>
-				<span id="date">Published December 30, 2024, 5:55 pm</span>
+		<div id="data" class="flex-row">
+			<div id="publishdata" class="flex-row vcenter">
+				<img src="images/me3.jpeg">
+				<div class="flex-col vcenter">
+					<span id="authorname">By Pulasthi Udugamasooriya</span>
+					<span id="date">Published December 30, 2024, 5:55 pm</span>
+				</div>
+			</div>
+			<div id="sharing" class="flex-col">
+				Share this article
+				<div class="flex-row vcenter">
+					<img src="images/linkedin.png">
+                	<img src="images/facebook.png">
+                	<img src="images/instagram.png">
+                	<img src="images/discord.png">
+                </div>
 			</div>
 		</div>
 	</div>
@@ -294,7 +314,7 @@
 		</div>
 		<h2>Laplace Transform</h2>
 		<div class="para">
-			Given a continuous-time signal \(x(t)\), we define what is known as its unilateral Laplace Transform, which we will denote \(X(s)\), as follows: \[
+			Given a continuous-time signal \(x(t)\), the following function which we will denote \(X(s)\), is what is defined as its unilateral <b>Laplace Transform</b>: \[
 				X(s) = \int_0^\infty x(t) \cdot e^{-st} \, dt,
 			\]
 			where \(s = \sigma + j\omega\), with \(\sigma, \omega\in\mathbb{R}\), and \(j\) is the imaginary unit.
@@ -393,7 +413,7 @@
 
 		<h2>Conclusion</h2>
 		<div class="para">
-			We conclude by noting that all the transforms discussed above are indeed methods of scanning a signal \(x(t)\), and decomposing it into simpler signals,by extracting the frequency components present in it. By performing such a decomposition, we make the analysis and manipulation of the signal simpler, and extract information out of the signal that might otherwise not be immediately visible.
+			We conclude by noting that all the transforms discussed above are indeed methods of scanning a signal \(x(t)\), and decomposing it into simpler signals, by extracting the frequency components present in it. By performing such a decomposition, we make the analysis and manipulation of the signal simpler, and extract information out of the signal that might otherwise not be immediately visible.
 		</div>
 		<h2>References</h2>
 		<ol class="references">
@@ -407,8 +427,15 @@
 			<li>A. Oppenheim, A. Willsky, and I. Young, <i>Signals and Systems</i>. Prentice Hall, 1983.</li>
 		</ol>
 	</div>
-	<div>
-		hasdkb
+	<div id="feedback" class="flex-col hcenter">
+		<span id="thanks">Thank you for reading!</span>
+		<h2>Tell me your thoughts.</h2>
+		<form class="flex-col hcenter">
+			<input type="text" name="name" placeholder="Your Name" class="tbox">
+			<input type="email" name="mail" placeholder="Your Email" class="tbox">
+			<textarea name="comments" placeholder="Your Comments" rows="4"></textarea>
+			<input type="submit" name="submit" value="Send" class="button">
+		</form>
 	</div>
 </body>
 </html>

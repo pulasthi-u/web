@@ -1,6 +1,57 @@
-#header {
-	margin-top: 8vh;
+body {
+	margin: 10vh 0;
+}
+
+#backtotop {
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	right: 20px;
+	bottom: 20px;
+}
+
+#backtotop #toparrow {
+	border-top: 3px solid black;
+	border-left: 3px solid black;
+	transform: rotateZ(45deg);
+	width: 15px;
+	height: 15px;
+}
+
+#backtotop:hover {
+	cursor: pointer;
+}
+
+#backtotop:hover #toparrow {
+	transition: all 0.1s ease-in;
+	transform: translateY(-30%) rotateZ(45deg);
+}
+
+#navbar {
 	width: 60vw;
+	padding: 0 1vh 8vh 1vh;
+}
+#listofarticles #backarrow {
+	width: 20px;
+	height: 20px;
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+	transform: rotateZ(45deg) translateX(0);
+	margin-right: 10px;
+}
+
+#listofarticles:hover {
+	cursor: pointer;
+}
+
+#listofarticles:hover #backarrow {
+	transition: all 0.1s ease-in;
+	transform: translateX(-30%) rotateZ(45deg);
+}
+
+#header {
+	width: 60vw;
+	margin-bottom: 2vh;
 }
 
 #header h1 {
@@ -12,10 +63,14 @@
 }
 
 #data {
-	align-self: flex-start;
+	width: 100%;
+	padding: 2vh;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-#data img {
+#publishdata img {
 	width: 50px;
 	height: 50px;
 	border-radius: 100%;
@@ -31,17 +86,31 @@
 	font-size: 80%;
 }
 
+#sharing {
+	font-size: 95%;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+#sharing img {
+	width: 20px;
+	height: 20px;
+	margin: 10px 0 0 10px;
+}
+
 #articletext {
-	margin-top: 3.5vh;
-	width: 60vw;
+	width: 55vw;
 	font-family: "Georgia";
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding-bottom: 2vh;
+	margin-bottom: 2vh;
 }
 
 #articletext h2 {
 	font-size: 4.3vh;
     font-family: "Inter Tight";
     line-height: 100%;
-    margin: 4vh 0 3vh 0;
+    margin: 2.3vh 0;
     font-weight: 500;
 }
 
@@ -53,7 +122,7 @@
 }
 
 ul, ol {
-	margin: 0 0 1vh 0;
+	margin: 0;
 	line-height: 180%;
 }
 
@@ -74,6 +143,7 @@ ul, ol {
 	border-spacing: 0;
 	align-self: center;
 	border-collapse: collapse;
+	margin: 2vh 0;
 }
 
 .table td {
@@ -109,8 +179,7 @@ ul, ol {
 
 ol.references {
 	counter-reset: ref-list;
-	list-style-position: outside;
-	list-style-type: '';
+	list-style-type: none;
 }
 
 ol.references li::before {
@@ -126,4 +195,62 @@ ol.references li::before {
 
 ol.references li {
 	margin: 1.5vh 0;
+}
+
+#feedback {
+	padding-top: 2vh;
+	width: 55vw;
+}
+
+#feedback #thanks {
+	font-size: 95%;
+}
+
+#feedback h2 {
+	font-size: 4.3vh;
+    font-family: "Inter Tight";
+    line-height: 100%;
+    font-weight: 500;
+    margin: 1.6vh 0;
+}
+
+#feedback form {
+	width: 70%;
+}
+
+#feedback form .tbox {
+	background-color: transparent;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	margin: 1.3vh 0;
+	font-family: "Roboto";
+}
+
+#feedback form textarea {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	margin: 1.3vh 0;
+	font-family: "Roboto";
+	resize: none;
+}
+
+#feedback form .tbox:focus, #feedback form textarea:focus {
+	outline: none;
+	/*font-size: 100.1%;*/
+	transition: all 0.1s ease-in;
+	border-bottom: 1px solid black;
+}
+
+#feedback form .button {
+	align-self: flex-end;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 10px 0;
+	margin: 1.3vh 0;
+	font-family: Roboto;
+	width: 30%;
 }
