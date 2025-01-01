@@ -27,6 +27,7 @@
 }
 
 #work_content {
+    position: relative;
     width: 60vw;
     height: 50vh;
     overflow-x: hidden;
@@ -34,19 +35,21 @@
 
 .work_content_item {
     position: absolute;
-    width: 60vw;
+    width: 100%;
     background-color: white;
+    justify-content: stretch;
 }
 
 .work_content_item_pic {
-    width: 30vw;
+    width: 40%;
     height: 50vh;
     object-fit: cover;
 }
 
 .work_content_item_container {
+    width: 60%;
     align-items: stretch;
-    padding-left: 5vw;
+    padding-left: 4vw;
 }
 
 .work_content_item_container_title {
@@ -59,6 +62,15 @@
     color: gray;
     font-size: 2vh;
     padding-top: 5px;
+}
+
+.work_content_item_container_subtitle .work_subtitle_date {
+    margin-right: 6px;
+}
+
+.work_content_item_container_subtitle .work_subtitle_date::after {
+    content: '\00B7'; /* center dot */
+    margin-left: 6px;
 }
 
 .work_content_item_container_subtitle img {
@@ -80,6 +92,11 @@
     width: 30%;
 }
 
+.work_content_item_container button a {
+    text-decoration: none;
+    color: black;
+}
+
 .work_content_item_container button div {
     width: 7px;
     height: 7px;
@@ -93,6 +110,10 @@
     cursor: pointer;
 }
 
+.work_content_item_container button:focus {
+    outline: none;
+}
+
 .work_content_item_container button:hover div {
     transition: all 0.2s ease-out;
     transform: translateX(100%) rotateZ(45deg);
@@ -102,6 +123,7 @@
     width: 60vw;
     justify-content: flex-end;
     padding-top: 20px;
+    /*transform: translateX(8vw);*/
 }
 
 #work_scroll .scrollitem {
@@ -122,7 +144,10 @@
 
 #work_scroll .scrollitem:hover {
     cursor: pointer;
-    transition: all 0.1s ease-out;
+    transition: all 0.1s linear;
+    /*margin: -4.5px -4.5px -4.5px 13.5px;
+    width: 33px;
+    height: 33px;*/
     transform: scale(1.1);
 }
 
