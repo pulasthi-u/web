@@ -81,6 +81,12 @@
 			</ul>
 			A class of such "nice" systems is that of linear and time-invariant, or <b>LTI systems</b>. Such systems have the property of responding to a linear combination of input signals with the same linear combination of the corresponding output signals, greatly simplifying their analysis. Fortunately, a large number of real-world systems belong to this class, and in this article, we will limit our discussion to such systems only.
 		</div>
+		<figure class="middle-figure flex-col vcenter">
+  			<img src="https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg">
+  			<figcaption class="flex-row hcenter">
+  				<span class="fig-captiontext">A random sample image.</span>
+  			</figcaption>
+		</figure>
 		<div class="para">
 			Speaking of <i>signals</i>, we are interested in
 			<ul>
@@ -92,6 +98,25 @@
 		<div class="para">
 			It turns out that sinusoidal signals and complex exponential signals are "simple" and have the properties above, at least in the context of LTI systems (we will see why in the sections that follow), and we will often find ourselves trying to decompose complex signals into linear combinations of sinusoids or complex exponentials, so that we can exploit the linearity and homogeneity properties of LTI systems.
 		</div>
+		<figure class="middle-multi-figure flex-col vcenter">
+			<div class="figures flex-row">
+				<figure class="subfigure flex-col">
+		  			<img src="https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg">
+		  			<figcaption class="flex-row hcenter">
+		  				<span class="subfig-captiontext"></span>
+		  			</figcaption>
+	  			</figure>
+	  			<figure class="subfigure flex-col">
+	  				<img src="https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg">
+		  			<figcaption class="flex-row hcenter">
+		  				<span class="subfig-captiontext"></span>
+		  			</figcaption>
+	  			</figure>
+	  		</div>
+  			<figcaption class="flex-row hcenter">
+  				<span class="multifig-captiontext">Multiple figure caption text</span>
+  			</figcaption>
+		</figure>
 		<div class="para">
 			In this article, we will discuss <i>transforms</i> as techniques developed to analyze signals by decomposing them to simpler/more fundamental signals, and to perform various operations on them more easily. We will limit our discussion to continuous-time signals and discuss three types of commonly used transforms with such signals, namely, the Fourier Series, the Fourier Transform, and the Laplace Transform.
 		</div>
@@ -120,7 +145,7 @@
 			<figure class="side-figure left flex-col">
 	  			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Fourier2_-_restoration1.jpg/800px-Fourier2_-_restoration1.jpg" style="object-position: 0 0;">
 	  			<figcaption class="flex-row">
-	  				<span class="fig-captiontext">Jean-Baptiste Joseph Fourier. Source: <a href="https://en.wikipedia.org/wiki/File:Fourier2_-_restoration1.jpg">Wikipedia</a></span>
+	  				<span class="fig-captiontext">Jean-Baptiste Joseph Fourier.</span>
 	  			</figcaption>
 			</figure>
 		</div>
@@ -134,6 +159,13 @@
 			Based on such observations, it is indeed "reasonable" and "natural" to assume the existence of such a decomposition. For now, let us consider it an "educated guess" we make that such a decomposition actually exists. In fact, this guess turns out to be true in a lot of cases, and when true, greatly simplifies our work.
 			<!-- However, basing our beliefs on such vague grounds is unwise. -->
 			Of course, to the mathematical mind however, such guesses are not sufficient, and strict conditions for existence backed by proofs are required. But this is the business of analysis, and is out of the scope of this article, so we will leave it out. We will simply assume that the signals we are working with already satisfy these conditions.
+
+			<figure class="side-figure right flex-col">
+	  			<img src="https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg">
+	  			<figcaption class="flex-row">
+	  				<span class="fig-captiontext">A random sample image with a very very very long caption text.</span>
+	  			</figcaption>
+			</figure>
 		</div>
 		<div class="para">
 			Finally, to address why we chose signals of the form \(e^{j\omega t}\) above instead of sinusoids like Fourier did, it is simply because it generalizes the method to the other transforms that we will discuss in this article, and also enables us to find the Fourier Series for a larger class of signals. Notice that \(e^{j\omega t}\) does still represent a sinusoid—\(e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\) from Euler’s Formula—we can simply think of it as more compact notation to represent a sinusoid.
@@ -240,6 +272,13 @@
 				\hat{x}(t) = \dfrac{1}{2\pi} \int_{-\infty}^\infty X(\omega) \cdot e^{j\omega t} \, dt.
 				\label{ft_synthesis}
 			\] We have hence arrived at a representation of the aperiodic signal \(\hat{x}(t)\) in terms of complex exponentials.
+		
+			<figure class="side-figure left flex-col">
+	  			<img src="https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg">
+	  			<figcaption class="flex-row">
+	  				<span class="fig-captiontext">A random sample image with a very very very long caption text.</span>
+	  			</figcaption>
+			</figure>
 		</div>
 		<div class="para">
 			Note that the function \(X(\omega)\) defined above serves as a sort of weighting function, scaling the complex exponential \(e^{j\omega t}\) at each value of \(\omega\), thereby determining the "contribution" from it to \(\hat{x}(t)\), much like how the Fourier coefficients \(a_k\) indicate how much a complex exponential \(e^{jk\omega_0 t}\) contributes to a periodic signal. It is exactly \[
