@@ -1,0 +1,42 @@
+#main-scrollbar {
+    position: fixed;
+    top: 50vh;
+    right: calc(7.5vw - 17px); /*scrollbar ... how does this apply everywhere else tho?? */
+    transform: translateY(-50%) translateX(50%);
+    z-index: 11;
+}
+
+#main-scrollbar .scroll-item {
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1.5px solid black;
+    margin: 15px 0;
+}
+
+#main-scrollbar .scroll-item.selected {
+    background-color: black;
+}
+
+#main-scrollbar .scroll-item:hover {
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    transform: scale(1.1);
+}
+
+#pages {
+    left: 0;
+    width: 85vw;
+    height: 300vh;
+}
+
+.section {
+    position: fixed;
+    width: 85vw;
+    height: 100vh;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.2s;
+    background-color: white;
+}

@@ -1,0 +1,77 @@
+#work {
+    z-index: 8;
+}
+
+#work-item-window {
+    width: 60vw;
+    height: 50vh;
+    overflow: hidden;
+}
+
+#work-items {
+    width: 240vw;
+    height: 50vh;
+}
+
+.work-item {
+    position: relative;
+    width: 60vw;
+    background-color: white;
+}
+
+.work-item-img {
+    width: 40%;
+    height: 50vh;
+    object-fit: cover;
+    padding-left: 1px;
+}
+
+.work_content_item_container button a {
+    text-decoration: none;
+}
+
+.work_content_item_container button:focus {
+    outline: none;
+}
+
+.work_content_item_container button:hover div {
+    transition: all 0.2s ease-out;
+    transform: translateX(100%) rotateZ(45deg);
+}
+
+#work_scroll {
+    width: 60vw;
+    justify-content: flex-end;
+    padding-top: 20px;
+    /*transform: translateX(8vw);*/
+}
+
+#work_scroll .scrollitem {
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 100%;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+#work_scroll .scrollitem.selected {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
+
+#work_scroll .scrollitem:hover {
+    cursor: pointer;
+    transition: all 0.1s linear;
+    /*margin: -4.5px -4.5px -4.5px 13.5px;
+    width: 33px;
+    height: 33px;*/
+    transform: scale(1.1);
+}
+
+#work_scroll #work_scroll_more {
+    border: none;
+    width: auto;
+}

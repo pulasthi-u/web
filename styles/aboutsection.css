@@ -1,0 +1,10 @@
+#about {
+    z-index: 9;
+    display: none;
+}
+
+#about-main-img {
+    width: 20vw;
+    object-fit: contain;
+    object-position: center;
+}

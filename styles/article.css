@@ -129,6 +129,7 @@ ul, ol {
 }
 
 .quote {
+	width: 95%;
 	background-color: rgba(10, 10, 10, 0.1);
 	padding: 0 2vh 0 20px; /*i dont like how i put 2vh here. its the margin from.para*/
 	border-left: 5px solid rgba(10, 10, 10, 0.3);

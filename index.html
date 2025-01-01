@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="homesection.css">
-        <link rel="stylesheet" href="aboutsection.css">
-        <link rel="stylesheet" href="worksection.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/indexstyles.css">
+        <link rel="stylesheet" href="styles/homesection.css">
+        <link rel="stylesheet" href="styles/aboutsection.css">
+        <link rel="stylesheet" href="styles/worksection.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,27 +19,28 @@
         <title>Pulasthi Udugamasooriya</title>
     </head>
     <body>
-        <div class="flex-col vcenter hcenter" id="scrollbar">
-            <div class="arrow up"></div>
-            <div class="scrollitem selected"></div>
-            <div class="scrollitem"></div>
-            <div class="scrollitem"></div>
-            <div class="scrollitem"></div>
-            <div class="arrow down"></div>
+        <div class="flex-col vcenter hcenter" id="main-scrollbar">
+            <div class="arrow arrow-up"></div>
+            <div class="scroll-item selected"></div>
+            <div class="scroll-item"></div>
+            <div class="scroll-item"></div>
+            <div class="scroll-item"></div>
+            <div class="arrow arrow-down"></div>
         </div>
 
         <div class="flex-col hcenter" id="pages">
-            <div class="section flex-row vcenter" id="home">
-                <img src="images/me4.jpeg">
-                <div class="flex-col vcenter" id="container">
-                    <div class="flex-row vcenter" id="logo">
+            <section class="section flex-row" id="home">
+                <img src="images/me4.jpeg" id="home-main-img">
+
+                <div class="flex-col vcenter left-padded-container-1">
+                    <div class="flex-row vcenter bottom-margin-container-1" id="logo-container">
                         <div></div>
-                        <span>Pulasthi Udugamasooriya</span>
+                        <span id="logo-text">Pulasthi Udugamasooriya</span>
                     </div>
 
                     <div class="flex-col vcenter">
-                        <div id="navbar">
-                            <ul>
+                        <div class="flex-row bottom-margin-container-1" id="navbar">
+                            <ul class="flex-row">
                                 <a href="#"><li>Home</li></a>
                                 <a href="#"><li>About</li></a>
                                 <a href="#"><li>Projects</li></a>
@@ -47,144 +49,170 @@
                         </div>
 
                         <div class="flex-col vcenter">
-                            <span id="greet">
+                            <span class="title-1" id="greeting">
                                 Hello!
                             </span>
-                            <span id="greet_sub">
+
+                            <span class="title-2" id="greeting-sub">
                                 I'm Pulasthi. Nice to have you here. 😊
                             </span>
-                            <p id="intro_para">
+
+                            <p id="intro-para">
                                 22. Electronics and Telecommunication Engineering undergraduate at the
                                 University of Moratuwa, Sri Lanka.  Math enthusiast.
                             </p>
-                            <button id="mainBtn">Read More</button>
+
+                            <button id="home-main-button">Read More</button>
+
                             <div class="flex-row vcenter" id="follow">
                                 <span>Follow me:</span>
-                                <img src="images/linkedin.png">
-                                <img src="images/facebook.png">
-                                <img src="images/instagram.png">
-                                <img src="images/discord.png">
+                                <img class="icon left-margin-container-2" src="images/linkedin.png">
+                                <img class="icon left-margin-container-2" src="images/facebook.png">
+                                <img class="icon left-margin-container-2" src="images/instagram.png">
+                                <img class="icon left-margin-container-2" src="images/discord.png">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="section flex-row vcenter" id="about">
-                <img src="images/me3.jpeg">
-                <div id="sec2Cont">
-                    <span>About Me</span>
-                    <div id="sec2Text">
-                        <p>
-                            I'm Pulasthi Udugamasooriya, and an undergraduate at the Department of Electronics and Telecommunications Engineering, University of Moratuwa, Sri Lanka.
-                        </p>
-                        <p>
-                            Esse amet commodo laborum enim culpa mollit aute aliquip laboris anim
-                            nostrud sint esse. Pariatur esse dolore laborum nulla labore nisi elit
-                            sint qui id reprehenderit laboris sint ad. Id cillum sunt nisi voluptate
-                            nisi aliqua voluptate. Exercitation aliqua nostrud elit laborum enim
-                            labore. Ullamco occaecat nulla laborum fugiat qui. Ut proident officia
-                            enim sint ex aute dolore ut aute anim quis Lorem.
-                        </p>
+            <section class="section flex-row vcenter hcenter" id="about">
+                <div class="flex-row vcenter hcenter container-width-80">
+                    <img src="images/me3.jpeg" id="about-main-img">
+
+                    <div class="flex-col left-padded-container-1">
+                        <span class="title-2">About Me</span>
+
+                        <div id="sec2Text">
+                            <p>
+                                I'm Pulasthi Udugamasooriya, and an undergraduate at the Department of Electronics and Telecommunications Engineering, University of Moratuwa, Sri Lanka.
+                            </p>
+                            <p>
+                                Esse amet commodo laborum enim culpa mollit aute aliquip laboris anim
+                                nostrud sint esse. Pariatur esse dolore laborum nulla labore nisi elit
+                                sint qui id reprehenderit laboris sint ad. Id cillum sunt nisi voluptate
+                                nisi aliqua voluptate. Exercitation aliqua nostrud elit laborum enim
+                                labore. Ullamco occaecat nulla laborum fugiat qui. Ut proident officia
+                                enim sint ex aute dolore ut aute anim quis Lorem.
+                            </p>
+                        </div>
+                        <button>Click me</button>
                     </div>
-                    <button>Click me</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="section flex-col vcenter hcenter" id="work">
-                <!-- so the structures are messy. find a good ish like structure and them use it consistently throughout the sections -->
+            <section class="section flex-col vcenter hcenter" id="work">
                 <div class="flex-col vcenter">
-                    <div class="flex-row vcenter" id="work_title">
-                        <h1>My Work</h1>
-                    </div>
+                    <span class="title-2 bottom-margin-container-1_5">My Work</span>
 
-                    <div class="flex-row vcenter" id="work_content">
-                        <div class="work_content_item flex-row vcenter">
-                            <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work_content_item_pic">
-                            <div class="work_content_item_container flex-col vcenter">
-                                <span class="work_content_item_container_title">Vector Field Particle Animator</span>
-                                <div class="work_content_item_container_subtitle flex-row vcenter">
-                                    <span class="work_subtitle_date">July, 2023</span>
-                                    <span class="work_subtitle_type">Web App</span>
-                                    <img src="images/html.png">
-                                    <img src="images/js.png">
-                                </div><!-- get consistent icons. -->
-                                <p class="work_content_item_container_paragraph">
-                                    A way to visualize time-dependent vector fields, and an approximate
-                                    trajectory of a particle moving in the field, using the HTML5 Canvas element.
-                                    The user can enter any function describing a 2D time-dependent vector field and a visualization
-                                    is generated.
-                                </p>
-                                <button class="flex-row vcenter hcenter">
-                                    <a href="#">More</a>
-                                    <div></div>
-                                </button>
+                    <div id="work-item-window">
+                        <div class="flex-row vcenter" id="work-items">
+                            <div class="work-item flex-row vcenter">
+                                <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work-item-img">
+                                
+                                <div class="left-padded-container-1 flex-col vcenter">
+                                    <span class="title-2 bottom-margin-container-2">Vector Field Particle Animator</span>
+
+                                    <div class="flex-row vcenter">
+                                        <span class="subtitle-gray-2">July, 2023</span>
+                                        <span class="leftright-margin-container-2">&middot;</span>
+                                        <span class="subtitle-gray-2">Web App</span>
+                                        <img class="icon left-margin-container-2" src="images/html.png">
+                                        <img class="icon left-margin-container-2" src="images/js.png">
+                                        <!-- get consistent icons. all from the same package ish -->
+                                    </div>
+
+                                    <p>
+                                        A way to visualize time-dependent vector fields, and an approximate
+                                        trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization
+                                        is generated.
+                                    </p>
+
+                                    <button class="flex-row vcenter hcenter container-width-40 topbottom-padded-container-1 rounded-2">
+                                        <a href="#">More</a>
+                                        <div class="arrow arrow-right"></div>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="work_content_item flex-row vcenter">
-                            <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work_content_item_pic">
-                            <div class="work_content_item_container flex-col vcenter">
-                                <span class="work_content_item_container_title">Molecule Drawer</span>
-                                <div class="work_content_item_container_subtitle flex-row vcenter">
-                                    <span class="work_subtitle_date">July, 2023</span>
-                                    <span class="work_subtitle_type">Web App</span>
-                                    <img src="images/html.png">
-                                    <img src="images/js.png">
-                                </div><!-- get consistent icons. -->
-                                <p class="work_content_item_container_paragraph">
-                                    A way to visualize time-dependent vector fields, and an approximate
-                                    trajectory of a particle moving in the field, using the HTML5 Canvas element.
-                                    The user can enter any function describing a 2D time-dependent vector field and a visualization
-                                    is generated.
-                                </p>
-                                <button class="flex-row vcenter hcenter">
-                                    <a href="#">More</a>
-                                    <div></div>
-                                </button>
+                            <div class="work-item flex-row vcenter">
+                                <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work-item-img">
+                                
+                                <div class="left-padded-container-1 flex-col vcenter">
+                                    <span class="title-2 bottom-margin-container-2">Molecule Drawer</span>
+
+                                    <div class="flex-row vcenter">
+                                        <span class="subtitle-gray-2">July, 2023</span>
+                                        <span class="leftright-margin-container-2">&middot;</span>
+                                        <span class="subtitle-gray-2">Web App</span>
+                                        <img class="icon left-margin-container-2" src="images/html.png">
+                                        <img class="icon left-margin-container-2" src="images/js.png">
+                                        <!-- get consistent icons. all from the same package ish -->
+                                    </div>
+
+                                    <p>
+                                        A way to visualize time-dependent vector fields, and an approximate
+                                        trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization
+                                        is generated.
+                                    </p>
+
+                                    <button class="flex-row vcenter hcenter container-width-40 topbottom-padded-container-1 rounded-2">
+                                        <a href="#">More</a>
+                                        <div class="arrow arrow-right"></div>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="work_content_item flex-row vcenter">
-                            <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work_content_item_pic">
-                            <div class="work_content_item_container flex-col vcenter">
-                                <span class="work_content_item_container_title">Refraction of Light</span>
-                                <div class="work_content_item_container_subtitle flex-row vcenter">
-                                    <span class="work_subtitle_date">July, 2023</span>
-                                    <span class="work_subtitle_type">Web App</span>
-                                    <img src="images/html.png">
-                                    <img src="images/js.png">
-                                </div><!-- get consistent icons. -->
-                                <p class="work_content_item_container_paragraph">
-                                    A way to visualize time-dependent vector fields, and an approximate
-                                    trajectory of a particle moving in the field, using the HTML5 Canvas element.
-                                    The user can enter any function describing a 2D time-dependent vector field and a visualization
-                                    is generated.
-                                </p>
-                                <button class="flex-row vcenter hcenter">
-                                    <a href="#">More</a>
-                                    <div></div>
-                                </button>
+                            <div class="work-item flex-row vcenter">
+                                <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work-item-img">
+                                
+                                <div class="left-padded-container-1 flex-col vcenter">
+                                    <span class="title-2 bottom-margin-container-2">Refraction of Light</span>
+
+                                    <div class="flex-row vcenter">
+                                        <span class="subtitle-gray-2">July, 2023</span>
+                                        <span class="leftright-margin-container-2">&middot;</span>
+                                        <span class="subtitle-gray-2">Web App</span>
+                                        <img class="icon left-margin-container-2" src="images/html.png">
+                                        <img class="icon left-margin-container-2" src="images/js.png">
+                                        <!-- get consistent icons. all from the same package ish -->
+                                    </div>
+
+                                    <p>
+                                        A way to visualize time-dependent vector fields, and an approximate
+                                        trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization
+                                        is generated.
+                                    </p>
+
+                                    <button class="flex-row vcenter hcenter container-width-40 topbottom-padded-container-1 rounded-2">
+                                        <a href="#">More</a>
+                                        <div class="arrow arrow-right"></div>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="work_content_item flex-row vcenter">
-                            <img src="images/bg1t.jpeg" class="work_content_item_pic">
-                            <div class="work_content_item_container flex-col vcenter">
-                                <span class="work_content_item_container_title">Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.</span>
-                                <div class="work_content_item_container_subtitle flex-row vcenter">
-                                    <span class="work_subtitle_date">July, 2023</span>
-                                    <span class="work_subtitle_type">Article</span>
-                                    <img src="images/html.png">
-                                    <img src="images/js.png">
-                                </div><!-- get consistent icons. -->
-                                <p class="work_content_item_container_paragraph">
-                                    My submission for an assignment from a Signals and Systems module at university. An exploration of the motivation behind various transforms, and developing an intuition for them.
-                                </p>
-                                <button class="flex-row vcenter hcenter">
-                                    <a href="article.html">Read</a>
-                                    <div></div>
-                                </button>
+                            <div class="work-item flex-row vcenter">
+                                <img src="https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif" class="work-item-img">
+                                
+                                <div class="left-padded-container-1 flex-col vcenter">
+                                    <span class="title-2 bottom-margin-container-2">Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.</span>
+
+                                    <div class="flex-row vcenter">
+                                        <span class="subtitle-gray-2">July, 2023</span>
+                                        <span class="leftright-margin-container-2">&middot;</span>
+                                        <span class="subtitle-gray-2">Article</span>
+                                        <!-- latex icon? anything else? -->
+                                    </div>
+
+                                    <p>
+                                        My submission for an assignment from a Signals and Systems module at university. An exploration of the motivation behind various transforms, and developing an intuition for them.
+                                    </p>
+
+                                    <button class="flex-row vcenter hcenter container-width-40 topbottom-padded-container-1 rounded-2">
+                                        <a href="article.html">Read</a>
+                                        <div class="arrow arrow-right"></div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -197,7 +225,7 @@
                         <span class="flex-row vcenter scrollitem" id="work_scroll_more">see more</span>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </body>
     <script src="scripts.js"></script>
