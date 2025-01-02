@@ -2,7 +2,7 @@ body {
 	margin: 10vh 0;
 }
 
-#backtotop {
+#back-to-top {
 	position: fixed;
 	width: 50px;
 	height: 50px;
@@ -10,51 +10,53 @@ body {
 	bottom: 20px;
 }
 
-#backtotop #toparrow {
-	border-top: 3px solid black;
-	border-left: 3px solid black;
-	transform: rotateZ(45deg);
-	width: 15px;
-	height: 15px;
-}
-
-#backtotop:hover {
-	cursor: pointer;
-}
-
-#backtotop:hover #toparrow {
-	transition: all 0.1s ease-in;
-	transform: translateY(-30%) rotateZ(45deg);
-}
-
 #navbar {
 	width: 60vw;
 	padding: 0 1vh 8vh 1vh;
 }
-#listofarticles #backarrow {
-	width: 20px;
-	height: 20px;
-	border-left: 3px solid black;
-	border-bottom: 3px solid black;
-	transform: rotateZ(45deg) translateX(0);
-	margin-right: 10px;
-}
 
-#listofarticles:hover {
-	cursor: pointer;
-}
-
-#listofarticles:hover #backarrow {
-	transition: all 0.1s ease-in;
-	transform: translateX(-30%) rotateZ(45deg);
-}
-
-#header {
+#article-header {
 	width: 60vw;
-	margin-bottom: 2vh;
 }
 
-#header h1 {
+#article-data {
+	padding: 2vh;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#publish-data img {
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+#author-name {
+	font-size: 120%;
+}
+
+#publish-date {
+	font-size: 80%;
+}
+
+#share-data {
+	font-size: 95%;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+#article-content {
+	counter-reset: table-count;
+	counter-reset: fig-count;
+	width: 45vw;
+	font-family: "Georgia";
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	counter-reset: fig-count;
+}
+
+.article-title-1 {
 	font-size: 8vh;
     font-family: "Inter Tight";
     line-height: 100%;
@@ -62,52 +64,7 @@ body {
     font-weight: normal;
 }
 
-#data {
-	width: 100%;
-	padding: 2vh;
-	justify-content: space-between;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#publishdata img {
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-	object-fit: cover;
-	margin-right: 2vh;
-}
-
-#authorname {
-	font-size: 120%;
-}
-
-#date {
-	font-size: 80%;
-}
-
-#sharing {
-	font-size: 95%;
-	align-items: flex-end;
-	justify-content: flex-end;
-}
-
-#sharing img {
-	width: 20px;
-	height: 20px;
-	margin: 10px 0 0 10px;
-}
-
-#articletext {
-	width: 45vw;
-	font-family: "Georgia";
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	padding-bottom: 2vh;
-	margin-bottom: 2vh;
-	counter-reset: fig-count;
-}
-
-#articletext h2 {
+.article-title-2 {
 	font-size: 4.3vh;
     font-family: "Inter Tight";
     line-height: 100%;
@@ -115,16 +72,11 @@ body {
     font-weight: 500;
 }
 
-.para {
+.article-para {
 	position: relative;
 	width: 100%;
 	text-align: justify;
 	margin: 2vh 0;
-	line-height: 180%;
-}
-
-ul, ol {
-	margin: 0;
 	line-height: 180%;
 }
 
@@ -142,62 +94,38 @@ ul, ol {
 	border-bottom-right-radius: 15px;*/
 }
 
-.table {
-	border-spacing: 0;
+.article-table {
 	align-self: center;
-	border-collapse: collapse;
 	margin: 2vh 0;
 }
 
-.table td {
+.article-table td {
 	padding: 5px;
 	text-align: center;
 	border: 1px solid;
 }
 
-.table td:nth-child(1) {
-	padding: 5px;
+.article-table tr td:nth-child(1) {
 	text-align: right;
 }
 
-.table td.emptycell {
+.article-table .empty-cell {
 	border: 0;
 }
 
-.table caption {
+.article-table caption {
 	caption-side: bottom;
 	margin-top: 2vh;
 	font-size: 90%;
 }
 
-.table caption .tablenumber {
-	counter-reset: table-count;
+.article-table-count {
 	font-weight: bold;
 }
 
-.table caption .tablenumber::after {
-	content: ' ' counter(table-count) ': ';
+.article-table-count::after {
+	content: "\00a0" counter(table-count) ":\00a0";
 	counter-increment: table-count;
-}
-
-ol.references {
-	counter-reset: ref-list;
-	list-style-type: none;
-}
-
-ol.references li::before {
-	position: absolute;
-	display: inline-block;
-	text-align: right;
-	width: 30px;
-	padding-right: 7px;
-	transform: translateX(-100%);
-	content: '[' counter(ref-list) ']';
-	counter-increment: ref-list;
-}
-
-ol.references li {
-	margin: 1.5vh 0;
 }
 
 .middle-figure {
@@ -215,9 +143,10 @@ ol.references li {
 .middle-figure figcaption {
 	margin-top: 15px;
 	font-size: 95%;
+	text-align: center;
 }
 
-.middle-figure .fig-captiontext::before {
+.middle-figure figcaption::before {
 	content: "Figure\00a0" counter(fig-count) ":\00a0";
 	counter-increment: fig-count;
 }
@@ -230,9 +159,20 @@ ol.references li {
 	counter-reset: subfig-count;
 }
 
-.middle-multi-figure .multifig-captiontext::before {
-	content: "Figure\00a0" counter(fig-count) ":\00a0";
-	counter-increment: fig-count;
+.middle-multi-figure figcaption {
+	padding-top: 0px;
+	min-height: 4vh;
+	font-size: 90%;
+	line-height: 120%;
+	text-align: center;
+}
+
+.middle-multi-figure .subfigure {
+	margin: 1vh;
+}
+
+.middle-multi-figure .subfigure img {
+	width: 100%;
 }
 
 .middle-multi-figure .subfigure figcaption {
@@ -240,26 +180,7 @@ ol.references li {
 	min-height: 4vh;
 	font-size: 80%;
 	line-height: 120%;
-}
-
-.middle-multi-figure .subfigure figcaption .subfig-captiontext::before {
-	content: "(" counter(subfig-count) ")";
-	counter-increment: subfig-count;
-}
-
-.middle-multi-figure figcaption {
-	padding-top: 10px;
-	min-height: 4vh;
-	font-size: 90%;
-	line-height: 120%;
-}
-
-.middle-multi-figure .subfigure {
-	margin: 0 1vh;
-}
-
-.middle-multi-figure .subfigure img {
-	width: 100%;
+	text-align: center;
 }
 
 .side-figure {
@@ -267,19 +188,11 @@ ol.references li {
 	width: 20vw;
 	margin: 0;
 	top: 0;
-	height: 100%;
 	max-height: 54vh;
 }
 
-.side-figure.left {
-	left: -20vw;
-	padding-right: 20px;
-	justify-content: flex-end;
-}
-
-.side-figure.right {
-	right: -20vw;
-	padding-left: 20px;
+.side-figure.limit-height {
+	height: 100%;
 }
 
 .side-figure img {
@@ -295,14 +208,62 @@ ol.references li {
 	line-height: 120%;
 }
 
-.side-figure.left figcaption {
+.side-figure-left {
+	left: -20vw;
+	padding-right: 20px;
 	justify-content: flex-end;
+}
+
+.side-figure-right {
+	right: -20vw;
+	padding-left: 20px;
+}
+
+.side-figure-left figcaption {
 	text-align: right;
 }
 
-.side-figure .fig-captiontext::before {
-	content: "Figure\00a0" counter(fig-count) ":\00a0";
+.side-figure-right figcaption {
+	text-align: left;
+}
+
+.figure-count {
+	font-weight: bold;
+}
+
+.figure-count::after {
+	content: "\00a0" counter(fig-count) ":\00a0";
 	counter-increment: fig-count;
+}
+
+.subfigure-count::after {
+	content: "(" counter(subfig-count) ")";
+	counter-increment: subfig-count;
+}
+
+.figure-source::before {
+	content: "Source:\00a0";
+}
+
+.references-list {
+	counter-reset: ref-list;
+	list-style-type: none;
+	line-height: 180%;
+}
+
+.references-list li::before {
+	content: "[" counter(ref-list) "]";
+	position: absolute;
+	display: inline-block;
+	text-align: right;
+	width: 30px;
+	padding-right: 7px;
+	transform: translateX(-100%);
+	counter-increment: ref-list;
+}
+
+.references-list li {
+	margin: 1.5vh 0;
 }
 
 #feedback {
@@ -312,14 +273,6 @@ ol.references li {
 
 #feedback #thanks {
 	font-size: 95%;
-}
-
-#feedback h2 {
-	font-size: 4.3vh;
-    font-family: "Inter Tight";
-    line-height: 100%;
-    font-weight: 500;
-    margin: 1.6vh 0;
 }
 
 #feedback form {
