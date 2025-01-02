@@ -8,10 +8,6 @@ body {
     overflow-x: hidden;
 }
 
-a {
-    color: black;
-}
-
 ul, ol {
     margin: 0;
 }
@@ -30,6 +26,7 @@ button:focus {
 
 button a {
     text-decoration: none;
+    color: black;
 }
 
 table {
