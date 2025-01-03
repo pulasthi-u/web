@@ -160,8 +160,8 @@ class Plot extends SVGStage {
             var xaxis = new SVGLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
             this.addElement(xaxis);
 
-            var arrowPathString = this.getSVGPathString("M " + this.#rightmostX + " 0");
-            arrowPathString += "m -5 -2 l 5 2 l -5 2";
+            var farRight = this.getSVGCoords(this.#rightmostX, 0);
+            var arrowPathString = "M " + farRight.x + " " + farRight.y + " m -5 -2 l 5 2 l -5 2";
             var rightArrow = new SVGPath(arrowPathString);
             this.addElement(rightArrow);
 
@@ -178,8 +178,8 @@ class Plot extends SVGStage {
             var yaxis = new SVGLine(startPoint.x, startPoint.y, endPoint.x, endPoint.y);
             this.addElement(yaxis);
 
-            var arrowPathString = this.getSVGPathString("M 0 " + this.#topmostY);
-            arrowPathString += "m -2 5 l 2 -5 l 2 5";
+            var farTop = this.getSVGCoords(0, this.#topmostY);
+            var arrowPathString = "M " + farTop.x + " " + farTop.y + " m -2 5 l 2 -5 l 2 5";
             var topArrow = new SVGPath(arrowPathString);
             this.addElement(topArrow);
 
@@ -249,4 +249,8 @@ class Plot extends SVGStage {
 
         return curveElement;
     }
+}
+
+function I(x) {
+    return x;
 }

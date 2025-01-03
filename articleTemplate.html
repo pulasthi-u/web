@@ -17,6 +17,7 @@
 	<script>window.MathJax = { tex: { tags: 'all' } }; </script>
 	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
+	<script src="svgGraph.js"></script>
 
 	<title>My Article</title>
 </head>
@@ -410,6 +411,88 @@
 				\label{ft_analysis}
 			\]
 			that we call the <b>Fourier Transform</b> of \(\hat{x}(t)\).
+
+			<figure class="middle-multi-figure flex-col vcenter">
+	            <div class="figures flex-col">
+	                <figure class="subfigure flex-col">
+	                    <div class="svg-graph" id="graph1"></div>
+						<script>
+							var parent = document.getElementById('graph1');
+							var plot = new Plot(parent, -7, 10, -2, 2);
+							plot.drawGridlines();
+							plot.drawCoordinateAxes();
+							plot.displayNumbers();
+							
+							function y(x) {
+								var A = 1;
+								var T = 3;
+								var result = 0;
+								for (var i = 0; i < 10; i++) {
+									var m = 2*i + 1;
+									var coeff = (4 * A) / (m * Math.PI);
+									result += coeff * Math.sin((m * Math.PI * x) / (0.5 * T));									
+								}
+								return result;
+							};
+
+							function sqr(x) {
+								var A = 1;
+								var T = 3;
+								var floored = Math.floor(x / (0.5 * T));
+								if (Math.abs(floored % 2) == 1) {
+									return -1;
+								} else {
+									return 1;
+								}
+							};
+
+							plot.drawCurve(I, y, -6, 8, 1000);
+							var sqrWave = plot.drawCurve(I, sqr, -6, 8, 1000);
+							sqrWave.setProperty("stroke", "red");
+						</script>
+	                    <figcaption>
+	                        <span class="subfigure-count"></span>
+	                    </figcaption>
+	                </figure>
+
+	                <figure class="subfigure flex-col">
+	                    <div class="svg-graph" id="graph2"></div>
+						<script>
+							var parent = document.getElementById('graph2');
+							var plot = new Plot(parent, -7, 10, -2, 2);
+							plot.drawGridlines();
+							plot.drawCoordinateAxes();
+							plot.displayNumbers();
+
+							function y(x) {
+								var A = 1;
+								var T = 3;
+								var floored = Math.floor(x / (0.5 * T));
+								if (Math.abs(floored % 2) == 1) {
+									return -1;
+								} else {
+									return 1;
+								}
+							};
+
+							plot.drawCurve(I, y, -6, 8, 1000);
+						</script>
+	                    <figcaption>
+	                        <span class="subfigure-count"></span>
+	                    </figcaption>
+	                </figure>
+	            </div>
+
+	            <figcaption>
+	                <span class="figure-count">Figure</span>
+	  				<span class="">
+	  					SVG Graphs.
+	  					<span class="figure-source">
+	  						<a href="https://en.wikipedia.org/wiki/File:Fourier2_-_restoration1.jpg">A long hyperlink to the sources of the images.</a>
+	  					</span>
+	  				</span>
+	            </figcaption>
+	        </figure>
 		</div>
 
 		<div class="article-para">

@@ -140,6 +140,11 @@ body {
 	object-fit: cover;
 }
 
+.middle-figure .svg-graph {
+	width: 100%;
+	height: 50vh;
+}
+
 .middle-figure figcaption {
 	margin-top: 15px;
 	font-size: 95%;
@@ -175,6 +180,11 @@ body {
 	width: 100%;
 }
 
+.middle-multi-figure .subfigure .svg-graph {
+	width: 100%;
+	height: 30vh; /* allow control over this. */
+}
+
 .middle-multi-figure .subfigure figcaption {
 	padding-top: 10px;
 	min-height: 4vh;
@@ -197,6 +207,11 @@ body {
 
 .side-figure img {
 	object-fit: cover;
+	height: calc(100% - 4vh - 10px);
+	max-height: 50vh;
+}
+
+.side-figure .svg-graph {
 	height: calc(100% - 4vh - 10px);
 	max-height: 50vh;
 }
