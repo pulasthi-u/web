@@ -36,9 +36,8 @@ function nextSection(e) {
 };
 
 function showWorkItem(i) {
-    // items has the elements ordered in the same order that they appear in the HTML. However, the elements are
-    // rendered on top of each other, and the first one to appear in the HTML is actually at the very bottom.
     workitems.style.transform = 'translateX(-' + (i * 60) + 'vw)';
+
     for (var j = 0; j < workscrollitems.length; j++) {
         if (j == i) {
             workscrollitems[j].className = "flex-row vcenter hcenter left-margin-1_5 scroll-item selected";
