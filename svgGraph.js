@@ -161,7 +161,7 @@ class Plot extends SVGStage {
             this.addElement(xaxis);
 
             var farRight = this.getSVGCoords(this.#rightmostX, 0);
-            var arrowPathString = "M " + farRight.x + " " + farRight.y + " m -5 -2 l 5 2 l -5 2";
+            var arrowPathString = "M " + farRight.x + " " + farRight.y + " m -7 -2 l 7 2 l -7 2";
             var rightArrow = new SVGPath(arrowPathString);
             this.addElement(rightArrow);
 
@@ -179,7 +179,7 @@ class Plot extends SVGStage {
             this.addElement(yaxis);
 
             var farTop = this.getSVGCoords(0, this.#topmostY);
-            var arrowPathString = "M " + farTop.x + " " + farTop.y + " m -2 5 l 2 -5 l 2 5";
+            var arrowPathString = "M " + farTop.x + " " + farTop.y + " m -2 7 l 2 -7 l 2 7";
             var topArrow = new SVGPath(arrowPathString);
             this.addElement(topArrow);
 
