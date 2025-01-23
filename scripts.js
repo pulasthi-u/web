@@ -47,4 +47,4 @@ function showWorkItem(i) {
     }
 }
 
-document.addEventListener("scroll", nextSection);
+// document.addEventListener("scroll", nextSection);
