@@ -3,8 +3,9 @@
 }
 
 #contact form {
-    display: flex;
     width: 68%;
+
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -17,24 +18,29 @@ input[type="text"],
 input[type="email"],
 textarea {
     width: 100%;
-    font-family: 'Instrument Sans';
     padding: 10px;
+
     border: 1px solid rgb(195, 195, 195);
     border-radius: 5px;
+
+    font-family: 'Instrument Sans';
 }
 
 input[type="submit"] {
-    font-family: 'Instrument Sans';
-    font-size: 13px;
-    display: flex;
+    height: 40px;
+    padding: 10px 50px;
+    
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    padding: 10px 50px;
+    
     background-color: rgb(232, 232, 232);
     border: none;
     border-radius: 5px;
+
+    font-family: 'Instrument Sans';
+    font-size: 13px;
+    display: flex;
 }
 
 footer {

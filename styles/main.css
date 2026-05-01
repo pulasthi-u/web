@@ -1,6 +1,10 @@
+/* Common Styles */
+
 body {
     margin: 0;
     overflow: hidden;
+
+    font-family: 'Instrument Sans';
 }
 
 img {
@@ -33,6 +37,40 @@ h2 {
     font-size: 30px;
 }
 
+/* Classes for commonly used flex containers
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row.align-t, .flex-col.align-l {
+    align-items: flex-start;
+}
+
+.flex-row.align-b, .flex-col.align-r {
+    align-items: flex-end;
+}
+
+.flex-row.align-l, .flex-col.align-t {
+    justify-content: flex-start;
+}
+
+.flex-row.align-r, .flex-col.align-b {
+    justify-content: flex-end;
+}
+
+*/
+
 button {
     display: flex;
     flex-direction: row;
@@ -56,7 +94,7 @@ button {
     z-index: -1;
 }
 
-section {
+.page {
     height: 100vh;
     width: 90vw;
 
@@ -64,21 +102,19 @@ section {
     flex-direction: row;
 }
 
-.section-img {
+.page-img {
     width: 50%;
     height: 100%;
     object-fit: cover;
 }
 
-.section-content {
+.page-content {
     width: 42%;
     padding-left: 7%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    font-family: 'Instrument Sans';
 }
 
 .p-container {
