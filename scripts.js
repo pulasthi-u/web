@@ -1,50 +1,33 @@
-var prevScroll = 0;
-var scrollBreakpoint = window.innerHeight / 2;
+document.addEventListener("wheel", scrollHandler);
 
-var workitems = document.getElementById('work-items');
+let lastScrollY = 0;
+let scrolling = true;
+let currentSection = 0;
 
-var workscrollbar = document.getElementById('work-scrollbar');
-var workscrollitems = workscrollbar.getElementsByClassName('scroll-item');
+let sections = [
+    document.getElementById('home'),
+    document.getElementById('about'),
+    document.getElementById('projects'),
+    document.getElementById('contact')
+];
 
-function nextSection(e) {
-    var scrollbar = document.getElementById('main-scrollbar');
-    var scrollitems = scrollbar.getElementsByClassName('scroll-item');
+console.log(sections);
 
-    var scrollTop = window.scrollY;
-    var sign = scrollTop - prevScroll;
-    prevScroll = scrollTop;
+let scrollTimer = null;
 
-    // If sign > 0, we are scrolling down.
+function scrollHandler(e) {
+    clearTimeout(scrollTimer);
 
-    if ((scrollTop < scrollBreakpoint) & (sign < 0)) {
-        document.getElementById('home').style.animationName = "moveDown";
-        scrollitems[0].className = "scroll-item selected";
-        scrollitems[1].className = "scroll-item";
-    } else if ((scrollTop > scrollBreakpoint) & (scrollTop < 2 * scrollBreakpoint) & (sign > 0)) {
-        document.getElementById('home').style.animationName = "moveUp";
-        scrollitems[0].className = "scroll-item";
-        scrollitems[1].className = "scroll-item selected";
-    } else if ((scrollTop > scrollBreakpoint) & (scrollTop < 2 * scrollBreakpoint) & (sign < 0)) {
-        document.getElementById('about').style.animationName = "moveDown";
-        scrollitems[1].className = "scroll-item selected";
-        scrollitems[2].className = "scroll-item";
-    } else if ((scrollTop > 2 * scrollBreakpoint) & (sign > 0)) {
-        document.getElementById('about').style.animationName = "moveUp";
-        scrollitems[1].className = "scroll-item";
-        scrollitems[2].className = "scroll-item selected";
-    }
-};
-
-function showWorkItem(i) {
-    workitems.style.transform = 'translateX(-' + (i * 60) + 'vw)';
-
-    for (var j = 0; j < workscrollitems.length; j++) {
-        if (j == i) {
-            workscrollitems[j].className = "flex-row vcenter hcenter left-margin-1_5 scroll-item selected";
-        } else {
-            workscrollitems[j].className = "flex-row vcenter hcenter left-margin-1_5 scroll-item";
+    if (!scrolling) {
+        if (Math.abs(e.deltaY) >= 100) {
+            currentSection += e.deltaY > 0 ? 1 : -1;
+            currentSection = currentSection < 0 ? 0 : (currentSection > 3 ? 3 : currentSection);
+            sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+            scrolling = true;
         }
     }
-}
 
-// document.addEventListener("scroll", nextSection);
+    scrollTimer = setTimeout(() => {
+        scrolling = false;
+    }, 100);
+}
