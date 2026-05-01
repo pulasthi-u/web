@@ -34,16 +34,16 @@
     <img src="images/bg.png" id="background">
 
     <div id="scroll">
-        <svg class="arrow up" style="rotate: -90deg; scale: 0.8">
+        <svg class="arrow up" style="rotate: -90deg; scale: 0.8" onclick="scrollToSection((currentSection - 1) % 4)">
             <use href="#arrow" />
         </svg>
 
-        <div class="scroll-item selected"></div>
-        <div class="scroll-item"></div>
-        <div class="scroll-item"></div>
-        <div class="scroll-item"></div>
+        <div id="scroll-item-0" class="scroll-item selected" onclick="scrollToSection(0)"></div>
+        <div id="scroll-item-1" class="scroll-item" onclick="scrollToSection(1)"></div>
+        <div id="scroll-item-2"  class="scroll-item" onclick="scrollToSection(2)"></div>
+        <div id="scroll-item-3" class="scroll-item" onclick="scrollToSection(3)"></div>
 
-        <svg class="arrow down" style="rotate: 90deg; scale: 0.8">
+        <svg class="arrow down" style="rotate: 90deg; scale: 0.8" onclick="scrollToSection((currentSection + 1) % 4)">
             <use href="#arrow" />
         </svg>
     </div>
