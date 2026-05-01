@@ -1,0 +1,75 @@
+.work-item {
+    margin-top: 35px;
+}
+
+.work-item-metadata {
+    font-size: 13.5px;
+    color: rgb(166, 166, 166);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    margin-top: 7px;
+}
+
+.work-item-metadata .date-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.work-item-metadata .techs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    
+    gap: 15px;
+    height: 18px;
+}
+
+.work-item-metadata .techs img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.work-item button {
+    font-size: 13px;
+    height: 40px;
+    padding: 23px 50px;
+
+    margin-top: 15px;
+}
+
+.work-item-scroll {
+    margin-top: 45px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    font-size: 10px;
+}
+
+.work-item-scroll .scroll-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+}
+
+.work-item-scroll .scroll-item.selected {
+    color: white;
+    background-color: black;
+}

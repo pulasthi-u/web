@@ -1,0 +1,43 @@
+#contact .p-container p {
+    font-size: 16px;
+}
+
+#contact form {
+    display: flex;
+    width: 68%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    font-family: 'Instrument Sans';
+    padding: 10px;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    font-family: 'Instrument Sans';
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 10px 50px;
+    background-color: rgb(232, 232, 232);
+    border: none;
+    border-radius: 5px;
+}
+
+footer {
+    font-size: 14px;
+    margin-top: 20px;
+}

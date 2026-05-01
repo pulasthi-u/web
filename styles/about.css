@@ -1,0 +1,28 @@
+#follow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+#follow img {
+    height: 21px;
+    object-fit: cover;
+}
+
+#resume-link {
+    align-self: flex-end;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+
+    margin-top: 17px;
+    font-size: 14px;
+}

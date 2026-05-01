@@ -16,6 +16,37 @@ a:visited {
     color: black;
 }
 
+h1,
+h2,
+p {
+    margin: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-family: 'Inter Tight';
+    font-size: 80px;
+}
+
+h2 {
+    font-family: 'Inter Tight';
+    font-size: 30px;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: rgb(232, 232, 232);
+    border: none;
+    border-radius: 5px;
+
+    font-family: 'Instrument Sans';
+}
+
 #background {
     position: fixed;
     height: 100vh;
@@ -40,107 +71,31 @@ section {
 }
 
 .section-content {
-    width: 50%;
-    padding-left: 8%;
+    width: 42%;
+    padding-left: 7%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-nav {
-    margin-top: 23px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
 
     font-family: 'Instrument Sans';
+}
+
+.p-container {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+
     font-size: 15px;
 }
 
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: black;
-}
-
-#logo {
-    height: 40px;
-    width: 40px;
-    background-color: black;
-    border-radius: 50%;
-    margin-right: 18px;
-}
-
-#name {
-    margin: 0;
-    font-family: 'Playfair Display';
-    font-weight: lighter;
-    font-size: 27px;
-}
-
-#home-intro {
-    width: 90%;
-    margin-top: 60px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.section-content h1,
-#home-intro h2,
-#home-intro p {
-    margin: 0;
-}
-
-.section-content h1 {
-    font-family: 'Inter Tight';
-    font-size: 80px;
-    font-weight: normal;
-}
-
-#home-intro h2 {
-    font-family: 'Inter Tight';
-    font-size: 30px;
-    font-weight: normal;
-}
-
-#home-intro p {
-    font-family: 'Instrument Sans';
-    font-size: 16px;
-    font-weight: normal;
-
-    margin-top: 8px;
-}
-
-#home-intro button {
-    margin-top: 20px;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(232, 232, 232);
-    border: none;
-    border-radius: 5px;
-
-    font-family: 'Instrument Sans';
-    font-size: 14px;
+.arrow {
+    width: 20px;
+    height: 20px;
 }
 
 #scroll {
@@ -157,7 +112,7 @@ nav ul li a {
     gap: 20px;
 }
 
-.scroll-item {
+#scroll .scroll-item {
     width: 7px;
     height: 7px;
     border-radius: 100%;
@@ -165,246 +120,6 @@ nav ul li a {
     border: 1.5px solid black;
 }
 
-.scroll-item.selected {
+#scroll .scroll-item.selected {
     background-color: black;
-}
-
-.arrow {
-    border-left: 2px solid black;
-    border-top: 2px solid black;
-    width: 7px;
-    height: 7px;
-    background-color: white;
-}
-
-.arrow-up {
-    transform: rotateZ(45deg);
-}
-
-.arrow-down {
-    transform: rotateZ(-135deg);
-}
-
-#about-intro {
-    width: 90%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-#about-intro p {
-    width: 100%;
-    margin: 0;
-    font-family: 'Instrument Sans';
-    font-size: 15px;
-
-    margin-bottom: 20px;
-}
-
-#about-intro p:last-of-type {
-    margin-bottom: 0;
-}
-
-#follow {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-
-    font-family: 'Instrument Sans';
-    font-size: 14px;
-
-    margin-top: 25px;
-}
-
-#follow img {
-    height: 22px;
-    object-fit: cover;
-}
-
-#resume-link {
-    align-self: flex-end;
-    margin-top: 17px;
-    font-family: 'Instrument Sans';
-    font-size: 14px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.arrow-right {
-    margin-left: 10px;
-    width: 20px;
-    height: 20px;
-}
-
-#work-intro {
-    width: 90%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.work-item {
-    margin-top: 25px;
-}
-
-.work-item h2 {
-    margin: 0;
-    font-family: 'Inter Tight';
-    font-size: 30px;
-    font-weight: normal;
-}
-
-.work-item-desc {
-    font-family: 'Instrument Sans';
-    font-size: 13.5px;
-    color: rgb(166, 166, 166);
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-
-    margin-top: 7px;
-}
-
-.date-type {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-}
-
-.work-item-desc .techs {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-
-    height: 18px;
-}
-
-.techs img {
-    height: 100%;
-    object-fit: contain;
-}
-
-.work-item p {
-    font-family: 'Instrument Sans';
-    font-size: 15px;
-}
-
-.work-item button {
-    font-family: 'Instrument Sans';
-    font-size: 13px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    padding: 10px 50px;
-    background-color: rgb(232, 232, 232);
-    border: none;
-    border-radius: 5px;
-}
-
-.work-item-scroll {
-    margin-top: 45px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-
-    font-family: 'Instrument Sans';
-    font-size: 10px;
-}
-
-.work-item-scroll .page-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid black;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-}
-
-.page-item.selected {
-    color: white;
-    background-color: black;
-}
-
-.arrow-left {
-    width: 20px;
-    height: 20px;
-}
-
-#contact-intro {
-    width: 90%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;   
-}
-
-#contact-intro p {
-    font-family: 'Instrument Sans';
-    font-size: 16px;
-    font-weight: normal;
-
-    margin-top: 8px;
-}
-
-#contact-intro form {
-    display: flex;
-    width: 75%;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
-}
-
-input[type="text"], input[type="email"], textarea {
-    width: 100%;
-    font-family: 'Instrument Sans';
-    padding: 10px;
-    border: 1px solid rgb(195, 195, 195);
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    font-family: 'Instrument Sans';
-    font-size: 13px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    padding: 10px 50px;
-    background-color: rgb(232, 232, 232);
-    border: none;
-    border-radius: 5px;
-}
-
-footer {
-    font-family: 'Instrument Sans';
-    font-size: 14px;
-    font-weight: normal;
-
-    margin-top: 20px;
 }
