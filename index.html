@@ -8,8 +8,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
 
@@ -17,17 +16,163 @@
 </head>
 
 <body>
+    <img src="images/bg.png" id="background">
+
+    <div id="scroll">
+        <div class="arrow arrow-up"></div>
+
+        <div class="scroll-item selected"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+        <div class="scroll-item"></div>
+
+        <div class="arrow arrow-down"></div>
+    </div>
+
     <section id="home">
-        home
+        <img src="images/me4.jpeg" class="section-img">
+        <div class="section-content">
+            <header>
+                <div id="logo"></div>
+                <h2 id="name">Pulasthi Udugamasooriya</h2>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div id="home-intro">
+                <h1>Hello!</h1>
+                <h2>I'm Pulasthi. Nice to have you here! 😄</h2>
+                <p>
+                    24. Electronic and Telecommunications Engineering undergraduate at the University of Moratuwa, Sri
+                    Lanka.
+                </p>
+
+                <button>Read More</button>
+            </div>
+        </div>
     </section>
+
     <section id="about">
-        about
+        <img src="images/me2.jpeg" class="section-img">
+        <div class="section-content">
+            <div id="about-intro">
+                <h1>About Me</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ultricies aliquam ex eu ornare.
+                    Pellentesque aliquam urna mi, eget euismod orci eleifend sit amet.
+                </p>
+                <p>
+                    Suspendisse a vehicula sapien, in finibus odio. Etiam est arcu, condimentum quis sem sed, tincidunt
+                    posuere eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                    himenaeos.
+                </p>
+
+                <div id="follow">
+                    <span>Follow me on</span>
+                    <a href="#" target="_blank">
+                        <img src="images/instagram.png">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="images/linkedin.png">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="images/facebook.png">
+                    </a>
+                </div>
+
+                <div id="resume-link">
+                    <a href="#" target="_blank">View my Resume</a>
+                    <svg class="arrow-right" viewBox="-3 -3 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="butt"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
     </section>
+
     <section id="projects">
-        projects
+        <img src="images/bg1t.jpeg" class="section-img">
+        <div class="section-content">
+            <div id="work-intro">
+                <h1>My Work</h1>
+
+                <div class="work-item">
+                    <h2>Fourier Series, Fourier Transforms and Laplace Transforms. The Big Picture.</h2>
+
+                    <div class="work-item-desc">
+                        <div class="date-type">
+                            <span class="date">July 2023</span>
+                            <span>&#183;</span>
+                            <span class="type">Article</span>
+                        </div>
+                        <!-- <div class="techs">
+                            <img src="images/html.png">
+                            <img src="images/js.png">
+                        </div> -->
+                    </div>
+
+                    <p>
+                        A way to visualize time-dependent vector fields, and the approximate trajectory of a particle
+                        moving in the field, using the HTML5 Canvas element. The user can enter any function describing
+                        a 2D time-dependent vector field and a visualization is generated.
+                    </p>
+
+                    <button>
+                        Read More
+                        <svg class="arrow-right" viewBox="-4 -4 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2"
+                                stroke-linecap="butt" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="work-item-scroll">
+                    <svg class="arrow-left" viewBox="-4 -4 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="butt"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                    <div class="page-item selected">1</div>
+                    <div class="page-item">2</div>
+                    <div class="page-item">3</div>
+                    <div class="page-item">4</div>
+
+                    <svg class="arrow-left" viewBox="-4 -4 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="butt"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
     </section>
+
     <section id="contact">
-        contact
+        <img src="images/me3.jpeg" class="section-img">
+        <div class="section-content">
+            <div id="contact-intro">
+                <h1>Contact Me</h1>
+
+                <p>
+                    Send me a message. Even if it's just to say you visited. I'd love to hear from you! 😊
+                </p>
+
+                <form>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Your Message" rows="5"></textarea>
+                    <input type="submit" value="Send">
+                </form>
+
+                <footer>&copy; 2026 Pulasthi Udugamasooriya. All Rights Reserved.</footer>
+            </div>
+        </div>
     </section>
 </body>
 
