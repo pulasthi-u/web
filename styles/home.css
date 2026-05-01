@@ -24,6 +24,11 @@ nav ul {
 
 nav ul li {
     display: inline-block;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 
 #logo {
@@ -52,7 +57,7 @@ nav ul li {
 #home button {
     width: 100%;
     height: 50px;
-    
+
     margin-top: 20px;
     
     font-size: 14px;
