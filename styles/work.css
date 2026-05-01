@@ -62,13 +62,24 @@
 .work-item-scroll .scroll-item {
     width: 20px;
     height: 20px;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
 
     border: 1px solid black;
     border-radius: 100%;
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-in;
+
+        background-color: black;
+        color: white;
+    }
 }
 
 .work-item-scroll .scroll-item.selected {

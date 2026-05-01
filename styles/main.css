@@ -16,6 +16,10 @@ a {
     color: black;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 a:visited {
     color: black;
 }
@@ -83,6 +87,16 @@ button {
     border-radius: 5px;
 
     font-family: 'Instrument Sans';
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+
+        background-color: rgb(213, 213, 213);
+    }
 }
 
 #background {
@@ -132,6 +146,30 @@ button {
 .arrow {
     width: 20px;
     height: 20px;
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+    }
+
+    &.up:hover {
+        translate: 0 -5px;
+    }
+
+    &.down:hover {
+        translate: 0 5px;
+    }
+
+    &.left:hover {
+        translate: -5px 0;
+    }
+
+    &.right:hover {
+        translate: 5px 0;
+    }
 }
 
 #scroll {
@@ -154,6 +192,16 @@ button {
     border-radius: 100%;
     background-color: transparent;
     border: 1.5px solid black;
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-in;
+
+        background-color: black;
+    }
 }
 
 #scroll .scroll-item.selected {

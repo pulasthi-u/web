@@ -29,7 +29,8 @@ textarea {
 input[type="submit"] {
     height: 40px;
     padding: 10px 50px;
-    
+
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -40,7 +41,16 @@ input[type="submit"] {
 
     font-family: 'Instrument Sans';
     font-size: 13px;
-    display: flex;
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+
+        background-color: rgb(213, 213, 213);
+    }
 }
 
 footer {
