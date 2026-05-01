@@ -147,6 +147,18 @@ button {
     width: 20px;
     height: 20px;
 
+    &.up {
+        rotate: -90deg;
+    }
+
+    &.down {
+        rotate: 90deg;
+    }
+
+    &.left {
+        rotate: 180deg;
+    }
+
     &:hover {
         cursor: pointer;
 
