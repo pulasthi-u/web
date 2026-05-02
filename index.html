@@ -34,16 +34,16 @@
     <img src="images/bg.png" id="background">
 
     <div id="scroll">
-        <svg class="arrow up" style="scale: 0.8" onclick="scrollToSection((currentSection - 1) % 4)">
+        <svg class="arrow up" style="scale: 0.8">
             <use href="#arrow" />
         </svg>
 
-        <div id="scroll-item-0" class="scroll-item selected" onclick="scrollToSection(0)"></div>
-        <div id="scroll-item-1" class="scroll-item" onclick="scrollToSection(1)"></div>
-        <div id="scroll-item-2" class="scroll-item" onclick="scrollToSection(2)"></div>
-        <div id="scroll-item-3" class="scroll-item" onclick="scrollToSection(3)"></div>
+        <div id="scroll-item-0" class="scroll-item selected"></div>
+        <div id="scroll-item-1" class="scroll-item"></div>
+        <div id="scroll-item-2" class="scroll-item"></div>
+        <div id="scroll-item-3" class="scroll-item"></div>
 
-        <svg class="arrow down" style="scale: 0.8" onclick="scrollToSection((currentSection + 1) % 4)">
+        <svg class="arrow down" style="scale: 0.8">
             <use href="#arrow" />
         </svg>
     </div>
@@ -59,10 +59,10 @@
             </header>
             <nav>
                 <ul>
-                    <li onclick="scrollToSection(0)">Home</li>
-                    <li onclick="scrollToSection(1)">About</li>
-                    <li onclick="scrollToSection(2)">Projects</li>
-                    <li onclick="scrollToSection(3)">Contact</li>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Projects</li>
+                    <li>Contact</li>
                 </ul>
             </nav>
 
@@ -77,7 +77,7 @@
                 </p>
             </div>
 
-            <button onclick="scrollToSection(1)">Read More</button>
+            <button>Read More</button>
         </div>
     </section>
 
@@ -129,7 +129,7 @@
         <div class="page-content">
             <h1>My Work</h1>
 
-            <div class="work-items">
+            <div class="work-body">
                 <div class="work-item-scroll prev">
                     <div>
                         <svg class="arrow left" style="scale: 0.9">
@@ -141,37 +141,7 @@
                     <span id="work-item-count">Item 1 of 4</span>
                 </div>
 
-                <div class="work-item">
-                    <h2>Fourier Series, Fourier Transforms and Laplace Transforms. The Big Picture.</h2>
-
-                    <div class="work-item-metadata">
-                        <div class="date-type">
-                            <span class="date">July 2023</span>
-                            <span>&#183;</span>
-                            <span class="type">Article</span>
-                        </div>
-                        <div class="techs">
-                            <img src="images/html.png">
-                            <img src="images/js.png">
-                        </div>
-                    </div>
-
-                    <div class="p-container">
-                        <p>
-                            A way to visualize time-dependent vector fields, and the approximate trajectory of a
-                            particle
-                            moving in the field, using the HTML5 Canvas element. The user can enter any function
-                            describing
-                            a 2D time-dependent vector field and a visualization is generated.
-                        </p>
-                    </div>
-
-                    <button>
-                        Read More
-                        <svg class="arrow right" style="scale: 0.8">
-                            <use href="#arrow" />
-                        </svg>
-                    </button>
+                <div id="work-items">
                 </div>
 
                 <div class="work-item-scroll next">
@@ -209,7 +179,7 @@
     </section>
 </body>
 
-<script src="scripts.js"></script>
+<script type="module" src="scripts.js"></script>
 
 </html>
 

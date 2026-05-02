@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Vector Field Particle Animator",
+        "date": "July 2023",
+        "type": "Web App",
+        "techs": ["js.png", "html.png"],
+        "desc": "A way to visualize time-dependent vector fields, and the approximate trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization is generated.",
+        "img": "bg1t.jpeg"
+    },
+    {
+        "title": "Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.",
+        "date": "July 2023",
+        "type": "Article",
+        "techs": [],
+        "desc": "A way to visualize time-dependent vector fields, and the approximate trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization is generated.",
+        "img": "bg1t.jpeg"
+    }
+]
