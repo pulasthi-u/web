@@ -76,6 +76,14 @@ let currentProject = 0;
 
 const workItems = document.querySelector('#work-items');
 const workItemCount = document.querySelector('#work-item-count');
+const pageImg = document.querySelector('#projects .page-img');
+
+function constructWorkItemImg(projectIndex) {
+    const img = document.createElement("img");
+    img.src = projects[projectIndex].img;
+
+    return img;
+}
 
 function constructWorkItem(projectIndex) {
     const project = projects[projectIndex];
@@ -158,9 +166,15 @@ function moveToProject(projectIndex) {
     if (projectIndex > projects.length - 1) return;
 
     const oldWorkItem = document.querySelector('.work-item');
+    const oldWorkItemImg = document.querySelector('#projects .page-img img');
+
     const newWorkItem = constructWorkItem(projectIndex);
+    const newWorkItemImg = constructWorkItemImg(projectIndex);
 
     workItemCount.innerText = `Item ${projectIndex + 1} of ${projects.length}`;
+
+    const removeOldWorkItem = () => oldWorkItem?.remove();
+    const removeOldWorkItemImg = () => oldWorkItemImg?.remove();
 
     if (projectIndex > currentProject) {
         workItems.append(newWorkItem);
@@ -170,11 +184,16 @@ function moveToProject(projectIndex) {
             behavior: 'smooth'
         });
 
-        workItems.addEventListener('scrollend', () => {
-            if (oldWorkItem) {
-                workItems.removeChild(oldWorkItem);
-            }
-        }, { once: true });
+        workItems.addEventListener('scrollend', removeOldWorkItem, { once: true });
+
+        pageImg.append(newWorkItemImg);
+
+        pageImg.scrollTo({
+            left: oldWorkItemImg.clientWidth,
+            behavior: 'smooth'
+        });
+
+        pageImg.addEventListener('scrollend', removeOldWorkItemImg, { once: true });
     } else {
         workItems.prepend(newWorkItem);
         workItems.scrollLeft = oldWorkItem.clientWidth;
@@ -185,12 +204,19 @@ function moveToProject(projectIndex) {
                 behavior: 'smooth'
             });
 
-            workItems.addEventListener('scrollend', () => {
-                if (oldWorkItem) {
-                    workItems.removeChild(oldWorkItem);
-                }
-            }, { once: true });
+            workItems.addEventListener('scrollend', removeOldWorkItem, { once: true });
+        }, { once: true });
 
+        pageImg.prepend(newWorkItemImg);
+        pageImg.scrollLeft = oldWorkItemImg.clientWidth;
+
+        pageImg.addEventListener('scrollend', () => {
+            pageImg.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+
+            pageImg.addEventListener('scrollend', removeOldWorkItemImg, { once: true });
         }, { once: true });
     }
 
@@ -199,6 +225,7 @@ function moveToProject(projectIndex) {
 
 workItems.append(constructWorkItem(0));
 workItemCount.innerText = `Item 1 of ${projects.length}`;
+pageImg.append(constructWorkItemImg(0));
 
 document.querySelector(".work-item-scroll.prev div").addEventListener('click', () => {
     moveToProject(currentProject - 1);
