@@ -1,5 +1,5 @@
 body {
-	margin: 0 10vw;
+	margin: 5vh 10vw;
 	font-family: 'Instrument Sans';
 
 	display: flex;
@@ -21,6 +21,7 @@ header {
 	height: 35vh;
 	width: 48vw;
 	object-fit: cover;
+	border-radius: 20px 20px 0 0;
 }
 
 header h1 {
