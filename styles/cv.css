@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: 'Instrument Sans';
+}
+
+ul {
+    margin: 0;
+    padding-left: 25px;
+}
+
+#bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    object-fit: cover;
+    opacity: 0.04;
+}
+
+.cols {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cols.three .col-1, .cols.two .col-1 {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.cols.three .col-1 {
+    justify-content: flex-start;
+}
+
+.cols.two .col-1 {
+    justify-content: center;
+}
+
+.cols.three .col-2, .cols.two .col-2 {
+    padding-left: 5vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cols.three .col-2 {
+    width: 34vw;
+    justify-content: flex-start;
+}
+
+.cols.two .col-2 {
+    width: 42vw;
+    justify-content: center;
+    align-self: center;
+}
+
+.cols.three .col-3 {
+    width: 8vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.heading {
+    margin-bottom: -20px;
+}
+
+.heading h2 {
+    font-family: 'Inter Tight';
+    font-size: 30px;
+    margin: 15px 0;
+    font-weight: 450;
+}
+
+.heading hr {
+    width: 100%;
+    height: 0px;
+    border: 0.5px solid black;
+}
+
+.school-name .name, .work-name .name {
+    font-weight: 500;
+}
+
+.school-name .location, .work-name .location {
+    font-size: 14px;
+}
+
+.school-name .duration, .work-name .duration {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.school-work .main, .work-work .main {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.school-work .list, .work-work .list {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.school-work .list li {
+    line-height: 180%;
+}
+
+.work-work .list li {
+    margin-bottom: 8px;
+}
+
+.work-work .list li:last-of-type {
+    margin: 0
+}
+
+.school-logo img, .work-logo img {
+    width: 100%;
+    height: 7vh;
+    object-fit: contain;
+    object-position: top right;
+}
+
+#education, #experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
