@@ -1,6 +1,11 @@
 body {
 	margin: 0 10vw;
 	font-family: 'Instrument Sans';
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 table {
@@ -8,7 +13,90 @@ table {
 	border-collapse: collapse;
 }
 
+header {
+	width: 48vw;
+}
+
+#main-img {
+	height: 35vh;
+	width: 48vw;
+	object-fit: cover;
+}
+
+header h1 {
+	margin: 10px 0 0 0;
+	font-family: 'Inter Tight';
+	font-size: 45px;
+	font-weight: 400;
+	text-align: left;
+}
+
+.subtitle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 6.5vh;
+	margin-top: 10px;
+	padding: 15px 0;
+
+	border: 1px solid rgb(206, 206, 206);	
+	border-width: 1px 0 1px 0;
+}
+
+.share {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 10px;
+
+	font-size: 14.5px;
+}
+
+.share .icons {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: stretch;
+	gap: 30px;
+	
+	height: 40%;
+}
+
+.icon img {
+	height: 100%;
+	object-fit: cover;
+}
+
+.author {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.author img {
+	height: 100%;
+	object-fit: cover;
+	
+	border-radius: 100%;
+}
+
+.author div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	
+	margin-left: 15px;
+}
+
+.author .date-time {
+	font-size: 13px;
+}
+
 #article-content {
+	margin-top: 30px;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -78,6 +166,21 @@ table {
 	margin: 0;
 	line-height: 180%;
 	margin-top: -10px;
+}
+
+.main-panel blockquote {
+	margin: 0;
+	padding: 10px 20px 10px 15px;
+	background-color: rgba(228, 228, 228, 0.6);
+	border-left: 5px solid rgba(170, 170, 170, 0.4);
+	color: rgb(54, 54, 54);
+	font-style: italic;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 15px;
 }
 
 /* Figures */
