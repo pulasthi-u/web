@@ -1,104 +1,170 @@
 body {
-	margin: 10vh 0;
+	margin: 0 10vw;
+	font-family: 'Instrument Sans';
 }
 
-#back-to-top {
-	position: fixed;
-	width: 50px;
-	height: 50px;
-	right: 20px;
-	bottom: 20px;
-}
-
-#navbar {
-	width: 60vw;
-	padding: 0 1vh 8vh 1vh;
-}
-
-#article-header {
-	width: 60vw;
-}
-
-#article-data {
-	justify-content: space-between;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#publish-data img {
-	width: 50px;
-	height: 50px;
-	border-radius: 100%;
-	object-fit: cover;
-}
-
-#author-name {
-	font-size: 120%;
-}
-
-#publish-date {
-	font-size: 80%;
-}
-
-#share-data {
-	font-size: 95%;
-	align-items: flex-end;
-	justify-content: flex-end;
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 #article-content {
-	counter-reset: table-count;
-	counter-reset: fig-count;
-	width: 45vw;
-	font-family: "Georgia";
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	counter-reset: fig-count;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 30px;
+
+	font-family: 'Georgia';
+
+	counter-reset: figure-count table-count;
 }
 
-.article-title-1 {
-	font-size: 8vh;
-    font-family: "Inter Tight";
-    line-height: 120%;
-    margin: 0 0 4vh 0;
-    font-weight: normal;
-}
-
-.article-title-2 {
-	font-size: 4.3vh;
-    font-family: "Inter Tight";
-    line-height: 100%;
-    margin: 2.3vh 0;
-    font-weight: 500;
+#article-content h2 {
+	margin: 0 0 -20px 0;
+	font-family: 'Inter Tight';
+	font-size: 30px;
+	font-weight: 400;
+	text-align: left;
+	width: 48vw;
 }
 
 .article-para {
-	position: relative;
-	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.left-panel,
+.right-panel {
+	width: 16vw;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.left-panel {
+	align-items: flex-end;
+	text-align: right;
+	padding-right: 1.5vw;
+}
+
+.right-panel {
+	align-items: flex-start;
+	text-align: left;
+	padding-left: 1.5vw;
+}
+
+.main-panel {
+	width: 48vw;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+	gap: 15px;
+}
+
+.main-panel p {
+	margin: 0;
+	line-height: 180%;
 	text-align: justify;
-	margin: 2vh 0;
-	line-height: 200%;
 }
 
-.article-citation {
-	font-style: normal;
+.main-panel ul,
+.main-panel ol {
+	margin: 0;
+	line-height: 180%;
+	margin-top: -10px;
 }
 
-.quote {
-	width: 95%;
-	background-color: rgba(10, 10, 10, 0.1);
-	border-left: 5px solid rgba(10, 10, 10, 0.3);
-	/*font-style: italic;*/
-	color: rgb(25, 25, 25);
-	font-size: 90%;
-	align-self: center;
+/* Figures */
 
-	/*border-top-right-radius: 15px;
-	border-bottom-right-radius: 15px;*/
+figure {
+	margin: 0;
 }
 
-.article-table {
-	align-self: center;
-	margin: 2vh 0;
+figure img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.figure {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	flex: 1 1 calc(50% - 5px);
+
+	counter-increment: figure-count;
+}
+
+.figure figcaption {
+	margin-top: 10px;
+}
+
+.figure .figure-count {
+	color: rgb(138, 138, 138);
+}
+
+.figure.subfigure figcaption {
+	font-size: 14px;
+}
+
+.main-panel .figure figcaption,
+.figure.subfigure figcaption {
+	text-align: center;
+}
+
+.figure figcaption .figure-count {
+	font-weight: 600;
+}
+
+.figure figcaption .figure-count::after {
+	content: counter(figure-count);
+}
+
+.figure.multifigure {
+	counter-reset: subfigure-count;
+}
+
+.figure figcaption .figure-source {
+	display: inline-block;
+	font-style: italic;
+}
+
+.figure figcaption .figure-source::before {
+	content: 'Source:\00a0';
+
+	pointer-events: none;
+	color: black;
+	display: inline-block;
+}
+
+.subfigure-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.subfigure-container.row {
+	flex-direction: row;
+	align-items: flex-start;
+}
+
+.subfigure-container.column {
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.figure.subfigure {
+	counter-increment: subfigure-count;
+}
+
+.figure.subfigure figcaption .figure-count::after {
+	content: counter(subfigure-count);
 }
 
 .article-table td {
@@ -117,7 +183,7 @@ body {
 
 .article-table caption {
 	caption-side: bottom;
-	margin-top: 2vh;
+	margin-top: 10px;
 	font-size: 90%;
 }
 
@@ -127,145 +193,12 @@ body {
 
 .article-table-count::after {
 	content: "\00a0" counter(table-count) ":\00a0";
-	counter-increment: table-count;
-}
-
-.middle-figure {
-	width: 90%;
-	align-self: center;
-	margin: 2vh 0;
-}
-
-.middle-figure img {
-	width: 100%;
-	height: 50vh;
-	object-fit: cover;
-}
-
-.middle-figure .svg-graph {
-	width: 100%;
-	height: 50vh;
-}
-
-.middle-figure figcaption {
-	margin-top: 15px;
-	font-size: 95%;
-	text-align: center;
-}
-
-.middle-figure figcaption::before {
-	content: "Figure\00a0" counter(fig-count) ":\00a0";
-	counter-increment: fig-count;
-}
-
-.middle-multi-figure {
-	width: 100%;
-	align-self: center;
-	margin: 2vh 0;
-	justify-content: space-between;
-	counter-reset: subfig-count;
-}
-
-.middle-multi-figure figcaption {
-	padding-top: 0px;
-	min-height: 4vh;
-	font-size: 90%;
-	line-height: 120%;
-	text-align: center;
-}
-
-.middle-multi-figure .subfigure {
-	margin: 1vh;
-}
-
-.middle-multi-figure .subfigure img {
-	width: 100%;
-}
-
-.middle-multi-figure .subfigure .svg-graph {
-	width: 100%;
-	height: 30vh; /* allow control over this. */
-}
-
-.middle-multi-figure .subfigure figcaption {
-	padding-top: 10px;
-	min-height: 4vh;
-	font-size: 80%;
-	line-height: 120%;
-	text-align: center;
-}
-
-.side-figure {
-	position: absolute;
-	width: 20vw;
-	margin: 0;
-	top: 0;
-	max-height: 54vh;
-}
-
-.side-figure.limit-height {
-	height: 100%;
-}
-
-.side-figure img {
-	object-fit: cover;
-	height: calc(100% - 4vh - 10px);
-	max-height: 50vh;
-}
-
-.side-figure .svg-graph {
-	height: calc(100% - 4vh - 10px);
-	max-height: 50vh;
-}
-
-.side-figure figcaption {
-	padding-top: 10px;
-	min-height: 4vh;
-	font-size: 90%;
-	line-height: 120%;
-}
-
-.side-figure-left {
-	left: -20vw;
-	padding-right: 20px;
-	justify-content: flex-end;
-}
-
-.side-figure-right {
-	right: -20vw;
-	padding-left: 20px;
-}
-
-.side-figure-left figcaption {
-	text-align: right;
-}
-
-.side-figure-right figcaption {
-	text-align: left;
-}
-
-.figure-count {
-	font-weight: bold;
-}
-
-.figure-count::after {
-	content: "\00a0" counter(fig-count) ":\00a0";
-	counter-increment: fig-count;
-}
-
-.subfigure-count::after {
-	content: "(" counter(subfig-count) ")";
-	counter-increment: subfig-count;
-}
-
-.figure-source::before {
-	content: "Source:\00a0";
+	counter-increment: table-count
 }
 
 .references-list {
 	counter-reset: ref-list;
 	list-style-type: none;
-	line-height: 180%;
 }
 
 .references-list li::before {
@@ -281,54 +214,4 @@ body {
 
 .references-list li {
 	margin: 1.5vh 0;
-}
-
-#feedback {
-	padding-top: 2vh;
-	width: 55vw;
-}
-
-#feedback #thanks {
-	font-size: 95%;
-}
-
-#feedback form {
-	width: 70%;
-}
-
-#feedback form .tbox {
-	background-color: transparent;
-	width: 100%;
-	border: none;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	padding: 10px;
-	margin: 1.3vh 0;
-	font-family: "Roboto";
-}
-
-#feedback form textarea {
-	width: 100%;
-	border: none;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-	padding: 10px;
-	margin: 1.3vh 0;
-	font-family: "Roboto";
-	resize: none;
-}
-
-#feedback form .tbox:focus, #feedback form textarea:focus {
-	outline: none;
-	/*font-size: 100.1%;*/
-	transition: all 0.1s ease-in;
-	border-bottom: 1px solid black;
-}
-
-#feedback form .button {
-	align-self: flex-end;
-	border: none;
-	background-color: rgba(0, 0, 0, 0.1);
-	padding: 10px 0;
-	margin: 1.3vh 0;
-	font-family: Roboto;
-	width: 30%;
 }
