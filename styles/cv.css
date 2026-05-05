@@ -14,6 +14,7 @@ ul {
     position: fixed;
     object-fit: cover;
     opacity: 0.04;
+    z-index: -1;
 }
 
 .cols {
@@ -23,7 +24,8 @@ ul {
     align-items: flex-start;
 }
 
-.cols.three .col-1, .cols.two .col-1 {
+.cols.three .col-1,
+.cols.two .col-1 {
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -39,7 +41,8 @@ ul {
     justify-content: center;
 }
 
-.cols.three .col-2, .cols.two .col-2 {
+.cols.three .col-2,
+.cols.two .col-2 {
     padding-left: 5vw;
 
     display: flex;
@@ -84,31 +87,50 @@ ul {
     border: 0.5px solid black;
 }
 
-.school-name .name, .work-name .name {
+.school-name .name,
+.work-name .name,
+.skill-name .name {
     font-weight: 500;
 }
 
-.school-name .location, .work-name .location {
+.school-name .location,
+.work-name .location {
     font-size: 14px;
 }
 
-.school-name .duration, .work-name .duration {
+.school-name .duration,
+.work-name .duration {
     margin-top: 10px;
     font-size: 13px;
 }
 
-.school-work .main, .work-work .main {
+.school-work .main,
+.work-work .main {
     font-size: 17px;
     font-weight: 500;
 }
 
-.school-work .list, .work-work .list {
+.school-work .list,
+.work-work .list,
+.skill-list .list {
     margin-top: 10px;
     font-size: 15px;
 }
 
 .school-work .list li {
     line-height: 180%;
+}
+
+.skill-list .list li {
+    line-height: 150%;
+}
+
+.skill-list .list {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
 }
 
 .work-work .list li {
@@ -119,17 +141,89 @@ ul {
     margin: 0
 }
 
-.school-logo img, .work-logo img {
+.school-logo img,
+.work-logo img {
     width: 100%;
     height: 7vh;
     object-fit: contain;
     object-position: top right;
 }
 
-#education, #experience {
+#education,
+#experience, #skills, #extracurriculars {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+}
+
+ul.courses {
+    padding: 0;
+    list-style-type: none;
+
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+
+    transition: all 0.2s ease-in;
+}
+
+ul.courses li {
+    margin-top: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+ul.courses ul li {
+    margin: 0;
+}
+
+ul.courses ul {
+    padding: 5px 0 0 0;
+    margin-top: 5px;
+    list-style-type: none;
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+
+    border-top: 1px solid;
+
+    transition: all 0.2s ease-in;
+}
+
+.school-work .list a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dropdown {
+    height: 10px;
+    width: 22px;
+    margin-left: 8px;
+
+    transition: all 0.1s ease-in;
+}
+
+.semester {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.extracurricular .desc .verb {
+    font-size: 13px;
+}
+
+.extracurricular .desc .role {
+    font-weight: 500;
+}
+
+.extracurricular .desc .where {
+    font-size: 14px;
 }
