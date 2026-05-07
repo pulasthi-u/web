@@ -8,15 +8,6 @@ ul {
     padding-left: 25px;
 }
 
-#bg {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    object-fit: cover;
-    opacity: 0.04;
-    z-index: -1;
-}
-
 .cols {
     display: flex;
     flex-direction: row;

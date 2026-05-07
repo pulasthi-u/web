@@ -1,5 +1,5 @@
 body {
-	margin: 5vh 10vw;
+	margin: 10vh 10vw;
 	font-family: 'Instrument Sans';
 
 	display: flex;
@@ -14,9 +14,25 @@ table {
 }
 
 #back {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
 	align-self: flex-start;
-	border: 1px solid;
-	margin: 5vh 0;
+
+	margin-bottom: 7vh;
+
+	& span {
+		margin-left: 10px;
+	}
+}
+
+#back-to-top {
+	width: 30px;
+	height: 40px;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
 }
 
 #article-header {
@@ -36,6 +52,32 @@ table {
 		font-size: 45px;
 		font-weight: 400;
 		text-align: left;
+	}
+
+	& #article-tags {
+		margin: 10px 0 15px 0;
+
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 7px;
+
+		font-size: 12.5px;
+
+		& .tag {
+			padding: 2px 7px;
+			border-radius: 10px;
+			/* border: 1px solid rgb(8, 200, 50);
+			background-color: rgba(122, 212, 122, 0.3); */
+			border: 1px solid rgb(161, 161, 161);
+			background-color: rgba(206, 206, 206, 0.3);
+
+			&::before {
+				content: '#';
+			}
+		}
 	}
 }
 
@@ -214,6 +256,7 @@ figure {
 
 	& figcaption {
 		margin-top: 10px;
+		font-size: 13.5px;
 
 		& .figure-count {
 			color: rgb(138, 138, 138);
@@ -247,7 +290,7 @@ figure {
 	counter-increment: subfigure-count;
 
 	& figcaption {
-		font-size: 14px;
+		font-size: 13px;
 
 		& .figure-count::after {
 			content: counter(subfigure-count);
@@ -293,7 +336,7 @@ figure {
 	& caption {
 		caption-side: bottom;
 		margin-top: 10px;
-		font-size: 90%;
+		font-size: 13.5px;
 
 		& .article-table-count {
 			font-weight: bold;

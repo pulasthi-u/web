@@ -1,0 +1,62 @@
+a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:visited {
+        color: black;
+    }
+}
+
+.site-background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    opacity: 0.03;
+    z-index: -1;
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+
+    &.up {
+        rotate: -90deg;
+    }
+
+    &.down {
+        rotate: 90deg;
+    }
+
+    &.left {
+        rotate: 180deg;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+    }
+
+    &.up:hover {
+        translate: 0 -5px;
+    }
+
+    &.down:hover {
+        translate: 0 5px;
+    }
+
+    &.left:hover {
+        translate: -5px 0;
+    }
+
+    &.right:hover {
+        translate: 5px 0;
+    }
+}

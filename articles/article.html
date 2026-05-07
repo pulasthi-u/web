@@ -19,20 +19,45 @@
 		</script>
 	<script src="svgGraph.js"></script>
 
+	<link rel="stylesheet" href="../styles/common.css">
 	<link rel="stylesheet" href="../styles/article.css">
 
 	<title>My Article</title>
 </head>
 
-<body>
-	<div id="back">
-		Back to Blog
-	</div>
+<svg style="display: none">
+	<defs>
+		<symbol id="arrow" viewBox="-3 -3 16 16">
+			<polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="round"
+				stroke-linejoin="round" fill="none" />
+		</symbol>
+	</defs>
+</svg>
 
+<body>
+	<a id="back" href="../blog.html">
+		<svg class="arrow left" style="scale: 0.8">
+			<use href="#arrow" />
+		</svg>
+		<span>Back to Blog</a></span>
+	</a>
+
+	<svg id="back-to-top" class="arrow up" style="scale: 0.8">
+		<use href="#arrow" />
+	</svg>
+
+	<a name="top"></a>
 	<header id="article-header">
 		<img id="main-img" src="../images/bg1t.jpeg">
 
 		<h1>Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.</h1>
+
+		<div id="article-tags">
+			<div class="tag">article</div>
+			<div class="tag">fourier</div>
+			<div class="tag">assignment</div>
+			<div class="tag">signals-and-systems</div>
+		</div>
 
 		<div id="article-metadata">
 			<div class="author">
@@ -1128,5 +1153,7 @@
 	</div>
 	<!-- feedback form?	 -->
 </body>
+
+<script type="module" src="scripts/article.js"></script>
 
 </html>
