@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    font-family: 'Instrument Sans';
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -11,10 +16,20 @@ a {
     }
 }
 
+h1,
+h2,
+p {
+    margin: 0;
+}
+
 .site-background {
     position: fixed;
     height: 100vh;
     width: 100vw;
+
+    top: 0;
+    left: 0;
+
     object-fit: cover;
     opacity: 0.03;
     z-index: -1;
@@ -26,14 +41,40 @@ a {
 
     &.up {
         rotate: -90deg;
+
+        &:hover {
+            translate: 0 -5px;
+        }
+    }
+
+    &.up-right {
+        rotate: -45deg;
+
+        &:hover {
+            translate: 3px 0;
+        }
     }
 
     &.down {
         rotate: 90deg;
+
+        &:hover {
+            translate: 0 5px;
+        }
     }
 
     &.left {
         rotate: 180deg;
+
+        &:hover {
+            translate: -5px 0;
+        }
+    }
+
+    &.right {
+        &:hover {
+            translate: 5px 0;
+        }
     }
 
     &:hover {
@@ -43,20 +84,16 @@ a {
         transition-duration: 0.2s;
         transition-timing-function: ease-in;
     }
+}
 
-    &.up:hover {
-        translate: 0 -5px;
-    }
+.back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: flex-start;
 
-    &.down:hover {
-        translate: 0 5px;
-    }
-
-    &.left:hover {
-        translate: -5px 0;
-    }
-
-    &.right:hover {
-        translate: 5px 0;
+    & span {
+        margin-left: 10px;
     }
 }

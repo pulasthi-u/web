@@ -1,6 +1,9 @@
 body {
-    margin: 0;
-    font-family: 'Instrument Sans';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 5vh 0;
 }
 
 ul {
@@ -8,188 +11,241 @@ ul {
     padding-left: 25px;
 }
 
-.cols {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.cols.three .col-1,
-.cols.two .col-1 {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-}
-
-.cols.three .col-1 {
-    justify-content: flex-start;
-}
-
-.cols.two .col-1 {
-    justify-content: center;
-}
-
-.cols.three .col-2,
-.cols.two .col-2 {
-    padding-left: 5vw;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.cols.three .col-2 {
-    width: 34vw;
-    justify-content: flex-start;
-}
-
-.cols.two .col-2 {
-    width: 42vw;
-    justify-content: center;
-    align-self: center;
-}
-
-.cols.three .col-3 {
-    width: 8vw;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-
-.heading {
-    margin-bottom: -20px;
-}
-
-.heading h2 {
-    font-family: 'Inter Tight';
-    font-size: 30px;
-    margin: 15px 0;
-    font-weight: 450;
-}
-
-.heading hr {
-    width: 100%;
-    height: 0px;
-    border: 0.5px solid black;
-}
-
-.school-name .name,
-.work-name .name,
-.skill-name .name {
-    font-weight: 500;
-}
-
-.school-name .location,
-.work-name .location {
-    font-size: 14px;
-}
-
-.school-name .duration,
-.work-name .duration {
-    margin-top: 10px;
-    font-size: 13px;
-}
-
-.school-work .main,
-.work-work .main {
-    font-size: 17px;
-    font-weight: 500;
-}
-
-.school-work .list,
-.work-work .list,
-.skill-list .list {
-    margin-top: 10px;
-    font-size: 15px;
-}
-
-.school-work .list li {
-    line-height: 180%;
-}
-
-.skill-list .list li {
-    line-height: 150%;
-}
-
-.skill-list .list {
-    width: 100%;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-}
-
-.work-work .list li {
-    margin-bottom: 8px;
-}
-
-.work-work .list li:last-of-type {
-    margin: 0
-}
-
-.school-logo img,
-.work-logo img {
-    width: 100%;
-    height: 7vh;
-    object-fit: contain;
-    object-position: top right;
-}
-
-#education,
-#experience, #skills, #extracurriculars {
+.cv-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+
+    margin-top: 25px;
 }
 
-ul.courses {
-    padding: 0;
-    list-style-type: none;
+.cols {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
 
-    display: block;
-    overflow: hidden;
-    max-height: 0;
+    &.two .col-1,
+    &.three .col-1 {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+    }
 
-    transition: all 0.2s ease-in;
-}
+    &.two .col-1 {
+        justify-content: center;
+    }
 
-ul.courses li {
-    margin-top: 5px;
+    &.three .col-1 {
+        justify-content: flex-start;
+    }
 
-    &:hover {
-        cursor: pointer;
+    &.two .col-2,
+    &.three .col-2 {
+        padding-left: 5vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &.two .col-2 {
+        width: 42vw;
+        justify-content: center;
+    }
+
+    &.three .col-2 {
+        width: 34vw;
+        justify-content: flex-start;
+    }
+
+    &.three .col-3 {
+        width: 8vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
     }
 }
 
-ul.courses ul li {
-    margin: 0;
+#back-container {
+    width: 60vw;
 }
 
-ul.courses ul {
-    padding: 5px 0 0 0;
-    margin-top: 5px;
-    list-style-type: none;
-    display: block;
-    overflow: hidden;
-    max-height: 0;
+header {
+    margin-top: 5vh;
 
-    border-top: 1px solid;
+    &.heading {
+        & .col-1 {
+            align-self: stretch;
+        }
 
-    transition: all 0.2s ease-in;
+        & h2 {
+            font-weight: 350;
+        }
+    }
+
+    & img {
+        width: 25vh;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    & p {
+        margin-top: 7px;
+        font-size: 14.5px;
+    }
+
+    & .socials {
+        margin-top: 15px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+    }
+
+    & #pdf {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
 }
 
-.school-work .list a {
+.link-with-icon {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    font-size: 13px;
+
+    & img {
+        height: 15px;
+        width: 15px;
+        object-fit: cover;
+    }
+}
+
+.heading {
+    &.cols.two {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & h2 {
+        font-family: 'Inter Tight';
+        font-size: 30px;
+        font-weight: 450;
+
+        margin: 0;
+    }
+
+    & hr {
+        width: 100%;
+        height: 0px;
+        border: 0.5px solid black;
+    }
+}
+
+.col-1.name {
+    & .name {
+        font-weight: 500;
+    }
+
+    & .location {
+        font-size: 14px;
+    }
+
+    & .duration {
+        margin-top: 10px;
+        font-size: 13px;
+    }
+}
+
+.col-2.details {
+    & .main {
+        font-size: 17px;
+        font-weight: 500;
+
+        &~.list {
+            margin-top: 10px;
+        }
+    }
+
+    & .list {
+        font-size: 15px;
+    }
+}
+
+.school .details {
+    & .list {
+        & a {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        & li {
+            line-height: 180%;
+        }
+    }
+
+    & .courses {
+        padding: 0;
+        list-style-type: none;
+
+        display: block;
+        overflow: hidden;
+        max-height: 0;
+
+        transition: all 0.2s ease-in;
+
+        & li {
+            margin-top: 5px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        & .semester {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        & ul {
+            list-style-type: none;
+
+            display: block;
+            max-height: 0;
+
+            padding: 5px 0 0 0;
+            margin-top: 5px;
+
+            overflow: hidden;
+
+            border-top: 1px solid;
+
+            transition: all 0.2s ease-in;
+
+            & li {
+                margin: 0;
+            }
+        }
+    }
 }
 
 .dropdown {
@@ -200,21 +256,66 @@ ul.courses ul {
     transition: all 0.1s ease-in;
 }
 
-.semester {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.skill .details .list {
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+
+    & li {
+        line-height: 150%;
+    }
 }
 
-.extracurricular .desc .verb {
-    font-size: 13px;
+.work .details .list li {
+    margin-bottom: 8px;
+
+    &:last-of-type {
+        margin: 0
+    }
 }
 
-.extracurricular .desc .role {
-    font-weight: 500;
+.project {
+    & .col-1.name {
+        & .link-with-icon {
+            margin-top: 10px;
+        }
+    }
+
+    & .details .list li {
+        margin-bottom: 7px;
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
 }
 
-.extracurricular .desc .where {
+.extracurricular .details {
+    & .verb {
+        font-size: 13px;
+    }
+
+    & .role {
+        font-weight: 500;
+    }
+
+    & .where {
+        font-size: 14px;
+    }
+}
+
+.col-3.logo img {
+    width: 100%;
+    height: 7vh;
+    object-fit: contain;
+    object-position: top right;
+}
+
+footer {
+    margin-top: 7vh;
     font-size: 14px;
+    color: gray;
 }

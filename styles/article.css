@@ -13,20 +13,6 @@ table {
 	border-collapse: collapse;
 }
 
-#back {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
-	align-self: flex-start;
-
-	margin-bottom: 7vh;
-
-	& span {
-		margin-left: 10px;
-	}
-}
-
 #back-to-top {
 	width: 30px;
 	height: 40px;
@@ -37,6 +23,7 @@ table {
 
 #article-header {
 	width: 48vw;
+	margin-top: 6vh;
 
 	& #main-img {
 		height: 40vh;

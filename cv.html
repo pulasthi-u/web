@@ -27,8 +27,12 @@
 
 <svg style="display: none">
     <defs>
-        <symbol id="arrow" viewBox="1 3 8 9">
+        <symbol id="arrowhead" viewBox="1 3 8 9">
             <polyline points="0,5 5,10 10,5" stroke="#000" stroke-width="1.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="arrow" viewBox="-3 -3 16 16">
+            <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="round"
                 stroke-linejoin="round" fill="none" />
         </symbol>
     </defs>
@@ -37,7 +41,59 @@
 <body>
     <img src="images/bg.png" class="site-background">
 
-    <div id="education">
+    <div id="back-container">
+        <a id="back" class="back" href="index.html#about">
+            <svg class="arrow left" style="scale: 0.8">
+                <use href="#arrow" />
+            </svg>
+            <span>Back</span>
+        </a>
+    </div>
+
+    <header class="cols two heading">
+        <div class="col-1">
+            <img src="images/me5.jpeg">
+        </div>
+        <div class="col-2">
+            <h2>Personal Resume</h2>
+            <p>
+                I am an enthusiastic, detail-oriented undergraduate and self-motivated learner, with a strong passion in
+                the fields of robotics, embedded firmware, and signal processing.
+            </p>
+            <p>
+                I am eager to combine my extensive hands on experience with numerous embedded systems and robotics-based
+                solutions, with my strong foundation in theoretical concepts to contribute to developing cutting-edge
+                products and projects.
+            </p>
+            <div class="socials">
+                <a href="#" class="link-with-icon">
+                    <img src="images/linkedin.png">
+                    <span>LinkedIn</span>
+                    <svg class="arrow up-right" style="scale: 0.8">
+                        <use href="#arrow" />
+                    </svg>
+                </a>
+
+                <a href="#" class="link-with-icon">
+                    <img src="images/github.png">
+                    <span>GitHub</span>
+                    <svg class="arrow up-right" style="scale: 0.8">
+                        <use href="#arrow" />
+                    </svg>
+                </a>
+            </div>
+
+            <a href="#" class="link-with-icon" id="pdf">
+                <img src="images/pdf.png">
+                <span>Download as PDF</span>
+                <svg class="arrow down" style="scale: 0.8">
+                    <use href="#arrow" />
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div id="education" class="cv-section">
         <div class="cols two heading">
             <div class="col-1">
                 <h2>Education</h2>
@@ -48,13 +104,13 @@
         </div>
 
         <div class="cols three school">
-            <div class="col-1 school-name">
-                <span class="name">University of Moratuwa</span>
+            <div class="col-1 name">
+                <span class="name">University of Moratuwa (UoM)</span>
                 <span class="location">Sri Lanka</span>
                 <span class="duration">2022 - present</span>
             </div>
 
-            <div class="col-2 school-work">
+            <div class="col-2 details">
                 <span class="main">
                     B.Sc. (Hons.) Electronic and Telecommunications Engineering
                 </span>
@@ -65,7 +121,7 @@
                         <a>
                             Courses Taken
                             <svg class="arrow dropdown">
-                                <use href="#arrow" />
+                                <use href="#arrowhead" />
                             </svg>
                         </a>
                         <ul class="courses">
@@ -176,19 +232,19 @@
                 </ul>
             </div>
 
-            <div class="col-3 school-logo">
+            <div class="col-3 logo">
                 <img src="https://upload.wikimedia.org/wikipedia/en/6/60/University_of_Moratuwa_logo.png">
             </div>
         </div>
 
         <div class="cols three school">
-            <div class="col-1 school-name">
+            <div class="col-1 name">
                 <span class="name">Ananda College</span>
                 <span class="location">Colombo, Sri Lanka</span>
                 <span class="duration">2019 - 2021</span>
             </div>
 
-            <div class="col-2 school-work">
+            <div class="col-2 details">
                 <span class="main">
                     G. C. E. Advanced Level Examination
                 </span>
@@ -198,19 +254,19 @@
                 </ul>
             </div>
 
-            <div class="col-3 school-logo">
+            <div class="col-3 logo">
                 <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Ananda_College_Crest.png">
             </div>
         </div>
 
         <div class="cols three school">
-            <div class="col-1 school-name">
+            <div class="col-1 name">
                 <span class="name">Vidura College</span>
                 <span class="location">Colombo, Sri Lanka</span>
                 <span class="duration">2008 - 2018</span>
             </div>
 
-            <div class="col-2 school-work">
+            <div class="col-2 details">
                 <span class="main">
                     G. C. E. Ordinary Level Examination
                 </span>
@@ -219,14 +275,14 @@
                 </ul>
             </div>
 
-            <div class="col-3 school-logo">
+            <div class="col-3 logo">
                 <img
                     src="https://media.licdn.com/dms/image/v2/D560BAQFrQ4j615YyaQ/company-logo_200_200/company-logo_200_200/0/1692773830290/viduracollege_logo?e=2147483647&v=beta&t=hizB5IniIWQcUKd3tsKAUGUgfrZtJ-89Bnt5c3kbWUw">
             </div>
         </div>
     </div>
 
-    <div id="experience">
+    <div id="experience" class="cv-section">
         <div class="cols two heading">
             <div class="col-1">
                 <h2>Experience</h2>
@@ -237,13 +293,13 @@
         </div>
 
         <div class="cols three work">
-            <div class="col-1 work-name">
+            <div class="col-1 name">
                 <span class="name">King Abdullah University of Science and Technology (KAUST)</span>
                 <span class="location">Saudi Arabia (Remote)</span>
                 <span class="duration">January 2026 - present</span>
             </div>
 
-            <div class="col-2 work-work">
+            <div class="col-2 details">
                 <span class="main">
                     Research Intern
                 </span>
@@ -259,19 +315,19 @@
                 </ul>
             </div>
 
-            <div class="col-3 work-logo">
+            <div class="col-3 logo">
                 <img src="https://upload.wikimedia.org/wikipedia/en/7/70/KAUST_Logo.svg">
             </div>
         </div>
 
         <div class="cols three work">
-            <div class="col-1 work-name">
+            <div class="col-1 name">
                 <span class="name">Alta Vision (Pvt.) Ltd.</span>
                 <span class="location">Hokandara, Sri Lanka</span>
                 <span class="duration">December 2025</span>
             </div>
 
-            <div class="col-2 work-work">
+            <div class="col-2 details">
                 <span class="main">
                     Trainee, R&D Department
                 </span>
@@ -287,13 +343,13 @@
                 </ul>
             </div>
 
-            <div class="col-3 work-logo">
+            <div class="col-3 logo">
                 <img src="https://altavision.lk/static/images/latest-news/alta-vision-solar-helmet-square.webp">
             </div>
         </div>
     </div>
 
-    <div id="skills">
+    <div id="skills" class="cv-section">
         <div class="cols two heading">
             <div class="col-1">
                 <h2>Skills</h2>
@@ -303,12 +359,12 @@
             </div>
         </div>
 
-        <div class="cols two skills">
-            <div class="col-1 skill-name">
+        <div class="cols two skill">
+            <div class="col-1 name">
                 <span class="name">Programming Languages</span>
             </div>
 
-            <div class="col-2 skill-list">
+            <div class="col-2 details">
                 <ul class="list">
                     <li>Python</li>
                     <li>C/C++</li>
@@ -318,12 +374,12 @@
             </div>
         </div>
 
-        <div class="cols two skills">
-            <div class="col-1 skill-name">
+        <div class="cols two skill">
+            <div class="col-1 name">
                 <span class="name">Libraries and Frameworks</span>
             </div>
 
-            <div class="col-2 skill-list">
+            <div class="col-2 details">
                 <ul class="list">
                     <li>ROS2 (Robot Operating System)</li>
                     <li>Babylon.js</li>
@@ -332,12 +388,12 @@
             </div>
         </div>
 
-        <div class="cols two skills">
-            <div class="col-1 skill-name">
+        <div class="cols two skill">
+            <div class="col-1 name">
                 <span class="name">Software</span>
             </div>
 
-            <div class="col-2 skill-list">
+            <div class="col-2 details">
                 <ul class="list">
                     <li>Altium Designer</li>
                     <li>SolidWorks</li>
@@ -350,12 +406,12 @@
             </div>
         </div>
 
-        <div class="cols two skills">
-            <div class="col-1 skill-name">
+        <div class="cols two skill">
+            <div class="col-1 name">
                 <span class="name">Other Skills</span>
             </div>
 
-            <div class="col-2 skill-list">
+            <div class="col-2 details">
                 <ul class="list">
                     <li>HTML</li>
                     <li>CSS3</li>
@@ -366,7 +422,80 @@
 
     </div>
 
-    <div id="extracurriculars">
+    <div id="projects" class="cv-section">
+        <div class="cols two heading">
+            <div class="col-1">
+                <h2>Projects</h2>
+            </div>
+            <div class="col-2">
+                <hr>
+            </div>
+        </div>
+
+        <div class="cols two project">
+            <div class="col-1 name">
+                <span class="name">Forklift Mountable RFID Reader</span>
+                <span class="duration">February 2025 - July 2025</span>
+
+                <a href="#" class="link-with-icon">
+                    <img src="images/github.png">
+                    <span>View on GitHub</span>
+                    <svg class="arrow up-right" style="scale: 0.8">
+                        <use href="#arrow" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="col-2 details">
+                <ul class="list">
+                    <li>
+                        Led a team of eight students to design and manufacture a forklift-mountable RFID reader,
+                        tailored to meet the specific requirements of clients at a warehouse
+                    </li>
+                    <li>
+                        Developed and implemented low-level C/C++ firmware for ATMega328P and ATMega32U4
+                        microcontrollers by directly manipulating hardware registers, timers etc.
+                    </li>
+                    <li>
+                        Successfully implemented the ISO-14443-A protocol for RF communication on the PN532 and PN5180
+                        modules
+                    </li>
+                    <li>
+                        Developed firmware for an ESP32 microcontroller to receive data from RF modules and remotely log
+                        the data to a database in real time
+                    </li>
+                    <li>
+                        Implemented SPI for communication with the RF modules, and UART for communication with the ESP32
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cols two project">
+            <div class="col-1 name">
+                <span class="name"><i>SmartGlow</i> - Smart IoT-based Bulb Holder</span>
+                <span class="duration">January 2024 - June 2024</span>
+
+                <a href="#" class="link-with-icon">
+                    <img src="images/github.png">
+                    <span>View on GitHub</span>
+                    <svg class="arrow up-right" style="scale: 0.8">
+                        <use href="#arrow" />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="col-2 details">
+                <ul class="list">
+                    <li>Developed the schematics and designed a 2-layer PCB for <i>SmartGlow</i>, a smart,
+                        WiFi-controlled bulb adapter, for EN1190 (Semester 2) at UoM
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="extracurriculars" class="cv-section">
         <div class="cols two heading">
             <div class="col-1">
                 <h2>Extra-curriculars</h2>
@@ -380,7 +509,7 @@
             <div class="col-1">
             </div>
 
-            <div class="col-2 desc">
+            <div class="col-2 details">
                 <span class="verb">Served as</span>
                 <span class="role">Vice-President - Education</span>
                 <span class="where">Mathematics Society of the University of Moratuwa (2024/2025)</span>
@@ -391,7 +520,7 @@
             <div class="col-1">
             </div>
 
-            <div class="col-2 desc">
+            <div class="col-2 details">
                 <span class="verb">Served as</span>
                 <span class="role">Under Secretary-General of Public Relations and Information Media</span>
                 <span class="where">Sri Lanka Rotaract Model United Nations (SLRMUN) - 2023</span>
@@ -402,13 +531,17 @@
             <div class="col-1">
             </div>
 
-            <div class="col-2 desc">
+            <div class="col-2 details">
                 <span class="verb">Awarded</span>
                 <span class="role">Honorary Mention</span>
                 <span class="where">Sri Lanka Model United Nations (SLMUN) - 2019</span>
             </div>
         </div>
     </div>
+
+    <footer>
+        &copy; Pulasthi Udugamasooriya 2026 - All Rights Reserved
+    </footer>
 
 </body>
 
