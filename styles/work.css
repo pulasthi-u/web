@@ -21,6 +21,15 @@
 .work-item {
     width: 100%;
     flex-shrink: 0;
+
+    & button {
+        height: 40px;
+        padding: 23px 50px;
+
+        font-size: 13px;
+
+        margin-top: 15px;
+    }
 }
 
 .work-item-metadata {
@@ -34,38 +43,29 @@
     color: rgb(166, 166, 166);
 
     margin-top: 7px;
-}
 
-.work-item-metadata .date-type {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-}
+    & .date-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
 
-.work-item-metadata .techs {
-    height: 18px;
+    & .techs {
+        height: 18px;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-}
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
 
-.work-item-metadata .techs img {
-    height: 100%;
-    object-fit: contain;
-}
-
-.work-item button {
-    height: 40px;
-    padding: 23px 50px;
-
-    font-size: 13px;
-
-    margin-top: 15px;
+        & img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 }
 
 .work-item-scroll {

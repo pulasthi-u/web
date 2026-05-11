@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 8vh 0;
+}
+
+h1 {
+    font-family: 'Inter Tight';
+    font-size: 60px;
+    font-weight: 400;
+}
+
+#article-list {
+    margin-top: 8vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.article {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 38vh;
+    
+    border: 1px solid;
+    overflow: hidden;
+    border-radius: 0 20px 20px 0;
+
+    &>img {
+        width: 20vw;
+        object-fit: cover;
+    }
+
+    & .details {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        padding-left: 30px;
+        width: 40vw;
+
+        & h2 {
+            font-family: 'Inter Tight';
+            font-size: 28px;
+            font-weight: 400;
+        }
+
+        & .article-tags {
+            margin-top: 10px;
+        }
+
+        & p {
+            font-size: 14px;
+        }
+    }
+}
+
+.metadata {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    font-size: 13.5px;
+    color: rgb(166, 166, 166);
+
+    margin-top: 7px;
+
+    & .date-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    & .techs {
+        height: 18px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+
+        & img {
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.article-tags {
+    margin: 10px 0 15px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    font-size: 12.5px;
+
+    & .tag {
+        padding: 2px 7px;
+        border-radius: 10px;
+        border: 1px solid rgb(161, 161, 161);
+        background-color: rgba(206, 206, 206, 0.3);
+
+        &::before {
+            content: '#';
+        }
+    }
+}
