@@ -30,7 +30,15 @@ h1 {
     
     border: 1px solid;
     overflow: hidden;
-    border-radius: 0 20px 20px 0;
+    background-color: white;
+    /*border-radius: 0 20px 20px 0;*/
+
+    transition: all 0.1s ease;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px 1px lightgray;
+    }
 
     &>img {
         width: 20vw;
@@ -44,7 +52,7 @@ h1 {
         justify-content: center;
 
         padding-left: 30px;
-        width: 40vw;
+        width: 37vw;
 
         & h2 {
             font-family: 'Inter Tight';
@@ -59,6 +67,11 @@ h1 {
         & p {
             font-size: 14px;
         }
+    }
+
+    & .arrowhead {
+        align-self: center;
+        margin: 0 25px;
     }
 }
 

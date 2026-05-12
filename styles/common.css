@@ -86,6 +86,37 @@ p {
     }
 }
 
+.arrowhead {
+    height: 20px;
+    width: 20px;
+
+    transition: all 0.1s ease-in;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.up {
+        rotate: 180deg;
+    }
+
+    &.left {
+        rotate: 90deg;
+
+        &:hover {
+            translate: -5px 0;
+        }
+    }
+
+    &.right {
+        rotate: -90deg;
+
+        &:hover {
+            translate: 5px 0;
+        }
+    }
+}
+
 .back {
     display: flex;
     flex-direction: row;
