@@ -14,10 +14,10 @@
 
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/home.css">
-    <link rel="stylesheet" href="styles/about.css">
-    <link rel="stylesheet" href="styles/work.css">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/home_section.css">
+    <link rel="stylesheet" href="styles/about_section.css">
+    <link rel="stylesheet" href="styles/blog_section.css">
+    <link rel="stylesheet" href="styles/contact_section.css">
 
     <title>Pulasthi Udugamasooriya</title>
 </head>
@@ -56,15 +56,15 @@
         </div>
 
         <div class="page-content">
-            <header>
-                <div id="logo"></div>
-                <h2 id="name">Pulasthi Udugamasooriya</h2>
-            </header>
-            <nav>
+            <div class="name-logo">
+                <div class="logo"></div>
+                <h2 class="name">Pulasthi Udugamasooriya</h2>
+            </div>
+            <nav class="main-nav">
                 <ul>
                     <li>Home</li>
                     <li>About</li>
-                    <li>Projects</li>
+                    <li>Blog</li>
                     <li>Contact</li>
                 </ul>
             </nav>
@@ -129,16 +129,16 @@
         </div>
     </section>
 
-    <a name="projects"></a>
-    <section class="page" id="projects">
+    <a name="blog"></a>
+    <section class="page" id="blog">
         <div class="page-img">
         </div>
 
         <div class="page-content">
-            <h1>My Work</h1>
+            <h1>My Blog</h1>
 
-            <div class="work-body">
-                <div class="work-item-scroll prev">
+            <div class="blog-body">
+                <div class="blog-item-scroll prev">
                     <div>
                         <svg class="arrow left" style="scale: 0.9">
                             <use href="#arrow" />
@@ -146,18 +146,25 @@
                         <span>Previous</span>
                     </div>
 
-                    <span id="work-item-count"></span>
+                    <span id="blog-item-count"></span>
                 </div>
 
-                <div id="work-items">
+                <div id="blog-items">
                 </div>
 
-                <div class="work-item-scroll next">
+                <div class="blog-item-scroll next">
                     <span>Next</span>
                     <svg class="arrow right" style="scale: 0.9">
                         <use href="#arrow" />
                     </svg>
                 </div>
+
+                <a class="link-with-arrow" href="blog.html">
+                    <span class="forward">View All Articles</span>
+                    <svg class="arrow right" style="scale: 0.8">
+                        <use href="#arrow" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

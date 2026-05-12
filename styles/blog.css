@@ -6,10 +6,29 @@ body {
     margin: 8vh 0;
 }
 
-h1 {
-    font-family: 'Inter Tight';
-    font-size: 60px;
-    font-weight: 400;
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & .name-logo {
+        justify-content: center;
+    }
+
+    & h1 {
+        font-family: 'Inter Tight';
+        font-size: 60px;
+        font-weight: 400;
+
+        margin-top: 10px;
+    }
+
+    & .main-nav {
+        justify-content: center;
+
+        margin-top: 30px;
+    }
 }
 
 #article-list {
@@ -27,7 +46,7 @@ h1 {
     align-items: stretch;
     justify-content: flex-start;
     height: 38vh;
-    
+
     border: 1px solid;
     overflow: hidden;
     background-color: white;

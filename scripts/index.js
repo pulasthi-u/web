@@ -7,7 +7,7 @@ let scrollTimer = null;
 let sections = [
     document.querySelector('#home'),
     document.querySelector('#about'),
-    document.querySelector('#projects'),
+    document.querySelector('#blog'),
     document.querySelector('#contact')
 ];
 
@@ -69,42 +69,42 @@ document.querySelector("#home button").addEventListener('click', () => {
 
 const NS = "http://www.w3.org/2000/svg";
 
-const response = await fetch('projects.json');
-const projects = await response.json();
+const response = await fetch('blog.json');
+const articles = await response.json();
 
 let currentProject = 0;
 
-const workItems = document.querySelector('#work-items');
-const workItemCount = document.querySelector('#work-item-count');
-const pageImg = document.querySelector('#projects .page-img');
+const blogItems = document.querySelector('#blog-items');
+const blogItemCount = document.querySelector('#blog-item-count');
+const pageImg = document.querySelector('#blog .page-img');
 
-function constructWorkItemImg(projectIndex) {
+function constructBlogItemImg(articleIndex) {
     const img = document.createElement("img");
-    img.src = projects[projectIndex].img;
+    img.src = articles[articleIndex].img;
 
     return img;
 }
 
-function constructWorkItem(projectIndex) {
-    const project = projects[projectIndex];
+function constructBlogItem(articleIndex) {
+    const article = articles[articleIndex];
 
-    const workItem = document.createElement("div");
-    workItem.className = "work-item";
+    const blogItem = document.createElement("div");
+    blogItem.className = "blog-item";
 
     const title = document.createElement("h2");
-    title.innerText = project.title;
+    title.innerText = article.title;
 
-    workItem.append(title);
+    blogItem.append(title);
 
     const metaData = document.createElement("div");
-    metaData.className = "work-item-metadata";
+    metaData.className = "blog-item-metadata";
 
     const dateType = document.createElement("div");
     dateType.className = "date-type";
 
     const date = document.createElement("span");
     date.className = "date";
-    date.innerText = project.date;
+    date.innerText = article.date;
     dateType.append(date);
 
     const centerDot = document.createElement("span");
@@ -113,16 +113,16 @@ function constructWorkItem(projectIndex) {
 
     const type = document.createElement("span");
     type.className = "type";
-    type.innerText = project.type;
+    type.innerText = article.type;
     dateType.append(type);
 
     metaData.append(dateType);
 
-    if (project.techs) {
+    if (article.techs) {
         const techs = document.createElement("div");
         techs.className = "techs";
 
-        project.techs.forEach((tech) => {
+        article.techs.forEach((tech) => {
             const icon = document.createElement("img");
             icon.src = `images/${tech}`;
 
@@ -132,19 +132,22 @@ function constructWorkItem(projectIndex) {
         metaData.append(techs);
     }
 
-    workItem.append(metaData);
+    blogItem.append(metaData);
 
     const desc = document.createElement("div");
     desc.className = "p-container";
 
     const p = document.createElement("p");
-    p.innerText = project.desc;
+    p.innerText = article.desc;
     desc.append(p);
 
-    workItem.append(desc);
+    blogItem.append(desc);
 
     const button = document.createElement("button");
     button.innerText = "Read More";
+    button.addEventListener('click', () => {
+        window.location.href = article.link;
+    });
 
     const arrow = document.createElementNS(NS, "svg");
     arrow.setAttribute("class", "arrow right");
@@ -156,59 +159,59 @@ function constructWorkItem(projectIndex) {
 
     button.append(arrow);
 
-    workItem.append(button);
+    blogItem.append(button);
 
-    return workItem;
+    return blogItem;
 }
 
-function moveToProject(projectIndex) {
-    if (projectIndex < 0) return;
-    if (projectIndex > projects.length - 1) return;
+function moveToProject(articleIndex) {
+    if (articleIndex < 0) return;
+    if (articleIndex > articles.length - 1) return;
 
-    const oldWorkItem = document.querySelector('.work-item');
-    const oldWorkItemImg = document.querySelector('#projects .page-img img');
+    const oldBlogItem = document.querySelector('.blog-item');
+    const oldBlogItemImg = document.querySelector('#blog .page-img img');
 
-    const newWorkItem = constructWorkItem(projectIndex);
-    const newWorkItemImg = constructWorkItemImg(projectIndex);
+    const newBlogItem = constructBlogItem(articleIndex);
+    const newBlogItemImg = constructBlogItemImg(articleIndex);
 
-    workItemCount.innerText = `Item ${projectIndex + 1} of ${projects.length}`;
+    blogItemCount.innerText = `Item ${articleIndex + 1} of ${articles.length}`;
 
-    const removeOldWorkItem = () => oldWorkItem?.remove();
-    const removeOldWorkItemImg = () => oldWorkItemImg?.remove();
+    const removeOldBlogItem = () => oldBlogItem?.remove();
+    const removeOldBlogItemImg = () => oldBlogItemImg?.remove();
 
-    if (projectIndex > currentProject) {
-        workItems.append(newWorkItem);
+    if (articleIndex > currentProject) {
+        blogItems.append(newBlogItem);
 
-        workItems.scrollTo({
-            left: oldWorkItem.clientWidth,
+        blogItems.scrollTo({
+            left: oldBlogItem.clientWidth,
             behavior: 'smooth'
         });
 
-        workItems.addEventListener('scrollend', removeOldWorkItem, { once: true });
+        blogItems.addEventListener('scrollend', removeOldBlogItem, { once: true });
 
-        pageImg.append(newWorkItemImg);
+        pageImg.append(newBlogItemImg);
 
         pageImg.scrollTo({
-            left: oldWorkItemImg.clientWidth,
+            left: oldBlogItemImg.clientWidth,
             behavior: 'smooth'
         });
 
-        pageImg.addEventListener('scrollend', removeOldWorkItemImg, { once: true });
+        pageImg.addEventListener('scrollend', removeOldBlogItemImg, { once: true });
     } else {
-        workItems.prepend(newWorkItem);
-        workItems.scrollLeft = oldWorkItem.clientWidth;
+        blogItems.prepend(newBlogItem);
+        blogItems.scrollLeft = oldBlogItem.clientWidth;
 
-        workItems.addEventListener('scrollend', () => {
-            workItems.scrollTo({
+        blogItems.addEventListener('scrollend', () => {
+            blogItems.scrollTo({
                 left: 0,
                 behavior: 'smooth'
             });
 
-            workItems.addEventListener('scrollend', removeOldWorkItem, { once: true });
+            blogItems.addEventListener('scrollend', removeOldBlogItem, { once: true });
         }, { once: true });
 
-        pageImg.prepend(newWorkItemImg);
-        pageImg.scrollLeft = oldWorkItemImg.clientWidth;
+        pageImg.prepend(newBlogItemImg);
+        pageImg.scrollLeft = oldBlogItemImg.clientWidth;
 
         pageImg.addEventListener('scrollend', () => {
             pageImg.scrollTo({
@@ -216,21 +219,21 @@ function moveToProject(projectIndex) {
                 behavior: 'smooth'
             });
 
-            pageImg.addEventListener('scrollend', removeOldWorkItemImg, { once: true });
+            pageImg.addEventListener('scrollend', removeOldBlogItemImg, { once: true });
         }, { once: true });
     }
 
-    currentProject = projectIndex;
+    currentProject = articleIndex;
 }
 
-workItems.append(constructWorkItem(0));
-workItemCount.innerText = `Item 1 of ${projects.length}`;
-pageImg.append(constructWorkItemImg(0));
+blogItems.append(constructBlogItem(0));
+blogItemCount.innerText = `Item 1 of ${articles.length}`;
+pageImg.append(constructBlogItemImg(0));
 
-document.querySelector(".work-item-scroll.prev div").addEventListener('click', () => {
+document.querySelector(".blog-item-scroll.prev div").addEventListener('click', () => {
     moveToProject(currentProject - 1);
 })
 
-document.querySelector(".work-item-scroll.next").addEventListener('click', () => {
+document.querySelector(".blog-item-scroll.next").addEventListener('click', () => {
     moveToProject(currentProject + 1);
 })

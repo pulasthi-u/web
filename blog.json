@@ -3,16 +3,21 @@
         "title": "Vector Field Particle Animator",
         "date": "July 2023",
         "type": "Web App",
-        "techs": ["js.png", "html.png"],
+        "techs": [
+            "js.png",
+            "html.png"
+        ],
         "desc": "A way to visualize time-dependent vector fields, and the approximate trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization is generated.",
-        "img": "https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif"
+        "img": "https://64.media.tumblr.com/7cb8cb9719450c4a3e544dc72066186c/tumblr_oh7qvecimq1qdim8eo1_540.gif",
+        "link": "articles/vector.html"
     },
     {
         "title": "Fourier Series, Fourier Transforms, and Laplace Transforms. The Big Picture.",
         "date": "July 2023",
         "type": "Article",
         "techs": [],
-        "desc": "A way to visualize time-dependent vector fields, and the approximate trajectory of a particle moving in the field, using the HTML5 Canvas element. The user can enter any function describing a 2D time-dependent vector field and a visualization is generated.",
-        "img": "images/bg1t.jpeg"
+        "desc": "My submission for an assignment from a Signals and Systems module at university. An exploration of the motivation behind various transforms, and developing an intuition for them.",
+        "img": "images/bg1t.jpeg",
+        "link": "articles/fourier.html"
     }
 ]

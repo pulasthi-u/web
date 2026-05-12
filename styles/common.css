@@ -35,6 +35,51 @@ p {
     z-index: -1;
 }
 
+.name-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    & .logo {
+        height: 40px;
+        width: 40px;
+        background-color: black;
+        border-radius: 50%;
+    }
+
+    & .name {
+        margin: 0;
+
+        font-family: 'Playfair Display';
+        font-weight: lighter;
+        font-size: 27px;
+    }
+}
+
+.main-nav {
+    & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+
+        font-size: 15px;
+
+        & li {
+            display: inline-block;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 .arrow {
     width: 20px;
     height: 20px;
@@ -117,14 +162,18 @@ p {
     }
 }
 
-.back {
+.link-with-arrow {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     align-self: flex-start;
 
-    & span {
+    & span.back {
         margin-left: 10px;
+    }
+
+    & span.forward {
+        margin-right: 10px;
     }
 }
