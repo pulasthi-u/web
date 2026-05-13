@@ -177,3 +177,9 @@ p {
         margin-right: 10px;
     }
 }
+
+footer {
+    margin-top: 7vh;
+    font-size: 14px;
+    color: gray;
+}

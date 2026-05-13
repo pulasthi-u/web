@@ -309,9 +309,3 @@ header {
     object-fit: contain;
     object-position: top right;
 }
-
-footer {
-    margin-top: 7vh;
-    font-size: 14px;
-    color: gray;
-}

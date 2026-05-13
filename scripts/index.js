@@ -65,14 +65,14 @@ document.querySelector("#home button").addEventListener('click', () => {
     scrollToSection(1);
 });
 
-// Project Loading
+// Blog Article Loading
 
 const NS = "http://www.w3.org/2000/svg";
 
 const response = await fetch('blog.json');
 const articles = await response.json();
 
-let currentProject = 0;
+let currentArticle = 0;
 
 const blogItems = document.querySelector('#blog-items');
 const blogItemCount = document.querySelector('#blog-item-count');
@@ -179,7 +179,7 @@ function moveToProject(articleIndex) {
     const removeOldBlogItem = () => oldBlogItem?.remove();
     const removeOldBlogItemImg = () => oldBlogItemImg?.remove();
 
-    if (articleIndex > currentProject) {
+    if (articleIndex > currentArticle) {
         blogItems.append(newBlogItem);
 
         blogItems.scrollTo({
@@ -223,7 +223,7 @@ function moveToProject(articleIndex) {
         }, { once: true });
     }
 
-    currentProject = articleIndex;
+    currentArticle = articleIndex;
 }
 
 blogItems.append(constructBlogItem(0));
@@ -231,9 +231,9 @@ blogItemCount.innerText = `Item 1 of ${articles.length}`;
 pageImg.append(constructBlogItemImg(0));
 
 document.querySelector(".blog-item-scroll.prev div").addEventListener('click', () => {
-    moveToProject(currentProject - 1);
+    moveToProject(currentArticle - 1);
 })
 
 document.querySelector(".blog-item-scroll.next").addEventListener('click', () => {
-    moveToProject(currentProject + 1);
+    moveToProject(currentArticle + 1);
 })
