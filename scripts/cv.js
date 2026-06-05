@@ -1,8 +1,8 @@
-const semesterListItems = document.querySelectorAll('.courses li');
+const semesterListItems = document.querySelectorAll('.courses > li');
 
 semesterListItems.forEach(semesterListItem => {
     const semesterCourses = semesterListItem.querySelector('ul');
-    const arrow = semesterListItem.querySelector('.dropdown');
+    const arrow = semesterListItem.querySelector('.arrowhead');
 
     semesterListItem.addEventListener('click', () => {
         if (semesterCourses.style.maxHeight === "") {
@@ -18,9 +18,9 @@ semesterListItems.forEach(semesterListItem => {
 });
 
 const allSemesters = document.querySelector('.courses');
-const arrow = document.querySelector('.school-work .list a .dropdown');
+const arrow = document.querySelector('.school .details .list a .arrowhead');
 
-document.querySelector('.school-work .list a').addEventListener('click', () => {
+document.querySelector('.school .details .list a').addEventListener('click', () => {
     if (allSemesters.style.maxHeight === "") {
         allSemesters.style.maxHeight = allSemesters.scrollHeight + "px";
         arrow.style.rotate = "180deg";

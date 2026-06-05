@@ -5,7 +5,7 @@ const article_list = document.querySelector('#article-list');
 const response = await fetch('blog.json');
 const articles = await response.json();
 
-let currentProject = 0;
+let currentPage = 0;
 
 function constructArticleItem(articleIndex) {
     const article = articles[articleIndex];
@@ -81,10 +81,10 @@ function constructArticleItem(articleIndex) {
     details.append(p);
 
     card.append(details);
-    
+
     const arrow = document.createElementNS(NS, "svg");
     arrow.setAttribute("class", "arrowhead right");
-    
+
     const use = document.createElementNS(NS, "use");
     use.setAttribute("href", "#arrowhead");
     arrow.append(use);
@@ -98,7 +98,7 @@ function constructArticleItem(articleIndex) {
     return card;
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 5 * currentPage; i < 5 * (currentPage + 1); i++) {
     if (articles[i]) {
         article_list.append(constructArticleItem(i));
     }

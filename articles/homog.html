@@ -1,0 +1,578 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
+    <script>window.MathJax = { tex: { tags: 'all' } }; </script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <script src="svgGraph.js"></script>
+
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/article.css">
+
+    <title>My Article</title>
+</head>
+
+<svg style="display: none">
+    <defs>
+        <symbol id="arrow" viewBox="-3 -3 16 16">
+            <polyline points="5,0 10,5 0,5 10,5 5,10" stroke="#000" stroke-width="1.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+    </defs>
+</svg>
+
+<body>
+    <a id="back" class="link-with-arrow" href="../blog.html">
+        <svg class="arrow left" style="scale: 0.8">
+            <use href="#arrow" />
+        </svg>
+        <span class="back">Back to Blog</span>
+    </a>
+
+    <svg id="back-to-top" class="arrow up" style="scale: 0.8">
+        <use href="#arrow" />
+    </svg>
+
+    <a name="top"></a>
+    <header id="article-header">
+        <img id="main-img" src="../images/graffiti.jpeg">
+        <!-- Photo by Chait Goli: https://www.pexels.com/photo/graffiti-on-wall-8821407/ -->
+
+        <h1>Homographies</h1>
+
+        <div id="article-tags">
+            <div class="tag">article</div>
+            <div class="tag">image-processing</div>
+            <div class="tag">assignment</div>
+            <div class="tag">linear-algebra</div>
+        </div>
+
+        <div id="article-metadata">
+            <div class="author">
+                <img src="../images/me3.jpeg">
+                <div>
+                    <span class="author-name">Pulasthi Udugamasooriya</span>
+                    <span class="date-time">Published May 3, 2026, 5:37 pm</span>
+                </div>
+            </div>
+
+            <div class="share">
+                <span>Share this Article</span>
+                <div class="icons">
+                    <img src="../images/instagram.png">
+                    <img src="../images/facebook.png">
+                    <img src="../images/linkedin.png">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="article-content">
+
+        <h2>Introduction</h2>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Let us begin by imposing a 3D coordinate system on the world around us.
+
+                    Choose some arbitrary point \(o\) in this world space, and let it serve as the origin. Let
+                    \(\mathbf{i}\), \(\mathbf{j}\), \(\mathbf{k}\) be the usual unit basis vectors, with \(\mathbf{k}\)
+                    pointing out of the page, so as to form a right-handed coordinate system.
+                </p>
+                <p>
+                    We shall consider the problem of capturing an image of a planar surface in the world (such as a
+                    billboard or banner) with a camera, which we will assume is placed at \(o\).
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Without loss of generality, the image plane, i.e., the plane on which the camera forms its image,
+                    can be considered to be a plane parallel to the \(\mathbf{i}\mathbf{j}\) plane, at a distance \(d\)
+                    into the page.
+                </p>
+                <p>
+                    Let us impose a 2D coordinate system on this image plane too.
+                </p>
+                <p>
+                    We will choose the point pointed to by the vector \(-d\mathbf{k}\) as its origin, and call it \(o'\)
+                    (so \(\overrightarrow{oo'} = -d\mathbf{k}\)).
+                    Then, we make the observation that as the plane is parallel to the \(\mathbf{i}\mathbf{j}\) plane,
+                    it can be spanned by \(\mathbf{i}\) and \(\mathbf{j}\); any
+                    point on it can be located by moving some distance \(\lambda'\) along \(\mathbf{i}\), and
+                    some other distance \(\mu'\) along \(\mathbf{j}\), starting from the origin, with
+                    negative distances interpreted as moving in the opposite direction.
+                </p>
+                <p>
+                    We will identify such a point with the coordinates or ordered-pair \((\lambda', \mu')\).
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Finally, we shall impose a 2D coordinate system on the planar surface (billboard, banner, etc.) that
+                    we are trying to capture.
+                </p>
+                <p>
+                    For this, choose some arbitrary point \(O\) on it to serve as the origin. Let the vector to \(O\)
+                    from \(o\), i.e., \(\overrightarrow{oO}\), be \(O_x\mathbf{i} + O_y\mathbf{j} + O_z\mathbf{k}\).
+                </p>
+                <p>
+                    Let also \(\mathbf{X}=X_x\mathbf{i} + X_y\mathbf{j} + X_z\mathbf{k}\) and \(\mathbf{Y}=Y_x\mathbf{i}
+                    +
+                    Y_y\mathbf{j} + Y_z\mathbf{k}\) be two vectors lying on this surface, spanning it. Then, any point
+                    on
+                    this plane can be located by moving a distance \(\lambda\) along \(\mathbf{X}\),
+                    and \(\mu\) along \(\mathbf{Y}\), starting from \(O\), just as we did on the image plane.
+                </p>
+                <p>
+                    Let \(P\) be such an arbitrary point on this plane, with coordinates \((\lambda, \mu)\).
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Now, where on the image plane would point \(P\) in the world appear?
+                </p>
+                <p>
+                    We can imagine a ray of light somehow emanating from \(P\), and making its way to the camera at
+                    \(o\). In doing so, the ray will intersect the image plane at some point, and that is exactly where
+                    it would appear in the image formed by the camera.
+                </p>
+                <p>
+                    Let us call that point on the image plane \(p\). Then, the question becomes, what are the
+                    coordinates of \(p\), in the coordinate system of the image plane?
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Suppose \(p\) has coordinates \((\lambda', \mu')\) on the image plane. Then, the position vector
+                    from
+                    \(o\) to \(p\) is \(\overrightarrow{op} = \overrightarrow{oo'} + \overrightarrow{o'p} =
+                    \lambda'\mathbf{i} + \mu'\mathbf{j} - d\mathbf{k}\).
+                </p>
+                <p>
+                    The vector \(\overrightarrow{oP} = \overrightarrow{oO} + \overrightarrow{OP} =
+                    \overrightarrow{oO} + \lambda\mathbf{X} + \mu\mathbf{Y}\) would describe a ray of light such as the
+                    one mentioned above, so \(p\) is in fact, the intersection of \(\overrightarrow{oP}\) with the image
+                    plane.
+                </p>
+                <p>
+                    Hence, \(\overrightarrow{op}\) and \(\overrightarrow{oP}\) must be parallel, implying the existence
+                    of some scalar \(\nu\) such that \(\nu \cdot \overrightarrow{op} = \overrightarrow{oP}\).
+                </p>
+                <p>
+                    Putting everything above together, this yields the following equation: \[
+                    \begin{align*}
+                    \nu \cdot \left( \lambda'\mathbf{i} + \mu'\mathbf{j} - d\mathbf{k} \right) &= \overrightarrow{oO} +
+                    \lambda\mathbf{X} + \mu\mathbf{Y} \\
+
+                    \lambda'\nu\mathbf{i} + \mu'\nu\mathbf{j} - d\nu\mathbf{k}
+                    &= (O_x\mathbf{i} + O_y\mathbf{j} + O_z\mathbf{k})
+                    +
+                    \lambda (X_x\mathbf{i} + X_y\mathbf{j} + X_z\mathbf{k})
+                    +
+                    \mu (Y_x\mathbf{i} + Y_y\mathbf{j} + Y_z\mathbf{k})
+                    \\
+
+                    &= (O_x + \lambda X_x + \mu Y_x)\mathbf{i} + (O_y + \lambda X_y + \mu Y_y)\mathbf{j} + (O_z +
+                    \lambda X_z + \mu Y_z)\mathbf{k} \\
+
+                    0 &= \left( O_x + \lambda X_x + \mu Y_x -\lambda'\nu\right)\mathbf{i}
+                    +
+                    \left(O_y + \lambda X_y + \mu Y_y -\mu'\nu\right)\mathbf{j} \\
+                    &\quad +
+                    \left(O_z + \lambda X_z + \mu Y_z + d\nu\right)\mathbf{k},
+                    \end{align*}
+                    \]
+                    which require
+                    \[
+                    \begin{gather}
+                    O_x + \lambda X_x + \mu Y_x -\lambda'\nu = 0, \label{eq1} \\
+                    O_y + \lambda X_y + \mu Y_y -\mu'\nu = 0, \label{eq2} \\
+                    O_z + \lambda X_z + \mu Y_z + d\nu = 0. \label{eq3}
+                    \end{gather}
+                    \]
+                </p>
+                <p>
+                    We would like something in the form of a function which accepts the coordinates on the planar
+                    surface being photographed as input, i.e., \(\lambda\) and \(\mu\), and produces the coordinates on
+                    the image plane that they will appear at, i.e., \(\lambda'\) and \(\mu'\), as output.
+                </p>
+                <p>
+                    It doesn't take long to notice that the three equations above lend themselves to a neat
+                    representation in matrix-vector form as follows: \[
+                    \begin{pmatrix}
+                    X_x & Y_x & O_x \\
+                    X_y & Y_y & O_y \\
+                    X_z & Y_z & O_z
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    \lambda \\ \mu \\ 1
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                    \nu\lambda' \\ \nu\mu' \\ -\nu d
+                    \end{pmatrix},
+                    \notag
+                    \]
+                    which is conveniently in the input-output form we seek, with inputs on the left and outputs on the
+                    right.
+                </p>
+                <p>
+                    We can do a little better by moving the \(d\) in the right-hand side over to the left by dividing
+                    both sides of \(\eqref{eq3}\) by \(-d\), with the understanding that \(d \ne 0\); which is a
+                    reasonable assumption that translates to requiring that the image plane not pass right through the
+                    camera.
+                </p>
+                <p>
+                    That would result in the following matrix-vector relationship: \[
+                    \begin{pmatrix}
+                    X_x & Y_x & O_x \\
+                    X_y & Y_y & O_y \\
+                    -\dfrac{X_z}{d} & -\dfrac{Y_z}{d} & -\dfrac{O_z}{d}
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    \lambda \\ \mu \\ 1
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                    \nu \lambda' \\ \nu \mu' \\ \nu
+                    \end{pmatrix}. \label{main-homo-mat-vec-extend}
+                    \]
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Given the coordinates \((x, y)\) in some 2D coordinate system, we call an ordered triple \((x', y',
+                    a)\), where \(x=\dfrac{x'}{a}\) and \(y=\dfrac{y'}{a}\), the <i>homogeneous coordinates</i> of \((x,
+                    y)\). So \((x, y, 1)\), \((2x, 2y, 2)\), or most generally, \((ax, ay, a)\), for any \(a \ne 0\)
+                    will be homogeneous coordinates of \((x, y)\). We make this definition for later mathematical
+                    convenience.
+                </p>
+                <p>
+                    Accordingly, \(\begin{pmatrix} \lambda & \mu & 1 \end{pmatrix}^\top\) are homogeneous coordinates of
+                    \(P\) on the plane being photograped, and \(\begin{pmatrix} \lambda' & \mu' & 1 \end{pmatrix}^\top\)
+                    are homogeneous coordinates of \(p\) on the image plane.
+                </p>
+                <p>
+                    Let us denote them by \(\mathbf{x}\) and \(\mathbf{y}\) respectively.
+                </p>
+                <p>
+                    If we denote the matrix above by \(\mathbf{H}\), then \(\eqref{main-homo-mat-vec-extend}\) can be
+                    rewritten more compactly as \[
+                    \mathbf{H}\mathbf{x} = \mathbf{y}.
+                    \] We call such a matrix \(\mathbf{H}\), a <i>homography matrix</i>.
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Actually, while we are still at it, let us go off a bit of a tangent, and consider the following
+                    more general case.
+                </p>
+                <p>
+                    If \(O\), \(\mathbf{X}\), and \(\mathbf{Y}\) are still as defined above, and we introduce a third
+                    vector \(\mathbf{Z} = Z_x\mathbf{i} + Z_y\mathbf{j} + Z_z\mathbf{k}\) so as to span all of 3D space,
+                    then any point \(P\) in the world can be described w.r.t \(O\) by some position vector
+                    \(\lambda\mathbf{X} + \mu\mathbf{Y} + \nu\mathbf{Z}\); so that \(P\) has coordinates \((\lambda,
+                    \mu, \nu)\) in the frame described by \(\mathbf{X}\), \(\mathbf{Y}\), and \(\mathbf{Z}\).
+                </p>
+                <p>
+                    Then, if \(p\) is where \(P\) must appear on the image plane and \(\overrightarrow{op}\) is also as
+                    defined above, \[
+                    \begin{align*}
+                    \alpha \cdot \left( \lambda'\mathbf{i} + \mu'\mathbf{j} - d\mathbf{k} \right)
+                    &=
+                    (O_x\mathbf{i} + O_y\mathbf{j} + O_z\mathbf{k})
+                    +
+                    \lambda (X_x\mathbf{i} + X_y\mathbf{j} + X_z\mathbf{k})
+                    +
+                    \mu (Y_x\mathbf{i} + Y_y\mathbf{j} + Y_z\mathbf{k}) \\
+                    &\quad + \nu (Z_x\mathbf{i} + Z_y\mathbf{j} + Z_z\mathbf{k}),
+                    \end{align*}
+                    \]
+                    which in a very similar manner as above leads to the matrix-vector expression \[
+                    \begin{pmatrix}
+                    X_x & Y_x & Z_x & O_x \\
+                    X_y & Y_y & Z_y & O_y \\
+                    -\dfrac{X_z}{d} & -\dfrac{Y_z}{d} & -\dfrac{Z_z}{d} & -\dfrac{O_z}{d}
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                    \lambda \\ \mu \\ \nu \\ 1
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                    \alpha \lambda' \\ \alpha \mu' \\ \alpha
+                    \end{pmatrix}.
+                    \]
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <h2>Finding a Homography Matrix</h2>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Based on the results above, if we start knowing exactly what \(\mathbf{X}\), \(\mathbf{Y}\), \(O\)
+                    and \(d\) are, then we can construct \(\mathbf{H}\) and use it to transform any point on the plane
+                    surface in question to the image plane.
+                </p>
+                <p>
+                    Consider instead the following situation. We know the coordinates of a few points on a certain
+                    surface, in terms of some unknown coordinate frame imposed on it, and we have an image of that
+                    surface available from which we can find the coordinates (in a typical \(xy\) coordinate system we
+                    impose on the image) of where those same points landed.
+                </p>
+                <p>
+                    This is the case where we have some set of \(\mathbf{x}\)'s and their <i>corresponding</i>
+                    \(\mathbf{y}\)'s, i.e., we have a set of <i>correspondences</i>, but we do not know the
+                    \(\mathbf{H}\) relating them; so the problem then is, what is that \(\mathbf{H}\)?
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    We will start out with an \(\mathbf{H}\) consisting of nine unknowns for each of its nine entries,
+                    like so: \[
+                    \mathbf{H} =
+                    \begin{pmatrix}
+                    h_{11} & h_{12} & h_{13} \\
+                    h_{21} & h_{22} & h_{23} \\
+                    h_{31} & h_{32} & h_{33}
+                    \end{pmatrix}.
+                    \]
+                </p>
+                <p>
+                    Now, if we have the correspondence \((\lambda_1, \mu_1) \mapsto (\lambda_1', \mu_1')\), then \[
+                    \begin{gather}
+                    h_{11}\lambda_1 + h_{12}\mu_1 + h_{13} = \nu_1\lambda_1' \label{eq4} \\
+                    h_{21}\lambda_1 + h_{22}\mu_1 + h_{23} = \nu_1\mu_1' \label{eq5} \\
+                    h_{31}\lambda_1 + h_{32}\mu_1 + h_{33} = \nu_1. \label{eq6}
+                    \end{gather}
+                    \] Substituting for \(\nu_1\) in \(\eqref{eq4}\) and \(\eqref{eq5}\) using \(\eqref{eq6}\) give \[
+                    \begin{align*}
+                    h_{11}\lambda_1 + h_{12}\mu_1 + h_{13} &= \left( h_{31}\lambda_1 + h_{32}\mu_1 + h_{33}
+                    \right)\lambda_1' \notag \\
+                    h_{21}\lambda_1 + h_{22}\mu_1 + h_{23} &= \left( h_{31}\lambda_1 + h_{32}\mu_1 + h_{33} \right)
+                    \mu_1', \notag
+                    \end{align*}
+                    \] or equivalently, by rearranging, \[
+                    \begin{align}
+                    h_{11}\lambda_1 + h_{12}\mu_1 + h_{13} - h_{31}\lambda_1\lambda_1' - h_{32}\mu_1\lambda_1' - h_{33}
+                    \lambda_1' &= 0 \label{eq7} \\
+                    h_{21}\lambda_1 + h_{22}\mu_1 + h_{23} - h_{31}\lambda_1\mu_1' - h_{32}\mu_1\mu_1' - h_{33} \mu_1'
+                    &= 0 \label{eq8}.
+                    \end{align}
+                    \]
+                </p>
+                <p>
+                    We have just obtained two equations relating the nine unknown entries of the matrix.
+                </p>
+                <p>
+                    These equations place two constraints on the unknowns, leaving seven degrees of
+                    freedom&mdash;meaning that we can choose the values of some seven of them arbitrarily, and have the
+                    remaining two be determined by the equations <small>(that em-dash was <i>not</i> AI-generated, I put it there myself 🥲😅)</small>.
+                </p>
+                <p>
+                    Notice that it is very much possible for there to exist infinitely many choices of \(\mathbf{X}\), \(\mathbf{Y}\), and \(O\) such that the single point \(P\) in the corresponding coordinate frame still appears at the same point \(p\) on the image plane.
+                </p>
+                <p>                    
+                    By choosing seven values arbitrarily, we are effectively picking out <i>one</i> of these solutions. The two equations only serve to ensure that even with such arbitrary choices, \(P\) does still map to \(p\).
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    We can do "better" than choosing values arbitrarily. By introducing more correspondences, we can keep reducing the number of degrees of freedom, and try to discover the exact underlying \(\mathbf{X}\), \(\mathbf{Y}\), and \(O\), such that not only do the chosen \(P\)'s land at their corresponding \(p\)'s, but any arbitrary point on the planar surface described by \(\mathbf{X}\) and \(\mathbf{Y}\) lands at the expected position on the image plane.
+                </p>
+                <p>
+                    As we showed above, a single correspondence gives two equations, leaving seven degrees of freedom. Hence, it should be clear that with four correspondences, we will have eight equations, with just one degree of freedom.
+                </p>
+                <p>
+                    Now, we have a problem. Eight equations are not enough to discover each unknown exactly&mdash;so we need more than four correspondences&mdash;but if we include any more, we'll have more equations than unknowns, i.e., the system becomes overdeterminate.
+                </p>
+                <p>
+                    Let us collect these nine unknowns in the long vector \[
+                    \mathbf{h} = \begin{pmatrix} h_{11} & h_{12} & h_{13} & h_{21} & h_{22} & h_{23} & h_{31} & h_{32} &
+                    h_{33}\end{pmatrix} ^ \top. \notag
+                    \] This lets us combine \(\eqref{eq7}\) and \(\eqref{eq8}\) into the following matrix-vector
+                    equation: \[
+                    \begin{pmatrix}
+                    \lambda_1 & \mu_1 & 1 & 0 & 0 & 0 & -\lambda_1\lambda_1' & -\mu_1\lambda_1' & -\lambda_1' \\
+                    0 & 0 & 0 & \lambda_1 & \mu_1 & 1 & -\lambda_1\mu_1' & -\mu_1\mu_1' & -\mu_1'
+                    \end{pmatrix}
+                    \mathbf{h}
+                    =
+                    \mathbf{0}. \notag
+                    \]
+                </p>
+                <p>
+                    With three more correspondences, the matrix on the left-hand side will grow in a similar fashion,
+                    giving a total of eight equations relating the nine unknowns. Let us call that final resulting \(8
+                    \times 9\) matrix \(\mathbf{A}\), so our final expression is \[
+                    \mathbf{A}\mathbf{h} = \mathbf{0}.
+                    \]
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    The system as it now stands, with four correspondences is underdeterminate, as we have one more
+                    unknown than equations. We could introduce one more correspondence, but that would make the system
+                    overdetermineate, with one more equation than unknowns.
+                </p>
+                <p>
+                    We address this situation by stopping just before the system becomes overdeterminate (we stop at
+                    four correspondences), and imposing further constraints of a different nature on the unknowns until
+                    it becomes determinate.
+                </p>
+                <p>
+                    In this case, we start with the observation that the "perfect" solution for \(\mathbf{A}\) must
+                    satisfy \(\mathbf{A}\mathbf{h}=\mathbf{0}\), i.e., \(\mathbf{A}\mathbf{h}\) must perfectly equal
+                    \(\mathbf{0}\). So if some other \(\mathbf{A}'\) is such that \(\mathbf{A}'\mathbf{h}\) is not
+                    <i>exactly</i> equal to \(\mathbf{0}\), but is really <i>close</i> to it, then it's probably not a
+                    bad estimate of the perfect \(\mathbf{A}\).
+                </p>
+                <p>
+                    We shall measure <i>closeness</i> of two vectors \(\mathbf{a}\) and \(\mathbf{b}\) in terms of the
+                    \(2\)-norm of their difference, i.e., the quantity \(\lVert \mathbf{a} - \mathbf{b} \rVert\). Then,
+                    if we seek \(\mathbf{A}\) such that \(\mathbf{A}\mathbf{h}\) is as close as possible to
+                    \(\mathbf{0}\), we seek to <i>minimize</i> the distance \(\lVert \mathbf{A}\mathbf{h} - \mathbf{0}
+                    \rVert = \lVert \mathbf{A}\mathbf{h} \rVert\). If the solution to this problem is
+                    \(\mathbf{A}^\star\), then \[
+                    \mathbf{A}^\star = \arg\min_\mathbf{A} \lVert \mathbf{A}\mathbf{h} \rVert.
+                    \]
+                </p>
+                <p>
+                    But \(\lVert \mathbf{A}\mathbf{h} \rVert =
+                    \left(\mathbf{A}\mathbf{h}\right)^\top\left(\mathbf{A}\mathbf{h}\right)\)
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <h2>Introduction</h2>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    Signals and systems are very common in nature. Many physical quantities that we encounter everyday
+                    in nature can be viewed as signals, and many natural phenomena can be viewed as processes or systems
+                    that respond to such signals, by generating new signals. This ubiquity of signals and systems has
+                    motivated the development of general tools to represent and analyze them methodically and
+                    conveniently.
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <div class="article-para">
+            <div class="left-panel">
+            </div>
+            <div class="main-panel">
+                <p>
+                    We conclude by noting that all the transforms discussed above are indeed methods of scanning a
+                    signal \(x(t)\), and decomposing it into simpler signals, by extracting the frequency components
+                    present in it. By performing such a decomposition, we make the analysis and manipulation of the
+                    signal simpler, and extract information out of the signal that might otherwise not be immediately
+                    visible.
+                </p>
+            </div>
+            <div class="right-panel">
+            </div>
+        </div>
+    </div>
+    <!-- feedback form?	 -->
+    <footer>
+        &copy; Pulasthi Udugamasooriya 2026 - All Rights Reserved
+    </footer>
+</body>
+
+<script type="module" src="scripts/article.js"></script>
+
+</html>

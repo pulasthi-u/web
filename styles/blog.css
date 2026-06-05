@@ -89,6 +89,7 @@ header {
     &>img {
         width: 33%;
         object-fit: cover;
+        overflow: hidden;
     }
 
     & .details {
